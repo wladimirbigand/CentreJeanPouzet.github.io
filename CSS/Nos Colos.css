@@ -1,0 +1,494 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+main {
+    margin-top: 12vh;
+    display: grid;
+    grid-template-rows: auto;
+    gap: 0;
+}
+
+section {
+  padding: 0;
+}
+
+section img {
+    height: 80%;
+}
+
+.IMG {
+    display: grid;
+    place-items: center;
+}
+
+.sectionIntro {
+  max-height: 90vh;
+  display: grid;
+  place-items: center;
+  background-image: url(../Images/Accueil/JPrando.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ContainerIntro {
+  background-color: #f5f1e1;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  border-radius: 10px;
+  padding: 40px;
+  opacity: 0.9;
+  display: grid;
+  gap: 10px;
+  width: 70%;
+  height: 70%;
+  place-content: center;
+  place-self: center;
+}
+
+.ContenuIntro {
+  display: grid;
+  place-items: center;
+}
+
+#ParagrapheIntro {
+  font-size: 21px;
+}
+
+.ContenuIntro b {
+  font-size: 22px;
+  font-family: 'Mukta SemiBold';
+}
+
+u {
+  text-decoration-color: #9DBD91;
+}
+
+.ContenuIntro p {
+  font-size: 19px;
+  font-family: 'Mukta Regular';
+}
+
+.sectionIntro, .sectionSKI {
+  height: auto; /* Hauteur adaptative */
+  min-height: 90vh; /* Supprime les différences de hauteur */
+}
+
+.button {
+  display: grid;
+  place-items: center;
+}
+
+/* Styles par défaut pour grands écrans */
+.sectionIntro button {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: black;
+  width: 20%; /* Adaptable en fonction de la largeur de la section */
+  max-width: 185px; /* Limiter la largeur maximale */
+  border: solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.3s ease; /* Accélère la transition */
+  font-family: 'Mukta ExtraLight';
+}
+
+/* État au survol */
+.sectionIntro button:hover {
+  background-color: #F5F5E1;
+  color: #333;
+  transform: scale(1.1); /* Animation au survol */
+}
+
+.sectionETE{
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* gap: 20px; */
+    background-color: #f5f1e1;
+}
+
+.sectionSKI {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: #f5f1e1;
+}
+
+#sectionArchives{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto;
+  /* gap: 20px; */
+  background-color: #f5f1e1;
+  place-items: center;
+}
+
+section h1 {
+    /* align-items: center; */
+    text-align: center;
+    margin-top: 5vh;
+    font-family: 'Mukta SemiBold';
+    font-size: 2em;
+    margin: 0;
+}
+
+.title {
+    display: flex; /* Active Flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: flex-end; /* Place à la fin verticalement */
+    height: 100%; /* S'assure que le conteneur prend toute la hauteur disponible */
+}
+
+.titleArchives {
+  padding: 20px;
+}
+
+.Container {
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+}
+
+.Container1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* .titleArchives {
+  max-height: 6vh;
+} */
+
+.ContainerArchives {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 30px;
+}
+
+.ContainerIMG {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* S'adapte automatiquement */
+  gap: 15px; /* Ajoute de l'espacement entre les images */
+  place-items: center; /* Centre le contenu */
+}
+
+.ContainerIMG img {
+    max-width: 90%; /* Ne dépasse pas la largeur de la cellule */
+    height: auto; /* Garde le ratio d'aspect */
+    display: block; /* Évite les espaces indésirables */
+    margin: auto; /* Centre l'image horizontalement */
+    border: solid #333;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.ContainerIMGArchives {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* S'adapte automatiquement */
+  gap: 15px; /* Ajoute de l'espacement entre les images */
+  place-items: center; /* Centre le contenu */
+}
+
+.ContainerIMGArchives img{
+  max-width: 80%; /* Ne dépasse pas la largeur de la cellule */
+    height: auto; /* Garde le ratio d'aspect */
+    display: block; /* Évite les espaces indésirables */
+    margin: auto; /* Centre l'image horizontalement */
+    border: solid #333;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#IMG {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #IMG:hover {
+    opacity: 0.6;
+  }
+
+  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  /* Modal Content (Image) */
+  .modal-content {
+    max-width: 90%; /* Réduire la largeur à 80% de la fenêtre */
+    max-height: 80vh; /* Réduire la hauteur à 80% de la hauteur de l'écran */
+    object-fit: contain; /* Maintenir les proportions */
+    margin: auto; /* Centrer l'image */
+    display: block;
+}
+
+  
+  /* Caption of Modal Image (Image Text) - Same Width as the Image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+  /* Add Animation - Zoom in the Modal */
+  .modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1190px) {
+
+    .ContainerIntro {
+      width: 90%; /* Augmenter la largeur pour mieux remplir l'écran */
+      height: auto; /* Adapter la hauteur au contenu */
+      padding: 20px; /* Réduire le padding */
+      font-size: 0.9em; /* Réduire légèrement la taille des textes */
+    }
+
+    /* Sections principales en ligne */
+    .sectionETE,
+    .sectionSKI {
+      grid-template-columns: 1fr; /* Une seule colonne */
+      grid-template-rows: auto auto; /* Réorganiser en lignes */
+    }
+  
+    /* Les affiches en premier */
+    .sectionETE .IMG, 
+    .sectionSKI .IMG {
+      order: 2; /* Les affiches passent en premier */
+      justify-self: center; /* Centrer l'affiche horizontalement */
+      padding: 10px;
+    }
+  
+    /* Conteneur texte et images après les affiches */
+    .sectionETE .Container, 
+    .sectionSKI .Container {
+      order: 1; /* Placer après l'affiche */
+      padding: 20px;
+    }
+
+    .ContainerArchives {
+      display: grid;
+      grid-template-columns: 1fr; /* Une seule colonne */
+      grid-template-rows: auto auto; /* Réorganiser en lignes */
+    }
+  
+    /* Ajustement des conteneurs d'images */
+    .ContainerIMG {
+      grid-template-columns: repeat(3, 1fr); /* Deux colonnes pour mieux utiliser l'espace */
+      /* gap: 15px; */
+      margin: 0px;
+      padding: 0px;
+    }
+  
+    .ContainerIMG img {
+      height: 180px; /* Taille réduite des images */
+      width: auto; /* Respecter le ratio */
+    }
+
+    .ContainerIMGArchives {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ContainerIMGArchives img {
+      height: 80%; /* Taille réduite des images */
+      width: auto; /* Respecter le ratio */
+    }
+
+    #ParagrapheIntro {
+      font-size: 19px;
+    }
+    
+    .ContenuIntro b {
+      font-size: 20px;
+      font-family: 'Mukta SemiBold';
+    }
+    
+    .ContenuIntro p {
+      font-size: 17px;
+      font-family: 'Mukta Regular';
+    }
+
+    section h1 {
+      margin-top: 0px;
+    }
+  
+    /* Ajustement des titres */
+    .title {
+      place-items: center;
+      font-size: 1.5em; /* Taille adaptée pour l'écran réduit */
+      margin-top: 0px;
+    }
+  }
+  
+@media (max-width: 768px) {
+  
+  .ContainerIntro {
+    width: 100%; /* Prendre toute la largeur */
+    padding: 15px; /* Réduire encore les marges intérieures */
+    gap: 5px; /* Réduire l'espace entre les éléments */
+    font-size: 0.8em; /* Adapter la taille des textes pour petits écrans */
+    height: 70%;
+  }
+
+  #ParagrapheIntro {
+    font-size: 17px;
+  }
+  
+  .ContenuIntro b {
+    font-size: 18px;
+    font-family: 'Mukta SemiBold';
+  }
+  
+  .ContenuIntro p {
+    font-size: 15px;
+    font-family: 'Mukta Regular';
+  }
+
+  /* Réorganiser les sections principales */
+  .sectionETE,
+  .sectionSKI {
+    grid-template-columns: 1fr; /* Une seule colonne */
+    grid-template-rows: auto auto; /* Adaptation à la hauteur de contenu */
+  }
+
+  .sectionETE .IMG, 
+  .sectionSKI .IMG {
+    order: 0; /* Place l'image après le texte */
+    padding: 10px; /* Réduire les marges */
+  }
+
+  .sectionETE .Container, 
+  .sectionSKI .Container {
+    order: 1; /* Place le texte avant les images */
+    padding: 20px;
+  }
+
+  .Container {
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+  }
+
+  .title {
+    place-items: center;
+    font-size: 1.5em;
+  }
+
+  /* Adapter les images de la galerie */
+  .ContainerIMG {
+    grid-template-columns: 1fr; /* 2 colonnes au lieu de 3 */
+    gap: 10px; /* Ajout d'espacement entre les images */
+  }
+
+  .ContainerIMG img {
+    height: 70%; /* Réduire la taille des images */
+  }
+
+  .ContainerIMGArchives {
+    grid-template-columns: auto;
+  }
+
+  .ContainerIMGArchives img {
+    height: 70%;
+  }
+
+  /* Adapter le texte des titres */
+  section h1 {
+    margin-top: 0px;
+  }
+
+  /* Adapter le modal pour petits écrans */
+  .modal-content {
+    max-width: 90%; /* Utiliser tout l'écran */
+    max-height: 70vh; /* Garder une hauteur adaptée */
+  }
+
+  .sectionIntro button {
+    width: 40%; /* Bouton plus large */
+    max-width: 180px; /* Limite maximale */
+    padding: 8px 16px; /* Réduction du padding */
+    font-size: 0.9em; /* Réduction de la taille de police */
+  }
+}
+
+@media (max-width: 480px) {
+  .ContainerIntro {
+    width: 100%; /* Toujours 100% pour petits écrans */
+    padding: 10px; /* Minimiser les marges intérieures */
+    font-size: 0.7em; /* Réduire encore les textes */
+    gap: 2px; /* Espacement minimal entre les éléments */
+    height: 70%;
+    width: 90%;
+  }
+
+  #ParagrapheIntro {
+    font-size: 15px;
+  }
+  
+  .ContenuIntro b {
+    font-size: 16px;
+    font-family: 'Mukta SemiBold';
+  }
+  
+  .ContenuIntro p {
+    font-size: 12px;
+  }
+
+  .ContainerIMG img {
+    height: 60%; /* Réduire la taille des images */
+  }
+
+  .sectionIntro button {
+    width: 70%; /* Presque toute la largeur */
+    max-width: 160px; /* Ajustement pour petits écrans */
+    padding: 6px 12px; /* Padding encore réduit */
+    font-size: 0.8em; /* Police plus petite */
+  }
+}

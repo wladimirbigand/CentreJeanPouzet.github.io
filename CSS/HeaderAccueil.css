@@ -1,0 +1,250 @@
+header {
+    display: grid;
+    grid-template-columns: auto;
+    place-items: center;
+    padding: 10px;
+    /* background-color: #F5F5E1; */
+    background-color: transparent;
+    height: 12vh;
+    font-size: x-large;
+    /* border-bottom: 1px solid #ccc; */
+    position: fixed;
+    z-index: 10; /*  Place le <header> devant les autres éléments de la page */
+    top: 0;
+    left: 0;
+    box-shadow: none; /* Pas d'ombre par défaut */
+    transition: background-color 0.9s ease, box-shadow 0.3s ease; /* Ajoute une transition fluide de 0,3s pour les changements de couleur de fond et d'ombre. */
+    width: 100%;
+    transition: transform 0.5s ease-in-out; /* Transition fluide pour le mouvement */
+    font-family: 'Mukta SemiBold';
+}
+
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95); /* Fond blanc */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    border-bottom: 1px solid #ccc;
+}
+
+header.scrolled img{
+    display: inherit;
+}
+
+header.hidden {
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+header img {
+    max-height: 80px;
+    display: flex;
+    margin-left: 8vh;
+    border: none;
+    display: none;
+}
+
+.image-zoom img {
+    transition: transform 0.3s ease;
+}
+
+.image-zoom:hover img {
+    transform: scale(1.02); /* Agrandit l'image de 5% */
+}
+
+header nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 17px;
+    gap: 70px;
+}
+
+header nav a {
+    position: relative;
+    color: #ffffff; /* Couleur du texte */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Position de la ligne sous le texte */
+    left: 0;
+    width: 0;
+    height: 3px; /* Épaisseur de la ligne */
+    background-color: #89b287; /* Couleur de la ligne */
+    transition: width 1s; /* Transition pour l’effet de soulignement */
+}
+
+header nav a:hover::after {
+    width: 100%; /* Ligne pleine largeur au survol */
+}
+
+header nav a.active::after {
+    width: 100%; /* Maintient la ligne sous l'onglet actif */
+}
+
+
+header nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+header nav a.active {
+    position: relative;
+    color: #333; /* Couleur de texte */
+    font-weight: bold;
+}
+
+header nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Ajuste la position de la ligne */
+    left: 0;
+    width: 100%;
+    height: 3px; /* Épaisseur de la ligne */
+    background-color: #5e856e; /* Couleur de la ligne */
+}
+
+/* Cache le menu burger par défaut */
+.burger-menu {
+    display: none; 
+}
+
+/* Transition pour les éléments du menu burger */
+.burger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animation du menu burger */
+.burger-menu.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(16px);
+}
+
+.burger-menu.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-16px);
+}
+
+/* Menu déroulant caché */
+header nav {
+    position: relative;
+    top: auto;
+    background-color: transparent;
+    max-height: none;
+    overflow: visible;
+}
+
+/* Menu burger activé */
+header nav.open {
+    display: flex;
+}
+
+#ligne {
+    border: solid;
+}
+
+main {
+    margin-top: 12vh;
+}
+
+body {
+    background-color: #F5F5E1;
+}
+
+@media (max-width: 1024px){
+    header nav {
+        font-size: 12px;
+    }
+
+    header img {
+        max-height: 75px;
+        display: flex;
+        margin-left: 3vh;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Cache les liens principaux pour les petits écrans */
+    header nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #F5F5E1;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+        transition: max-height 0.3s ease;
+    }
+
+    header a {
+        transition: transform 1s ease;
+    }
+
+    header a:hover {
+        transform: scale(1.02);
+    }
+
+    #ligne {
+        display: none;
+    }
+
+    header img {
+        max-height: 70px;
+        display: flex;
+        margin-left: 2vh;
+    }
+
+    /* Affiche le menu burger uniquement pour téléphone */
+    .burger-menu {
+        position: absolute; /* Positionnement absolu par rapport au parent */
+        top: 40px; /* Ajuste la hauteur depuis le haut */
+        right: 40px; /* Positionne à droite */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 35px;
+        width: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 110;
+    }
+
+    header nav a{
+        justify-content: center;
+    }
+
+    /* Menu déroulant visible lorsque le burger est activé */
+    header nav.open {
+        max-height: 300px; /* Hauteur du menu une fois ouvert */
+        padding: 10px 0;
+    }
+
+    header nav a.active::after {
+        display: none;
+    }
+
+    header nav a::after {
+        display: none;
+    }
+
+    header nav a {
+        font-weight: lighter;
+    }
+}
+

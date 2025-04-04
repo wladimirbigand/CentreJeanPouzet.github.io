@@ -1,0 +1,97 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+ 
+main {
+    font-size: 1.2em;
+    line-height: 1.4em;
+    margin-top: 12vh;
+}
+ 
+#confidentialite {
+    display: grid;
+    place-items: center;
+    background-image: url(../Images/Mentions_confidentialite/Photo_du_centre_avec_des_arbres.JPG);
+    background-size: cover;
+    background-position: center;
+}
+ 
+.ContainerConfidentialite {
+    height: 75vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #F5F5E1;
+    overflow-y: scroll;
+    display: grid;
+    place-items: center;
+    width: 60%;
+}
+ 
+ 
+#texte {
+    width: 80%;
+    display: grid;
+    place-items: center;
+}
+ 
+hr {
+    width: 90%;
+    color: #9DBD91;
+}
+ 
+#texte_politique {
+    display: grid;
+    place-items: center;
+    text-align: justify;
+    color: black;
+}
+ 
+h1 {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 2em;
+    text-align: center;
+    color: #5E856E;
+}
+ 
+a {
+    text-decoration: none;
+    color: black;
+}
+ 
+li {
+    margin-left: 3em;
+}
+ 
+.nom_des_parties_de_confidentialite {
+    text-align: center;
+}
+ 
+h2, h3 {
+    text-align: center;
+    color: #5E856E;
+}
+ 
+#titre {
+    color: black;
+}
+ 
+ 
+@media (max-width: 768px) {
+    main {
+        font-size: 0.9em;
+        line-height: 2.2em;
+    }
+ 
+    #texte {
+        height: 73vh;
+    }
+}
+ 
+@media (max-width: 480px) {
+    #texte {
+        height: 69vh;
+    }
+}
