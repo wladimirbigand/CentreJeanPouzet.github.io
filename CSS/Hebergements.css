@@ -1,0 +1,204 @@
+/* Styles généraux */
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Mukta Regular';
+}
+ 
+body{
+  line-height: 1.6;
+  background-color: #F5F5E1;
+}
+
+main {
+  display: grid;
+}
+ 
+/* Section avec l'image de fond
+#background {
+  background-image: url(../Images/JPrando.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-top: -12vh;
+} */
+ 
+/* Introduction */
+#intro {
+  text-align: center;
+  color: black;
+  font-size: 1.1em;
+  padding: 20px;
+  background-color: blanchedalmond;
+  margin-top: -14vh;
+  background-image: url(../Images/Accueil/JPrando.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 98vh;
+  display: grid;
+  gap: 20px;
+}
+ 
+.contenuIntro {
+  margin-top: 14vh;
+  background-color: #F5F5E1;
+  border-radius: 10px;
+  padding: 20px;
+  opacity: 0.9;
+  display: grid;
+  gap: 10px;
+  width: 70%;
+  place-content: center;
+  place-self: center;
+}
+ 
+.separation{
+  display: grid;
+  background-color: #89b287;
+  place-self: center;
+  width: 20%;
+  height: 10px;
+  border-radius: 5px;
+}
+ 
+/* Liste */
+ul{
+  list-style-position: inside;
+}
+ 
+#liste {
+  padding-left: 35%;
+  text-align: left;
+}
+ 
+/* Conteneur principal des images */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 20px 0;
+}
+ 
+/* Cartes d'images */
+.thumbex {
+  margin: 10px 20px 30px;
+  width: 100%;
+  min-width: 250px;
+  max-width: 435px;
+  height: 300px;
+  flex: 1;
+  overflow: hidden;
+  background-color: #F5F5E1;
+  box-shadow: 5px 10px 40px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+ 
+.thumbnail {
+  overflow: hidden;
+  min-width: 250px;
+  height: 300px;
+  position: relative;
+  opacity: 0.88;
+  transition: all 0.4s ease-out;
+}
+ 
+.thumbnail img {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  height: 115%;
+  width: auto;
+  transform: translate(-50%, -50%);
+}
+ 
+.thumbnail span {
+  position: absolute;
+  z-index: 2;
+  top: calc(150px - 20px);
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 50px;
+  margin: 0 45px;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  font-weight: 300;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.2px;
+  transition: all 0.3s ease-out;
+}
+ 
+.thumbnail:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+ 
+.thumbnail:hover span {
+  opacity: 0;
+}
+ 
+#vert1, #vert2, #vert3 {
+  margin: 50px;
+}
+ 
+/* Images avec IDs spécifiques */
+#img1, #img2, #img3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+ 
+/* Titre des images */
+.titreimages {
+  color: black;
+  font-size: 36px;
+  margin: 10px 40px;
+}
+ 
+/* Texte sous les images */
+.textimage {
+  color: black;
+  font-size: 20px;
+  margin-left: 40px;
+}
+ 
+/* Images spécifiques */
+.imgd {
+  width: 15%;
+  border-radius: 15px;
+  transition: transform 1s;
+}
+ 
+.imgd:hover {
+  transform: scale(1.05);
+}
+ 
+/* MEDIA QUERIES */
+ 
+/* Ajustement pour les écrans moyens */
+@media (max-width: 768px) {
+  #img1, #img2, #img3 {
+    flex-direction: column; /* Les images passent en colonne */
+    align-items: center;
+  }
+ 
+  .imgd {
+    width: 80%; /* Augmente la taille des images pour qu'elles soient plus lisibles */
+    margin: 20px;
+  }
+}
+ 
+/* Ajustement pour les petits écrans */
+@media (max-width: 480px) {
+  #img1, #img2, #img3 {
+    flex-direction: column; /* Les images restent en colonne */
+    align-items: center;
+  }
+ 
+  .imgd {
+    width: 80%; /* Les images deviennent plus grandes pour un meilleur affichage */
+  }
+}

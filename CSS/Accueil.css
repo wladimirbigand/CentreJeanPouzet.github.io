@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    /* padding: 20px; */
+}
+
+main section {
+    background-color: #f5f1e1;
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    align-items: center;
+    text-align: center; /* Centrer le texte dans chaque section */
+}
+
+#section1 #section2 #section3{
+    border-radius: 8px;
+}
+
+/* Section 1 - Full width with overlay */
+#section1 {
+    grid-template-columns: 1fr;
+    position: relative;
+    text-align: center;
+    background-color: #ccc;
+    background-image: url(../Images/Accueil/JPrando.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin-top: -12vh;
+}
+
+#section1 .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+#section1 h1 {
+    font-size: 4.5em;
+    margin-bottom: 20px;
+    font-family: 'Mukta SemiBold';
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#section1 button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #F5F5E1;
+    border: solid #F5F5E1;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 1s ease; /* Ajout de la transition */
+    font-family: 'Mukta ExtraLight';
+}
+
+#section1 button:hover {
+    background-color: #F5F5E1;
+    color: #333;
+    /* border: solid #333; */
+    transform: scale(1.1);
+}
+
+
+/* Section 2 - Centrer le texte et aligner les images en ligne en dessous */
+#section2 {
+    display: grid;
+    grid-template-rows: auto auto; /* Texte en haut, images en dessous */
+    align-items: start;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Mukta Light';
+    font-size: 2em;
+}
+
+#section2 .text {
+    margin-bottom: 20px;
+}
+
+.text {
+    margin: 20px;
+    font-family: 'Mukta ExtraLight';
+    font-size: 1.1em;
+}
+
+#section2 .images {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espacement entre les images */
+    flex-wrap: wrap; /* Permet de passer les images sur plusieurs lignes si nécessaire */
+}
+
+.ImageBW:hover {
+    transform: scale(1.05);
+    transition-duration: 1s;
+}
+
+.ImageBW {
+    height: auto;
+    width: 300px; /* Taille par défaut */
+    max-width: 100%; /* Empêche les images de dépasser la largeur du conteneur */
+    border-radius: 8px;
+    transition: transform 1s;
+}
+
+/* Section 3 - Image à gauche et texte à droite */
+#section3 {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-items: center;
+    text-align: center;
+}
+
+#section3 .image {
+    grid-column: 1;
+}
+
+#section3 .text {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.image iframe {
+    width: 100%; /* S'adapte à la largeur du parent */
+    height: 100%; /* S'adapte à la hauteur définie */
+    max-height: 350px; /* Limite la hauteur maximale */
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main section {
+        grid-template-columns: 1fr;
+    }
+
+    .text{
+        font-size: 1em;
+    }
+
+    .title {
+        font-size: 1.4em;
+    }
+
+    #section1 h1 {
+        font-size: 3em;
+    }
+
+    #section1 button {
+        font-size: 0.8em;
+    }
+
+    #section2 {
+        grid-template-rows: auto; /* Pas besoin de ligne distincte pour les images */
+        padding: 10px; /* Réduire les marges */
+    }
+
+    #section2 .images {
+        flex-direction: column; /* Aligne les images verticalement */
+        gap: 20px; /* Réduit l'espace entre les images */
+    }
+
+    .ImageBW {
+        width: 100%; /* Images s'adaptent à la largeur disponible */
+        max-width: 100%; /* Empêche de dépasser les bords */
+        height: auto; /* Conserve les proportions */
+    }
+
+    .ImageBW:hover {
+        transform: scale(1.02);
+        transition-duration: 1s;
+    }
+
+    .image iframe {
+        height: 250px; /* Réduit la hauteur pour s'adapter */
+    }
+}
