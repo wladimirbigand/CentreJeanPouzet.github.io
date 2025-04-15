@@ -1,0 +1,13 @@
+/* TableauDeBordAccueil.css */
+
+/* Style spécifique à l'image de fond et son aperçu */
+.preview-container {
+    margin-top: 15px;
+    text-align: start;
+}
+.preview-container img {
+    max-width: 100%;
+    max-height: 300px;
+    border: 2px solid #5E856E; /* Vert Eucalyptus */
+    border-radius: 5px;
+}

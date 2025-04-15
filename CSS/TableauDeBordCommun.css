@@ -1,0 +1,171 @@
+/* CommonDashboard.css */
+
+/* Remise à zéro et styles globaux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5E1; /* Beige clair */
+}
+
+/* Conteneur global du tableau de bord */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* 250px pour la sidebar, le reste pour le contenu */
+    min-height: 100vh;
+    background-color: #F5F5E1;
+}
+
+/* Styles pour la sidebar */
+.sidebar {
+    background-color: #9DBD91; /* Vert Sauge clair */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.sidebar .logo {
+    margin-bottom: 40px;
+}
+.sidebar .logo h2 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Navigation de la sidebar */
+.sidebar nav ul {
+    list-style: none;
+    width: 100%;
+}
+.sidebar nav ul li {
+    margin-bottom: 15px;
+}
+.sidebar nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #5E856E; /* Vert Eucalyptus */
+    transition: background-color 0.3s ease;
+}
+.sidebar nav ul li a.active {
+    background-color: #F9CD4A; /* Jaune Dor pour l'élément actif */
+    color: #000;
+}
+.sidebar nav ul li a:hover {
+    background-color: #FFEDA7; /* Jaune Pastel au survol */
+    color: #000;
+}
+
+/* Bouton de déconnexion */
+.logout {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+.logout button {
+    background-color: #c0392b; /* Jaune Dor */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.logout button:hover {
+    background-color: #a93226; /* Jaune Pastel */
+}
+
+/* Styles pour le contenu principal */
+.content {
+    background-color: #F5F5E1;
+    padding: 30px;
+}
+.header {
+    margin-bottom: 20px;
+}
+.header h1 {
+    font-size: 1.8rem;
+    color: #5E856E; /* Vert Eucalyptus */
+}
+
+/* Section d'administration commune */
+.admin-section {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.admin-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.admin-block h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #5E856E;
+}
+
+/* Champs de saisie communs */
+.admin-block input[type="text"],
+.admin-block textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Boutons d'action communs */
+.admin-block.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+.admin-block.actions button {
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.admin-block.actions #Add {
+    background-color: #9DBD91;
+}
+.admin-block.actions #Add:hover {
+    background-color: #7C9572;
+}
+.admin-block.actions #Modify {
+    background-color: grey;
+}
+.admin-block.actions #Modify:hover {
+    background-color: dimgrey;
+}
+.admin-block.actions #Delete {
+    background-color: #c0392b;
+}
+.admin-block.actions #Delete:hover {
+    background-color: #a93226; /* Ajustez si nécessaire */
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    .admin-section {
+        grid-template-columns: 1fr;
+    }
+}
