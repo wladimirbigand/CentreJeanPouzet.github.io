@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/User/Nos%20Colos.css">
-    <link rel="stylesheet" href="../CSS/User/Header.css">
-    <link rel="stylesheet" href="../CSS/User/Footer.css">
-    <link rel="stylesheet" href="../CSS/User/Fonts.css">
-    <script src="../JS/ModalColo.js"></script>
+    <link rel="stylesheet" href="../../CSS/User/Nos%20Colos.css">
+    <link rel="stylesheet" href="../../CSS/User/Header.css">
+    <link rel="stylesheet" href="../../CSS/User/Footer.css">
+    <link rel="stylesheet" href="../../CSS/User/Fonts.css">
+    <script src="../../JS/ModalColo.js"></script>
     <title>Centre Jean Pouzet</title>
-    <script src="../JS/Header.js"></script>
-    <link rel="icon" type="image/vnd.icon" href="../Images/Logo/logo.png">
+    <script src="../../JS/Header.js"></script>
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
 <body>
 <?php $currentPage = 'colos'; ?>
-<?php require_once '../Includes/header.php'; ?>
+<?php require_once '../Includes/Header.php'; ?>
     <main>
         <div id="myModal" class="modal">
             <!-- Bouton de fermeture -->
@@ -88,13 +88,13 @@
                 </div>
             </div>
             <div class="IMG">
-                <img src="../Images/Nos colos/AFFICHE SKI 2025_page-0001.jpg" alt="Affiche ski">
+                <img src="../../Images/Nos%20colos/AFFICHE%20SKI%202025_page-0001.jpg" alt="Affiche ski">
             </div>
         </section>
         
         <section class="sectionETE">
             <div class="IMG">
-                <img src="../Images/Nos colos/Affiche séjour 2024 été_page-0001.jpg" alt="Affiche été">
+                <img src="../../Images/Nos%20colos/Affiche%20séjour%202024%20été_page-0001.jpg" alt="Affiche été">
             </div>
             <div class="Container">
                 <div class="title">
@@ -102,14 +102,14 @@
                 </div>
             <div class="Container1">
                 <div class="ContainerIMG">
-                    <div><img src="../Images/Nos colos/photo été 1.jpeg" id="IMG" alt="Image7"></div>
-                    <div><img src="../Images/Nos colos/photo été 2.jpeg" id="IMG" alt="Image8"></div>
-                    <div><img src="../Images/Nos colos/photo été 4.jpeg" id="IMG" alt="Image9"></div>
+                    <div><img src="../../Images/Nos%20colos/photo%20été%201.jpeg" id="IMG" alt="Image7"></div>
+                    <div><img src="../../Images/Nos%20colos/photo%20été%202.jpeg" id="IMG" alt="Image8"></div>
+                    <div><img src="../../Images/Nos%20colos/photo%20été%204.jpeg" id="IMG" alt="Image9"></div>
                 </div>
                 <div class="ContainerIMG">
-                    <div><img src="../Images/Nos colos/IMG_6612.jpg" id="IMG" alt="Image10"></div>
-                    <div><img src="../Images/Nos colos/photo été 6.jpeg" id="IMG" alt="Image11"></div>
-                    <div><img src="../Images/Nos colos/photo été 7.jpeg" id="IMG" alt="Image12"></div>
+                    <div><img src="../../Images/Nos%20colos/IMG_6612.jpg" id="IMG" alt="Image10"></div>
+                    <div><img src="../../Images/Nos%20colos/photo%20été%206.jpeg" id="IMG" alt="Image11"></div>
+                    <div><img src="../../Images/Nos%20colos/photo%20été%207.jpeg" id="IMG" alt="Image12"></div>
                 </div>
             </div>
             </div>
@@ -121,24 +121,24 @@
             </div>
             <div class="ContainerArchives">
                 <div class="ContainerIMGArchives">
-                    <div><img src="../Images/Photo archives/IMG_8011.jpg" id="IMG" alt="Rassemblement dans la prairie, date inconnue."></div> 
-                    <div><img src="../Images/Photo archives/IMG_8482.jpg" id="IMG" alt="Les patrouilles pour dormir à 8, années 70."></div>
-                    <div><img src="../Images/Photo archives/IMG_8490.jpg" id="IMG" alt="Randonnée en altitude, année inconnue."></div>
-                    <div><img src="../Images/Photo archives/IMG_8489.jpg" id="IMG" alt="Le bivouac des ados. Année inconnue."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8011.jpg" id="IMG" alt="Rassemblement dans la prairie, date inconnue."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8482.jpg" id="IMG" alt="Les patrouilles pour dormir à 8, années 70."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8490.jpg" id="IMG" alt="Randonnée en altitude, année inconnue."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8489.jpg" id="IMG" alt="Le bivouac des ados. Année inconnue."></div>
                 </div>
                 <hr>
                 <div class="ContainerIMGArchives">
-                    <div><img src="../Images/Photo archives/IMG_8478.jpg" id="IMG" alt="Foot dans la prairie, années 90."></div>
-                    <div><img src="../Images/Photo archives/IMG_8477.jpg" id="IMG" alt="Veillée jeux dans la prairie, années 60."></div>
-                    <div><img src="../Images/Photo archives/IMG_8487.jpg" id="IMG" alt="Les totems, groupe des grands, années 90."></div>
-                    <div><img src="../Images/Photo archives/IMG_8488.jpg" id="IMG" alt="Spectacle des petits, années 70."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8478.jpg" id="IMG" alt="Foot dans la prairie, années 90."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8477.jpg" id="IMG" alt="Veillée jeux dans la prairie, années 60."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8487.jpg" id="IMG" alt="Les totems, groupe des grands, années 90."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8488.jpg" id="IMG" alt="Spectacle des petits, années 70."></div>
                 </div>
                 <hr>
                 <div class="ContainerIMGArchives">
-                    <div><img src="../Images/Photo archives/IMG_8475.jpg" id="IMG" alt="Les animateurs du séjour, années 60."></div>
-                    <div><img src="../Images/Photo archives/IMG_8473.jpg" id="IMG" alt="Le terrain de foot et la salle de jeux, années 90."></div>
-                    <div><img src="../Images/Photo archives/IMG_8469.jpg" id="IMG" alt=" Le Centre et le clocher de Guchen. Année inconnue."></div>
-                    <div><img src="../Images/Photo archives/IMG_8463.jpg" id="IMG" alt="Jeu dans la prairie. Année inconnue."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8475.jpg" id="IMG" alt="Les animateurs du séjour, années 60."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8473.jpg" id="IMG" alt="Le terrain de foot et la salle de jeux, années 90."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8469.jpg" id="IMG" alt=" Le Centre et le clocher de Guchen. Année inconnue."></div>
+                    <div><img src="../../Images/Photo%20archives/IMG_8463.jpg" id="IMG" alt="Jeu dans la prairie. Année inconnue."></div>
                 </div>
                 <!-- <hr> -->
             </div>

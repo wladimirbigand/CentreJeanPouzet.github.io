@@ -6,17 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre Jean Pouzet</title>
-    <link rel="stylesheet" href="../CSS/User/Footer.css">
-    <link rel="stylesheet" href="../CSS/User/Header.css">
-    <link rel="stylesheet" href="../CSS/User/Fonts.css">
-    <link rel="stylesheet" href="../CSS/User/Nous%20Contacter.css">
-    <link rel="icon" type="image/vnd.icon" href="../Images/Logo/logo.png">
-    <script src="../JS/Header.js" ></script>
+    <link rel="stylesheet" href="../../CSS/User/Footer.css">
+    <link rel="stylesheet" href="../../CSS/User/Header.css">
+    <link rel="stylesheet" href="../../CSS/User/Fonts.css">
+    <link rel="stylesheet" href="../../CSS/User/Nous%20Contacter.css">
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
+    <script src="../../JS/Header.js" ></script>
     </head>
     
     <body>
     <?php $currentPage = 'contact'; ?>
-    <?php require_once '../Includes/header.php'; ?>
+    <?php require_once '../Includes/Header.php'; ?>
 
         <main>
             <section>
@@ -62,11 +62,11 @@
             <section class="SectionContact">
                 <div class="ContainerContact">
                     <div><b> <p class="titres"> NOUS APPELER </p> </b></div>
-                    <div class="ElementContact"><img src="../Images/Logo/telephone.png" alt="Image Introuvable" width="4.5%"><a href="tel:0603366176"> 06 03 36 61 76 </a></div>
+                    <div class="ElementContact"><img src="../../Images/Logo/telephone.png" alt="Image Introuvable" width="4.5%"><a href="tel:0603366176"> 06 03 36 61 76 </a></div>
                     <div><b> <p class="titres"> LOGEMENTS DE GROUPE </p> </b></div>
-                    <div class="ElementContact"><img src="../Images/Logo/enveloppe.png" alt="Image Introuvable" width="3%"><a href="mailto:info@centrejeanpouzet.fr"> info@centrejeanpouzet.fr </a></div>
+                    <div class="ElementContact"><img src="../../Images/Logo/enveloppe.png" alt="Image Introuvable" width="3%"><a href="mailto:info@centrejeanpouzet.fr"> info@centrejeanpouzet.fr </a></div>
                     <div><b> <p class="titres"> S'INSCRIRE A LA COLO </p> </b></div>
-                    <div class="ElementContact"><img src="../Images/Logo/enveloppe.png" alt="Image Introuvable" width="3%"><a href="mailto:colo@centrejeanpouzet.fr"> colo@centrejeanpouzet.fr </a></div>
+                    <div class="ElementContact"><img src="../../Images/Logo/enveloppe.png" alt="Image Introuvable" width="3%"><a href="mailto:colo@centrejeanpouzet.fr"> colo@centrejeanpouzet.fr </a></div>
                 </div>
             </section>
         </main>
@@ -74,6 +74,6 @@
     <?php
     require_once '../Includes/Footer.php';
     ?>
-    <script src="../JS/AgendaResponsive.js" async></script>
+    <script src="../../JS/AgendaResponsive.js" async></script>
 </body>
 </html>

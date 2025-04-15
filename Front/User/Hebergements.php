@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre Jean Pouzet</title>
-    <link rel="stylesheet" href="../CSS/User/Hebergements.css">
-    <link rel="stylesheet" href="../CSS/User/Footer.css">
-    <link rel="stylesheet" href="../CSS/User/Header.css">
-    <link rel="stylesheet" href="../CSS/User/Fonts.css">
-    <script src="../JS/Header.js"></script>
-    <script src="../JS/ModalHebergements.js"></script>
-    <script src="../JS/hebergement.js" async></script>
-    <script src="../JS/carroussel.js" async></script>
+    <link rel="stylesheet" href="../../CSS/User/Hebergements.css">
+    <link rel="stylesheet" href="../../CSS/User/Footer.css">
+    <link rel="stylesheet" href="../../CSS/User/Header.css">
+    <link rel="stylesheet" href="../../CSS/User/Fonts.css">
+    <script src="../../JS/Header.js"></script>
+    <script src="../../JS/ModalHebergements.js"></script>
+    <script src="../../JS/hebergement.js" async></script>
+    <script src="../../JS/carroussel.js" async></script>
     <link rel="icon" type="image/vnd.icon" href="../Images/Logoù/logo.png">
 </head>
 <body>
 <?php $currentPage = 'hebergements'; ?>
-<?php require_once '../Includes/header.php'; ?>
+<?php require_once '../Includes/Header.php'; ?>
  
  
     <main>
@@ -42,19 +42,19 @@
                 <div class="container">
                     <div class="thumbex">
                         <div class="thumbnail">
-                            <img src="../Images/hebergement/chalet.jpg" id='chalet'>
+                            <img src="../../Images/hebergement/chalet.jpg" id='chalet'>
                             <span>Chalet</span>
                         </div>
                     </div>
                     <div class="thumbex">
                         <div class="thumbnail">
-                            <img src="../Images/hebergement/batiment.jpg" id='batiment'>
+                            <img src="../../Images/hebergement/batiment.jpg" id='batiment'>
                             <span>Batiment</span>
                         </div>
                     </div>
                     <div class="thumbex">
                         <div class="thumbnail">
-                            <img src="../Images/hebergement/sallejeux.jpg" id='sallejeux'>
+                            <img src="../../Images/hebergement/sallejeux.jpg" id='sallejeux'>
                             <span>Salle de Jeux</span>
                         </div>
                     </div>
@@ -100,27 +100,27 @@
                     </div> -->
                 
                     <div class="mySlides fade">
-                    <img src="../Images/hebergement/chalet3.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/chalet3.png" style="width:100%;border-radius: 15px;">
                     </div>
                 
                     <div class="mySlides fade">
-                    <img src="../Images/hebergement/chalet6.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/chalet6.png" style="width:100%;border-radius: 15px;">
                     </div>
 
                     <div class="mySlides fade">
-                    <img src="../Images/hebergement/chalet2.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/chalet2.png" style="width:100%;border-radius: 15px;">
                     </div>
 
                     <div class="mySlides fade">
-                    <img src="../Images/hebergement/chalet5.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/chalet5.png" style="width:100%;border-radius: 15px;">
                     </div>
 
                     <div class="mySlides fade">
-                    <img src="../Images/hebergement/chalet8.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/chalet8.png" style="width:100%;border-radius: 15px;">
                     </div>
 
                     <div class="mySlides fade">
-                    <img src="../Images/hebergement/chalet7.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/chalet7.png" style="width:100%;border-radius: 15px;">
                     </div>
                 
                     <!-- Next and previous buttons -->
@@ -174,39 +174,39 @@
                     </div> -->
                 
                     <div class="mySlides1 fade1">
-                    <img src="../Images/hebergement/batiment9.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/batiment9.png" style="width:100%;border-radius: 15px;">
                     </div>
                 
                     <div class="mySlides1 fade1">
-                    <img src="../Images/hebergement/batiment5.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/batiment5.png" style="width:100%;border-radius: 15px;">
                     </div>
 
                     <div class="mySlides1 fade1">
-                    <img src="../Images/hebergement/batiment4.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/batiment4.png" style="width:100%;border-radius: 15px;">
                     </div>
 
                     <div class="mySlides1 fade1">
-                    <img src="../Images/hebergement/batiment8.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/batiment8.png" style="width:100%;border-radius: 15px;">
                     </div>
 
                     <div class="mySlides1 fade1">
-                    <img src="../Images/hebergement/batiment10.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/batiment10.png" style="width:100%;border-radius: 15px;">
                     </div>
                     
                     <div class="mySlides1 fade1">
-                    <img src="../Images/hebergement/batiment12.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/batiment12.png" style="width:100%;border-radius: 15px;">
                     </div>
                     
                     <div class="mySlides1 fade1">
-                    <img src="../Images/hebergement/batiment14.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/batiment14.png" style="width:100%;border-radius: 15px;">
                     </div>
     
                     <div class="mySlides1 fade1">
-                    <img src="../Images/hebergement/batiment13.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/batiment13.png" style="width:100%;border-radius: 15px;">
                     </div>
     
                     <div class="mySlides1 fade1">
-                    <img src="../Images/hebergement/batiment2.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/batiment2.png" style="width:100%;border-radius: 15px;">
                     </div>
                     
                     <!-- Next and previous buttons -->
@@ -250,27 +250,27 @@
 
                     <!-- Full-width images with number and caption text -->
                     <div class="mySlides2 fade2">
-                    <img src="../Images/hebergement/sallejeux6.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/sallejeux6.png" style="width:100%;border-radius: 15px;">
                     </div>
                 
                     <div class="mySlides2 fade2">
-                    <img src="../Images/hebergement/sallejeux1.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/sallejeux1.png" style="width:100%;border-radius: 15px;">
                     </div>
                 
                     <div class="mySlides2 fade2">
-                    <img src="../Images/hebergement/sallejeux4.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/sallejeux4.png" style="width:100%;border-radius: 15px;">
                     </div>
 
                     <div class="mySlides2 fade2">
-                    <img src="../Images/hebergement/sallejeux2.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/sallejeux2.png" style="width:100%;border-radius: 15px;">
                     </div>
 
                     <div class="mySlides2 fade2">
-                    <img src="../Images/hebergement/sallejeux3.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/sallejeux3.png" style="width:100%;border-radius: 15px;">
                     </div>
                     
                     <div class="mySlides2 fade2">
-                    <img src="../Images/hebergement/sallejeux3.png" style="width:100%;border-radius: 15px;">
+                    <img src="../../Images/hebergement/sallejeux3.png" style="width:100%;border-radius: 15px;">
                     </div>
                     <!-- Next and previous buttons -->
                     <a class="prev2" onclick="plusSlides2(-1)">&#10094;</a>

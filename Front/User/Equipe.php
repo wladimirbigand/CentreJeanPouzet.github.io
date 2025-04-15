@@ -6,18 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre Jean Pouzet</title>
-    <link rel="stylesheet" href="../CSS/User/Accueil.css">
-    <link rel="stylesheet" href="../CSS/User/Footer.css">
-    <link rel="stylesheet" href="../CSS/User/Equipe.css">
-    <link rel="stylesheet" href="../CSS/User/Header.css">
-    <link rel="stylesheet" href="../CSS/User/Fonts.css">
-    <script src="../JS/Header.js" ></script>
-    <link rel="icon" type="image/vnd.icon" href="../Images/Logo/logo.png">
+    <link rel="stylesheet" href="../../CSS/User/Accueil.css">
+    <link rel="stylesheet" href="../../CSS/User/Footer.css">
+    <link rel="stylesheet" href="../../CSS/User/Equipe.css">
+    <link rel="stylesheet" href="../../CSS/User/Header.css">
+    <link rel="stylesheet" href="../../CSS/User/Fonts.css">
+    <script src="../../JS/Header.js" ></script>
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
     
     <body>
     <?php $currentPage = 'equipe'; ?>
-    <?php require_once '../Includes/header.php'; ?>
+    <?php require_once '../Includes/Header.php'; ?>
 
     <main>
         <section class="notre_equipe">
@@ -29,7 +29,7 @@
                 <div id="equipe">
                     <div id="equipe_une">
                         <div class="ContainerEquipe">
-                            <img src="../Images/Equipe/Xavier.jpg" alt="Image Introuvable">
+                            <img src="../../Images/Equipe/Xavier.jpg" alt="Image Introuvable">
                             <div>
                                 <b> <p> Xavier </p> </b>
                                 <b> <p> Directeur de la structure </p> </b>
@@ -42,7 +42,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="ContainerEquipe"><img src="../Images/Equipe/FABIENNE.jpg" alt="Image Introuvable">
+                        <div class="ContainerEquipe"><img src="../../Images/Equipe/FABIENNE.jpg" alt="Image Introuvable">
                             <div>
                                 <b> <p> Fabienne </p> </b>
                                 <b> <p> Cheffe cuisinière </p> </b>
@@ -59,7 +59,7 @@
                  <hr>
                     <div id="president">
                         <div class="ContainerEquipe">
-                            <img src="../Images/Equipe/Olivier.png" alt="Image Introuvable">
+                            <img src="../../Images/Equipe/Olivier.png" alt="Image Introuvable">
                             <div>
                                 <b> <p> Olivier </p> </b>
                                 <b> <p> Président de l’association </p> </b>
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="ContainerEquipe">  
-                            <img src="../Images/Equipe/Laurianne.png" alt="Image Introuvable">
+                            <img src="../../Images/Equipe/Laurianne.png" alt="Image Introuvable">
                             <div>
                                 <b> <p> Laurianne </p> </b>
                                 <b> <p> Présidente adjointe de l’association </p></b>
@@ -95,7 +95,7 @@
                 <hr>
                     <div id="equipe_deux">
                         <div class="ContainerEquipe">
-                            <img src="../Images/Equipe/Alice.png" alt="Image Introuvable">
+                            <img src="../../Images/Equipe/Alice.png" alt="Image Introuvable">
                             <div>
                             <b> <p> Alice </p> </b>
                             <b> <p> Secrétaire générale de l’association </p> </b>
@@ -109,7 +109,7 @@
                             </div>
                         </div>
                         <div class="ContainerEquipe">
-                            <img src="../Images/Equipe/Iana.png" alt="Image Introuvable">
+                            <img src="../../Images/Equipe/Iana.png" alt="Image Introuvable">
                             <div>
                                 <b> <p> Iana </p> </b>
                                 <b> <p> Trésorière de l’association </p> </b>
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <div class="ContainerEquipe">
-                            <img src="../Images/Equipe/Marie-Agnès.png" alt="Image Introuvable">
+                            <img src="../../Images/Equipe/Marie-Agnès.png" alt="Image Introuvable">
                             <div>
                                 <b> <p> Marie-Agnès </p> </b>
                                 <b> <p> Secrétaire et trésorière de l’association </p> </b>
