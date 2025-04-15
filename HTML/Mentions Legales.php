@@ -15,25 +15,7 @@
 </head>
  
     <body>
-        <header>
-        <a href="../HTML/Accueil.html" class="image-zoom">
-            <img src="../Images//Logo/LogoJeanPouzet.svg" alt="Logo">
-        </a>
-        <button class="burger-menu" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav>
-            <a id="ligne"></a>
-            <a href="../HTML/Accueil.html">NOTRE ASSO</a>
-            <a href="../HTML/Hebergements.html">NOS HEBERGEMENTS</a>
-            <a href="../HTML/Nous Contacter.html">NOUS CONTACTER</a>
-            <a href="../HTML/Actus.html">NOS ACTUS</a>
-            <a href="../HTML/Equipe.html">EQUIPE</a>
-            <a href="../HTML/Colos.html">NOS COLOS</a>
-        </nav>
-    </header>
+    <?php require_once '../Includes/header.php'; ?>
  
     <main>
         <section id="mentions_legales">
@@ -74,15 +56,15 @@
      
     <footer>
         <div class="footer-left">
-            <a href="../HTML/Mentions Legales.html">Mentions légales</a>
-            <a href="../HTML/Politique de Confidentialite.html">Politique de confidentialité</a>
+            <a href="Mentions Legales.php">Mentions légales</a>
+            <a href="Politique de Confidentialite.php">Politique de confidentialité</a>
         </div>
         <div class="footer-center">
             <a href="../HTML/Test.html">Admin <span>&#128274;</span></a>
             ©2024 ColoConnect | Tous droits réservés
         </div>
         <div class="footer-right">
-            <div class="contact"><a href="../HTML/Nous Contacter.html"><b>Nous contacter</b></a></div>
+            <div class="contact"><a href="Nous Contacter.php"><b>Nous contacter</b></a></div>
             <div class="social-icons">
                 <a href="https://www.facebook.com/centrejeanpouzet/"><img src="../Images/Logo/Icone_Facebook.svg" alt="Facebook"></a>
                 <a href="https://www.instagram.com/centrejeanpouzet/?hl=fr"><img src="../Images/Logo/Icone_Instagram.svg" alt="Instagram"></a>
