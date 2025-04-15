@@ -4,7 +4,7 @@
         <a href="Politique de Confidentialite.php">Politique de confidentialité</a>
     </div>
     <div class="footer-center">
-        <a href="../HTML/Test.html">Admin <span>&#128274;</span></a>
+        <a href="../HTML/Login.html">Admin <span>&#128274;</span></a>
         ©2024 ColoConnect | Tous droits réservés
     </div>
     <div class="footer-right">
