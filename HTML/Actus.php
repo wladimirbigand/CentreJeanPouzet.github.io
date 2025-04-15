@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre Jean Pouzet</title>
-    <link rel="stylesheet" href="../CSS/Accueil.css">
-    <link rel="stylesheet" href="../CSS/Footer.css">
-    <link rel="stylesheet" href="../CSS/Header.css">
-    <link rel="stylesheet" href="../CSS/Fonts.css">
-    <link rel="stylesheet" href="../CSS/Actus.css">
+    <link rel="stylesheet" href="../CSS/User/Accueil.css">
+    <link rel="stylesheet" href="../CSS/User/Footer.css">
+    <link rel="stylesheet" href="../CSS/User/Header.css">
+    <link rel="stylesheet" href="../CSS/User/Fonts.css">
+    <link rel="stylesheet" href="../CSS/User/Actus.css">
     <script src="../JS/Header.js"></script>
     <script src="../JS/Actus.js" async></script>
     <link rel="icon" type="image/vnd.icon" href="../Images/Logo/logo.png">

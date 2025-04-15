@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre Jean Pouzet</title>
-    <link rel="stylesheet" href="../CSS/Footer.css">
-    <link rel="stylesheet" href="../CSS/Header.css">
-    <link rel="stylesheet" href="../CSS/Fonts.css">
-    <link rel="stylesheet" href="../CSS/Nous Contacter.css">
+    <link rel="stylesheet" href="../CSS/User/Footer.css">
+    <link rel="stylesheet" href="../CSS/User/Header.css">
+    <link rel="stylesheet" href="../CSS/User/Fonts.css">
+    <link rel="stylesheet" href="../CSS/User/Nous%20Contacter.css">
     <link rel="icon" type="image/vnd.icon" href="../Images/Logo/logo.png">
     <script src="../JS/Header.js" ></script>
     </head>

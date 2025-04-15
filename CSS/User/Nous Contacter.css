@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-    background-image: url(../Images/Accueil/JPrando.jpg);
+    background-image: url(../../Images/Accueil/JPrando.jpg);
 }
 
 /* Main */

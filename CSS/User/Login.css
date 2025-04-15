@@ -8,7 +8,7 @@
 /* Corps de la page */
 body {
     font-family: Arial, sans-serif;
-    background: url('../Images/Accueil/3.jpg') no-repeat center center/cover;
+    background: url('../../Images/Accueil/3.jpg') no-repeat center center/cover;
 }
 
 /* Conteneur global de la section Login */

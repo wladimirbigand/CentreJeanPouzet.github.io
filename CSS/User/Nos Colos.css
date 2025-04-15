@@ -35,7 +35,7 @@ section img {
   max-height: 90vh;
   display: grid;
   place-items: center;
-  background-image: url(../Images/Accueil/JPrando.jpg);
+  background-image: url(../../Images/Accueil/JPrando.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }

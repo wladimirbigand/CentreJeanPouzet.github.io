@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/Nos Colos.css">
-    <link rel="stylesheet" href="../CSS/Header.css">
-    <link rel="stylesheet" href="../CSS/Footer.css">
-    <link rel="stylesheet" href="../CSS/Fonts.css">
+    <link rel="stylesheet" href="../CSS/User/Nos%20Colos.css">
+    <link rel="stylesheet" href="../CSS/User/Header.css">
+    <link rel="stylesheet" href="../CSS/User/Footer.css">
+    <link rel="stylesheet" href="../CSS/User/Fonts.css">
     <script src="../JS/ModalColo.js"></script>
     <title>Centre Jean Pouzet</title>
     <script src="../JS/Header.js"></script>
