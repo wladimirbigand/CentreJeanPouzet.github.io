@@ -1,0 +1,56 @@
+/* TableauDeBordColos.css */
+
+/* Styles spécifiques pour la gestion des colos */
+
+/* Bloc d'informations générales sur la colo */
+.colo-info label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #5E856E;
+}
+
+/* Champ de saisie texte/textarea dans la partie colo-info */
+.colo-info input[type="text"],
+.colo-info textarea {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* Bloc images */
+.colo-images h2 {
+    margin-bottom: 15px;
+    color: #5E856E;
+}
+.image-slot {
+    margin-bottom: 15px;
+}
+.image-slot label {
+    display: block;
+    font-weight: bold;
+    color: #5E856E;
+    margin-bottom: 5px;
+}
+.preview-container img {
+    margin-top: 10px;
+    max-width: 150px;
+    max-height: 150px;
+    border: 2px solid #5E856E; /* Vert Eucalyptus */
+    border-radius: 5px;
+}
+
+/* Disposition des images en 3 colonnes de 2, s'adaptant à l'espace libre */
+.colo-colonnes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+    grid-auto-rows: auto;                /* Hauteur automatique pour chaque ligne */
+    gap: 20px;                           /* Espacement entre les images */
+    width: 100%;
+}
+
+/* Responsivité : sur écran étroit, on passe à une seule colonne */
+@media screen and (max-width: 768px) {
+    .colo-colonnes {
+        grid-template-columns: 1fr;
+    }
+}

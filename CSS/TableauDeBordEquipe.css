@@ -1,0 +1,100 @@
+/* TableauDeBordEquipe.css */
+
+/* Bloc pour la fiche membre */
+.team-member {
+    margin-bottom: 20px;
+}
+
+/* Styles pour la section image */
+.team-member .image-section {
+    margin-bottom: 15px;
+}
+.team-member .image-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5E856E;
+}
+.team-member .image-section input[type="file"] {
+    margin-bottom: 10px;
+}
+.team-member .image-section button {
+    background-color: #c0392b;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+.team-member .image-section button:hover {
+    background-color: #a93226;
+}
+.team-member .preview-container {
+    margin-top: 10px;
+    text-align: center;
+}
+.team-member .preview-container img {
+    max-width: 150px;
+    max-height: 150px;
+    border: 2px solid #5E856E;
+    border-radius: 5px;
+}
+
+/* Styles pour la section Nom et Prénom */
+.team-member .info-section {
+    margin-bottom: 15px;
+}
+.team-member .info-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5E856E;
+}
+.team-member .info-section input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Styles pour la section Description */
+.team-member .description-section {
+    margin-bottom: 15px;
+}
+.team-member .description-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5E856E;
+}
+.team-member .description-section textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.admin-block.actions #addMember {
+    background-color: #9DBD91;
+}
+.admin-block.actions #addMember:hover {
+    background-color: #7C9572;
+}
+.admin-block.actions #modifyMember {
+    background-color: grey;
+}
+.admin-block.actions #modifyMember:hover {
+    background-color: dimgrey;
+}
+.admin-block.actions #deleteMember {
+    background-color: #c0392b;
+}
+.admin-block.actions #deleteMember:hover {
+    background-color: #a93226; /* Ajustez si nécessaire */
+}

@@ -3,20 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Tableau de Bord - Accueil</title>
-  <link rel="stylesheet" href="../CSS/TableauDeBordHebergements.css">
-  <style>
-    /* Exemple de style pour l'aperçu de l'image */
-    .preview-container {
-      margin-top: 15px;
-      text-align: center;
-    }
-    .preview-container img {
-      max-width: 100%;
-      max-height: 300px;
-      border: 2px solid #5E856E;
-      border-radius: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="../CSS/TableauDeBordCommun.css">
+  <link rel="stylesheet" href="../CSS/TableauDeBordAccueil.css">
 </head>
 <body>
 <div class="dashboard-container">
@@ -32,8 +20,8 @@
         <li><a href="TableauDeBordHebergements.html">Hébergements</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="TableauDeBordActus.html">Actualités</a></li>
-        <li><a href="#">Équipe</a></li>
-        <li><a href="#">Colos</a></li>
+        <li><a href="TableauDeBordEquipe.html">Équipe</a></li>
+        <li><a href="TableauDeBordColos.html">Colos</a></li>
       </ul>
     </nav>
     <div class="logout">
@@ -55,6 +43,7 @@
         <p>
           Entrez l'URL de l'image ou téléchargez une nouvelle image pour personnaliser l'accueil.
         </p>
+        <br>
         <!-- Champ pour insérer l'URL (optionnel) -->
         <input type="text" placeholder="URL de l'image de fond" id="imageUrl">
         <br>
@@ -72,6 +61,7 @@
         <p>
           Modifiez le texte qui apparaît sur la page d'accueil pour présenter le Centre Jean Pouzet.
         </p>
+        <br>
         <textarea placeholder="Tapez ici le texte de présentation..." rows="8"></textarea>
       </div>
 
