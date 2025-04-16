@@ -13,7 +13,7 @@
     <!-- Barre de navigation latérale -->
     <aside class="sidebar">
         <div class="logo">
-            <h2>Centre Jean Pouzet</h2>
+            <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
         </div>
         <nav>
             <ul>

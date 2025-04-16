@@ -68,7 +68,7 @@ $currentImage = isset($data['image_fond']) ? $data['image_fond'] : "";
     <!-- Barre latérale -->
     <aside class="sidebar">
         <div class="logo">
-            <h2>Centre Jean Pouzet</h2>
+            <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
         </div>
         <nav>
             <ul>
@@ -90,46 +90,57 @@ $currentImage = isset($data['image_fond']) ? $data['image_fond'] : "";
 
     <!-- Contenu principal -->
     <main class="content">
-        <header class="header">
-            <h1>Tableau de Bord - Accueil</h1>
-        </header>
+        <div class="scroll">
+            <header class="header">
+                <h1>Tableau de Bord - Accueil</h1>
+            </header>
 
-        <!-- Section de modification -->
-        <section class="admin-section">
-            <!-- Bloc pour modifier l'image de fond -->
-            <div class="admin-block">
-                <h2>Modifier l'image de fond de l'accueil</h2>
-                <br>
-                <!-- Formulaire d'upload -->
-                <form method="post" enctype="multipart/form-data">
-                    <input type="file" id="imageFile" name="imageFile" accept="image/*">
-                    <br><br>
-                    <div class="preview-container">
-                        <?php if (!empty($currentImage)) : ?>
-                            <img id="imagePreview" src="<?php echo htmlspecialchars($currentImage); ?>" alt="Aperçu de l'image" style="max-width: 400px;">
-                        <?php else : ?>
-                            <img id="imagePreview" src="" alt="Aperçu de l'image">
-                        <?php endif; ?>
-                    </div>
+            <!-- Section de modification -->
+            <section class="admin-section">
+                <!-- Bloc pour modifier l'image de fond -->
+                <div class="admin-block">
+                    <h2>Modifier l'image de fond de l'accueil</h2>
                     <br>
+                    <!-- Formulaire d'upload -->
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="file" id="imageFile" name="imageFile" accept="image/*">
+                        <br><br>
+                        <h2>Aperçu de l'image de fond de l'accueil :</h2>
+                        <div class="preview-container">
+                            <?php if (!empty($currentImage)) : ?>
+                                <img id="imagePreview" src="<?php echo htmlspecialchars($currentImage); ?>" alt="Aperçu de l'image" style="max-width: 400px;">
+                            <?php else : ?>
+                                <img id="imagePreview" src="" alt="Aperçu de l'image">
+                            <?php endif; ?>
+                        </div>
+                        <br>
+                        <div class="admin-block actions">
+                            <button id="Add" type="submit">Enregistrer les modifications</button>
+                        </div>
+                        <br>
+                    </form>
+                    <?php if ($message) echo "<p style='color:green;'>$message</p>"; ?>
+                </div>
+
+                <!-- Bloc pour modifier le texte (inchangé ici) -->
+                <div class="admin-block">
+                    <h2>Modifier les différents textes de la page accueil</h2>
+                    <p>
+                        Modifiez le texte de "Qui sommes nous ?".
+                    </p>
+                    <br>
+                    <textarea placeholder="Tapez ici le texte de présentation..." rows="8"></textarea><p>
+                        <br>
+                        Modifiez le texte de "Où sommes nous ?".
+                    </p>
+                    <br>
+                    <textarea placeholder="Tapez ici le texte de présentation..." rows="8"></textarea>
                     <div class="admin-block actions">
                         <button id="Add" type="submit">Enregistrer les modifications</button>
                     </div>
-                    <br>
-                </form>
-                <?php if ($message) echo "<p style='color:green;'>$message</p>"; ?>
-            </div>
-
-            <!-- Bloc pour modifier le texte (inchangé ici) -->
-            <div class="admin-block">
-                <h2>Modifier le texte de présentation</h2>
-                <p>
-                    Modifiez le texte qui apparaît sur la page d'accueil pour présenter le Centre Jean Pouzet.
-                </p>
-                <br>
-                <textarea placeholder="Tapez ici le texte de présentation..." rows="8"></textarea>
-            </div>
-        </section>
+                </div>
+            </section>
+        </div>
     </main>
 </div>
 

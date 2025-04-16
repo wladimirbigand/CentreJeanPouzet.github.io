@@ -19,11 +19,11 @@ if (!isset($_SESSION['admin'])) {
   <!-- Barre latérale -->
   <aside class="sidebar">
     <div class="logo">
-      <h2>Centre Jean Pouzet</h2>
+        <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
     </div>
     <nav>
       <ul>
-        <li><a href="TableauDeBord.html" class="active">Tableau de bord</a></li>
+        <li><a href="TableauDeBord.php" class="active">Tableau de bord</a></li>
         <li><a href="TableauDeBordAccueil.php">Accueil</a></li>
         <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
         <li><a href="#">Contact</a></li>

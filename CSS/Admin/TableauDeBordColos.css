@@ -9,8 +9,6 @@
     margin-top: 10px;
     color: #5E856E;
 }
-
-/* Champ de saisie texte/textarea dans la partie colo-info */
 .colo-info input[type="text"],
 .colo-info textarea {
     margin-top: 5px;
@@ -39,16 +37,80 @@
     border-radius: 5px;
 }
 
-/* Disposition des images en 3 colonnes de 2, s'adaptant à l'espace libre */
+/* Disposition des images en 3 colonnes de 2, s'adaptant à l'espace disponible */
 .colo-colonnes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
-    grid-auto-rows: auto;                /* Hauteur automatique pour chaque ligne */
-    gap: 20px;                           /* Espacement entre les images */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     width: 100%;
 }
 
-/* Responsivité : sur écran étroit, on passe à une seule colonne */
+/* Styles supplémentaires pour le choix d'action */
+
+/* Styles supplémentaires pour le choix d'action */
+
+/* Conteneur des boutons d'option */
+.action-options {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 98%;
+}
+.action-options button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styles pour chaque bouton */
+.action-options #btn-add {
+    background-color: #9DBD91;
+}
+.action-options #btn-add:hover {
+    background-color: #7C9572;
+}
+.action-options #btn-modify {
+    background-color: grey;
+}
+.action-options #btn-modify:hover {
+    background-color: dimgrey;
+}
+.action-options #btn-delete {
+    background-color: #c0392b;
+}
+.action-options #btn-delete:hover {
+    background-color: #a93226;
+}
+
+
+/* Style du bouton sélectionné (active) */
+.action-options button.active {
+    /* On peut ajouter une ombre et un léger agrandissement */
+    box-shadow: 0 0 8px rgba(0, 0, 0);
+    transform: scale(1.02);
+}
+
+
+.admin-block .actions button {
+    background-color: #9DBD91;
+}
+
+/* Cache toutes les sections d'action par défaut */
+.action-section {
+    display: none;
+}
+/* Affichage de la section active */
+.action-section.active {
+    display: grid;
+    gap: 20px;
+}
+
+/* Responsivité */
 @media screen and (max-width: 768px) {
     .colo-colonnes {
         grid-template-columns: 1fr;

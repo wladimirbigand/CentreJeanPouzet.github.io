@@ -13,7 +13,7 @@
     <!-- Barre latérale -->
     <aside class="sidebar">
         <div class="logo">
-            <h2>Centre Jean Pouzet</h2>
+            <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
         </div>
         <nav>
             <ul>
@@ -22,7 +22,7 @@
                 <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="TableauDeBordActus.php">Actualités</a></li>
-                <li><a href="TableauDeBordEquipe.html" class="active">Équipe</a></li>
+                <li><a href="TableauDeBordEquipe.php" class="active">Équipe</a></li>
                 <li><a href="TableauDeBordColos.php">Colos</a></li>
             </ul>
         </nav>
