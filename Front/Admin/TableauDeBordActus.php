@@ -16,16 +16,18 @@
         <nav>
             <ul>
                 <li><a href="TableauDeBord.php">Tableau de bord</a></li>
-                <li><a href="TableauDeBordAccueil.html">Accueil</a></li>
-                <li><a href="TableauDeBordHebergements.html">Hébergements</a></li>
+                <li><a href="TableauDeBordAccueil.php">Accueil</a></li>
+                <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="TableauDeBordActus.html" class="active">Actualités</a></li>
-                <li><a href="TableauDeBordEquipe.html">Équipe</a></li>
-                <li><a href="TableauDeBordColos.html">Colos</a></li>
+                <li><a href="TableauDeBordEquipe.php">Équipe</a></li>
+                <li><a href="TableauDeBordColos.php">Colos</a></li>
             </ul>
         </nav>
         <div class="logout">
-            <button>Se déconnecter</button>
+            <form method="post" action="Logout.php">
+                <button type="submit">Se déconnecter</button>
+            </form>
         </div>
     </aside>
 
