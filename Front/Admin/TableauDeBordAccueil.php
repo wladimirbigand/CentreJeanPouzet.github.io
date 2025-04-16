@@ -16,7 +16,7 @@
     <nav>
       <ul>
         <li><a href="TableauDeBord.php">Tableau de bord</a></li>
-        <li><a href="TableauDeBordAccueil.html" class="active">Accueil</a></li>
+        <li><a href="TableauDeBordAccueil.php" class="active">Accueil</a></li>
         <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="TableauDeBordActus.php">Actualités</a></li>
