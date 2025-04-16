@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tableau de Bord - Accueil</title>
+  <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
+  <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordAccueil.css">
+</head>
+<body>
+<div class="dashboard-container">
+  <!-- Barre latérale -->
+  <aside class="sidebar">
+    <div class="logo">
+      <h2>Centre Jean Pouzet</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="TableauDeBord.html">Tableau de bord</a></li>
+        <li><a href="TableauDeBordAccueil.html" class="active">Accueil</a></li>
+        <li><a href="TableauDeBordHebergements.html">Hébergements</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="TableauDeBordActus.html">Actualités</a></li>
+        <li><a href="TableauDeBordEquipe.html">Équipe</a></li>
+        <li><a href="TableauDeBordColos.html">Colos</a></li>
+      </ul>
+    </nav>
+    <div class="logout">
+      <button>Se déconnecter</button>
+    </div>
+  </aside>
+
+  <!-- Contenu principal -->
+  <main class="content">
+    <header class="header">
+      <h1>Tableau de Bord - Accueil</h1>
+    </header>
+
+    <!-- Section de modification de l'accueil -->
+    <section class="admin-section">
+      <!-- Bloc pour modifier l'image de fond -->
+      <div class="admin-block">
+        <h2>Modifier l'image de fond de l'accueil</h2>
+        <p>
+          Entrez l'URL de l'image ou téléchargez une nouvelle image pour personnaliser l'accueil.
+        </p>
+        <br>
+        <!-- Champ pour insérer l'URL (optionnel) -->
+        <input type="text" placeholder="URL de l'image de fond" id="imageUrl">
+        <br>
+        <!-- Champ de sélection de fichier -->
+        <input type="file" id="imageFile" accept="image/*">
+        <!-- Conteneur pour l'aperçu de l'image -->
+        <div class="preview-container">
+          <img id="imagePreview" src="" alt="Aperçu de l'image" style="display: none;">
+        </div>
+      </div>
+
+      <!-- Bloc pour modifier le texte de présentation -->
+      <div class="admin-block">
+        <h2>Modifier le texte de présentation</h2>
+        <p>
+          Modifiez le texte qui apparaît sur la page d'accueil pour présenter le Centre Jean Pouzet.
+        </p>
+        <br>
+        <textarea placeholder="Tapez ici le texte de présentation..." rows="8"></textarea>
+      </div>
+
+      <!-- Bloc d'actions -->
+      <div class="admin-block actions">
+        <button id="Add">Enregistrer les modifications</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  const imageFileInput = document.getElementById('imageFile');
+  const imagePreview = document.getElementById('imagePreview');
+
+  imageFileInput.addEventListener('change', function() {
+    const file = this.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.addEventListener('load', function() {
+        imagePreview.setAttribute('src', this.result);
+        imagePreview.style.display = 'block';
+      });
+
+      reader.readAsDataURL(file);
+    } else {
+      imagePreview.setAttribute('src', '');
+      imagePreview.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* Remise à zéro des marges et paddings par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background: url('../../Images/Accueil/3.jpg') no-repeat center center/cover;
+}
+
+/* Conteneur global de la section Login */
+.Login {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+/* Boîte principale du formulaire (un peu plus grande) */
+.LoginContainer {
+    background-color: rgba(245, 241, 225, 0.95); /* Beige avec transparence */
+    border-radius: 10px;
+    width: 450px;        /* Augmentation de la largeur */
+    padding: 40px;
+    display: grid;
+    grid-template-rows: auto 1fr; /* Première ligne pour le titre, seconde pour le formulaire */
+    gap: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Titre principal (Interface administrateur) */
+.Interface h1 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Conteneur du formulaire */
+.Formulaire {
+    width: 100%;
+}
+
+/* Chaque groupe label/champ */
+.champ {
+    margin-bottom: 15px;
+    display: grid;
+    gap: 5px;
+}
+
+/* Label (Identifiant / Mot de passe) */
+.champ label {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Champs de saisie */
+.champ input[type="text"],
+.champ input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Bouton de connexion */
+.champ button {
+    background-color: #9DBD91; /* Couleur de fond du bouton */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 60%;
+    justify-self: center;
+}
+
+/* Effet survol du bouton */
+.champ button:hover {
+    background-color: #5e856e;
+}

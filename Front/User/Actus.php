@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre Jean Pouzet</title>
-    <link rel="stylesheet" href="../CSS/Accueil.css">
-    <link rel="stylesheet" href="../CSS/Footer.css">
-    <link rel="stylesheet" href="../CSS/Header.css">
-    <link rel="stylesheet" href="../CSS/Fonts.css">
-    <link rel="stylesheet" href="../CSS/Actus.css">
-    <script src="../JS/Header.js"></script>
-    <script src="../JS/Actus.js" async></script>
-    <link rel="icon" type="image/vnd.icon" href="../Images/Logo/logo.png">
+    <link rel="stylesheet" href="../../CSS/User/Accueil.css">
+    <link rel="stylesheet" href="../../CSS/User/Footer.css">
+    <link rel="stylesheet" href="../../CSS/User/Header.css">
+    <link rel="stylesheet" href="../../CSS/User/Fonts.css">
+    <link rel="stylesheet" href="../../CSS/User/Actus.css">
+    <script src="../../JS/Header.js"></script>
+    <script src="../../JS/Actus.js" async></script>
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
 <body>
 <?php $currentPage = 'actus'; ?>
-<?php require_once '../Includes/header.php'; ?>
+<?php require_once '../Includes/Header.php'; ?>
 
     <main>
         <h1>Nos actualités</h1>
@@ -24,7 +24,7 @@
             <div class="actus">
                 <a title="Les inscriptions pour le séjour de ski sont ouvertes ">
                     <div>
-                        <img src="../Images/Nos colos/AFFICHE SKI 2025_page-0001.jpg" alt="" class="images">
+                        <img src="../../Images/Nos%20colos/AFFICHE%20SKI%202025_page-0001.jpg" alt="" class="images">
                     </div>
                 </a>
                 <div>
@@ -38,7 +38,7 @@
             <div class="actus">
                 <a title="Bonne année 2025 !">
                     <div>
-                        <img src="../Images/Actus/2025_ACTUS.jpg" alt="" class="images">
+                        <img src="../../Images/Actus/2025_ACTUS.jpg" alt="" class="images">
                     </div>
                 </a>
                 <div>
@@ -53,7 +53,7 @@
             <div class="actus">
                 <a title="Classe découverte">
                     <div>
-                        <img src="../Images/Actus/CLASSE_DECOUVERTE_1.jpg" alt="" class="images">
+                        <img src="../../Images/Actus/CLASSE_DECOUVERTE_1.jpg" alt="" class="images">
                     </div>
                 </a>
                 <div>
@@ -68,7 +68,7 @@
             <div class="actus">
                 <a title=" La saison hivernale est lancée !">
                     <div>
-                        <img src="../Images/Actus/SAISON_HIVERNALE.JPG" alt="" class="images">
+                        <img src="../../Images/Actus/SAISON_HIVERNALE.JPG" alt="" class="images">
                     </div>
                 </a>
                 <div>
@@ -83,7 +83,7 @@
             <div class="actus">
                 <a href="actu_container" title="Entreprises">
                     <div>
-                        <img src="../Images/Actus/entreprises.jpg" alt="" class="images">
+                        <img src="../../Images/Actus/entreprises.jpg" alt="" class="images">
                     </div>
                 </a>
                 <div>
@@ -97,7 +97,7 @@
             <div class="actus">
                 <a href="#" title="Pause bien-être">
                     <div>
-                        <img src="../Images/Actus/vélo.jpg" alt="" class="images">
+                        <img src="../../Images/Actus/vélo.jpg" alt="" class="images">
                     </div>
                 </a>
                 <div>

@@ -1,0 +1,11 @@
+/* TableauDeBordHebergements.css */
+
+/* Styles spécifiques pour la page Hébergements */
+
+/* Exemple de style pour les formulaires d'hébergement */
+.admin-block input[type="text"],
+.admin-block textarea {
+    margin-bottom: 15px;
+}
+
+/* Vous pouvez ajouter d'autres règles spécifiques pour enrichir la présentation et le comportement */

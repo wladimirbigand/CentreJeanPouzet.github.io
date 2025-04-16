@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Centre Jean Pouzet</title>
-    <link rel="stylesheet" href="../CSS/Accueil.css">
-    <link rel="stylesheet" href="../CSS/Footer.css">
-    <link rel="stylesheet" href="../CSS/HeaderAccueil.css">
-    <link rel="stylesheet" href="../CSS/Fonts.css">
-    <link rel="icon" type="image/vnd.icon" href="../Images/Logo/logo.png">
-    <script src="../JS/Header.js" ></script>
+    <link rel="stylesheet" href="../../CSS/User/Accueil.css">
+    <link rel="stylesheet" href="../../CSS/User/Footer.css">
+    <link rel="stylesheet" href="../../CSS/User/HeaderAccueil.css">
+    <link rel="stylesheet" href="../../CSS/User/Fonts.css">
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
+    <script src="../../JS/Header.js" ></script>
 </head>
 <body>
     <header>
@@ -36,7 +36,7 @@
         <section id="section1">
             <div class="overlay">
                 <!-- <h1>Centre Jean Pouzet</h1> -->
-                <img src="../Images/Logo/LogoJeanPouzet.svg" alt="">
+                <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
                 <button onclick="document.getElementById('section2').scrollIntoView({ behavior: 'smooth' })">En savoir plus</button>
             </div>
         </section>        
@@ -51,9 +51,9 @@
                     </p>
             </div>
             <div class="images">
-                <img class="ImageBW" src="../Images/Accueil/B&W.png" alt="Image">
-                <img class="ImageBW" src="../Images/IMG_20230824_142853.jpg" alt="Image">
-                <img class="ImageBW" src="../Images/Accueil/B&W1.png" alt="Image">
+                <img class="ImageBW" src="../../Images/Accueil/B&W.png" alt="Image">
+                <img class="ImageBW" src="../../Images/IMG_20230824_142853.jpg" alt="Image">
+                <img class="ImageBW" src="../../Images/Accueil/B&W1.png" alt="Image">
             </div>
         </section>
 

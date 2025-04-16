@@ -13,7 +13,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(../Images/Mentions_confidentialite/Photo_du_centre_avec_des_arbres.JPG);
+    background-image: url(../../Images/Mentions_confidentialite/Photo_du_centre_avec_des_arbres.JPG);
     background-size: cover;
     background-position: center;
 }

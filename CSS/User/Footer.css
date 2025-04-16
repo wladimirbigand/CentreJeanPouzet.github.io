@@ -85,7 +85,7 @@ footer div {
 /* / Adaptabilité pour petits écrans / */
 @media (max-width: 768px) {
     footer {
-        grid-template-columns: 3(1fr); /* Une seule colonne */
+        grid-template-columns: repeat(3, 1fr); /* Une seule colonne */
         text-align: center;
         font-size: 10px;
     }
