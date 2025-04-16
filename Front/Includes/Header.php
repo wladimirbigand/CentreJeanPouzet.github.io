@@ -1,6 +1,6 @@
 <header>
-    <a href="Accueil.php" class="image-zoom">
-        <img src="../Images/Logo/LogoJeanPouzet.svg" alt="Logo">
+    <a href="../User/Accueil.php" class="image-zoom">
+        <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="Logo">
     </a>
     <button class="burger-menu" aria-label="Menu">
         <span></span>
