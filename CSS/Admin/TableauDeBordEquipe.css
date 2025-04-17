@@ -1,100 +1,112 @@
 /* TableauDeBordEquipe.css */
 
-/* Bloc pour la fiche membre */
-.team-member {
-    margin-bottom: 20px;
-}
-
-/* Styles pour la section image */
-.team-member .image-section {
-    margin-bottom: 15px;
-}
-.team-member .image-section label {
+/* Bloc info membre */
+.team-member-info label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-top: 10px;
     color: #5E856E;
 }
-.team-member .image-section input[type="file"] {
-    margin-bottom: 10px;
-}
-.team-member .image-section button {
-    background-color: #c0392b;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
+.team-member-info input[type="text"],
+.team-member-info select,
+.team-member-info textarea,
+.team-member-delete select{
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 10px;
+    outline: none;
 }
-.team-member .image-section button:hover {
-    background-color: #a93226;
+
+/* Section image */
+.image-section,
+.team-member-info .preview-container {
+    margin-bottom: 15px;
 }
-.team-member .preview-container {
-    margin-top: 10px;
-    text-align: center;
-}
-.team-member .preview-container img {
+.preview-container img {
     max-width: 150px;
     max-height: 150px;
     border: 2px solid #5E856E;
     border-radius: 5px;
+    margin-top: 15px;
 }
 
-/* Styles pour la section Nom et Prénom */
-.team-member .info-section {
-    margin-bottom: 15px;
+/* Boutons d’option (Ajouter / Modifier / Supprimer) */
+.action-options {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 98%;
 }
-.team-member .info-section label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #5E856E;
-}
-.team-member .info-section input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
+.action-options button {
+    flex: 1;
+    padding: 10px;
+    border: none;
     border-radius: 5px;
-    outline: none;
-}
-
-/* Styles pour la section Description */
-.team-member .description-section {
-    margin-bottom: 15px;
-}
-.team-member .description-section label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #5E856E;
-}
-.team-member .description-section textarea {
-    width: 100%;
-    padding: 8px;
+    color: #fff;
     font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-.admin-block.actions #addMember {
+#btn-add-member {
     background-color: #9DBD91;
 }
-.admin-block.actions #addMember:hover {
-    background-color: #7C9572;
-}
-.admin-block.actions #modifyMember {
+#btn-modify-member {
     background-color: grey;
 }
-.admin-block.actions #modifyMember:hover {
-    background-color: dimgrey;
-}
-.admin-block.actions #deleteMember {
+#btn-delete-member {
     background-color: #c0392b;
 }
-.admin-block.actions #deleteMember:hover {
-    background-color: #a93226; /* Ajustez si nécessaire */
+.action-options button:hover {
+    filter: brightness(0.9);
+}
+/* Bouton actif */
+.action-options button.active {
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    transform: scale(1.05);
+}
+
+/* Cacher/montrer les sections */
+.action-section {
+    display: none;
+}
+.action-section.active {
+    display: grid;
+    gap: 20px;
+}
+
+.admin-block.actions #btn-add-member-save {
+    background-color: #9DBD91;
+}
+.admin-block.actions #btn-add-member-save:hover {
+    background-color: #7C9572;
+}
+.admin-block.actions #btn-modify-member-save {
+    background-color: grey;
+}
+.admin-block.actions #btn-modify-member-save:hover {
+    background-color: dimgrey;
+}
+.admin-block.actions #btn-delete-member-save {
+    background-color: #c0392b;
+}
+.admin-block.actions #btn-delete-member-save:hover {
+    background-color: #a93226;
+}
+
+/* Boutons internes “Enregistrer / Confirmer” */
+.admin-block.actions button {
+    background-color: #9DBD91;
+}
+.admin-block.actions button:hover {
+    background-color: #7C9572;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .action-options {
+        flex-direction: column;
+    }
 }

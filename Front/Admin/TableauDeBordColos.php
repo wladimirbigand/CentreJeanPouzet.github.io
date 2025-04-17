@@ -113,7 +113,7 @@
                 <input type="file" id="modifyColoAffiche" accept="image/*">
                 <div class="preview-container" id="previewModifyAffiche">
                     <!-- Exemple de prévisualisation de l'affiche actuelle -->
-                    <img src="../../Images/Nos Colos/affiche_exemple.jpg" alt="Affiche actuelle">
+                    <img src="../../Images/Colos/Affiche%20séjour%202024%20été_page-0001.jpg" alt="Affiche actuelle">
                 </div>
 
 <!--                <label for="modifyColoDescription">Description :</label>-->
@@ -127,42 +127,42 @@
                         <label>Image 1 :</label>
                         <input type="file" id="modifyColoImage1" accept="image/*">
                         <div class="preview-container" id="previewModifyImage1">
-                            <img src="../Images/Colos/image1_exemple.jpg" alt="Image 1 actuelle">
+                            <img src="../../Images/Colos/IMG_6608.jpg" alt="Image 1 actuelle">
                         </div>
                     </div>
                     <div class="image-slot">
                         <label>Image 2 :</label>
                         <input type="file" id="modifyColoImage2" accept="image/*">
                         <div class="preview-container" id="previewModifyImage2">
-                            <img src="../Images/Colos/image2_exemple.jpg" alt="Image 2 actuelle">
+                            <img src="../../Images/Colos/IMG_6612.jpg" alt="Image 2 actuelle">
                         </div>
                     </div>
                     <div class="image-slot">
                         <label>Image 3 :</label>
                         <input type="file" id="modifyColoImage3" accept="image/*">
                         <div class="preview-container" id="previewModifyImage3">
-                            <img src="../Images/Colos/image3_exemple.jpg" alt="Image 3 actuelle">
+                            <img src="../../Images/Colos/IMG_6619.jpg" alt="Image 3 actuelle">
                         </div>
                     </div>
                     <div class="image-slot">
                         <label>Image 4 :</label>
                         <input type="file" id="modifyColoImage4" accept="image/*">
                         <div class="preview-container" id="previewModifyImage4">
-                            <img src="../Images/Colos/image4_exemple.jpg" alt="Image 4 actuelle">
+                            <img src="../../Images/Colos/IMG_6626.jpg" alt="Image 4 actuelle">
                         </div>
                     </div>
                     <div class="image-slot">
                         <label>Image 5 :</label>
                         <input type="file" id="modifyColoImage5" accept="image/*">
                         <div class="preview-container" id="previewModifyImage5">
-                            <img src="../Images/Colos/image5_exemple.jpg" alt="Image 5 actuelle">
+                            <img src="../../Images/Colos/IMG_6642.jpg" alt="Image 5 actuelle">
                         </div>
                     </div>
                     <div class="image-slot">
                         <label>Image 6 :</label>
                         <input type="file" id="modifyColoImage6" accept="image/*">
                         <div class="preview-container" id="previewModifyImage6">
-                            <img src="../Images/Colos/image6_exemple.jpg" alt="Image 6 actuelle">
+                            <img src="../../Images/Colos/IMG_8605.JPG" alt="Image 6 actuelle">
                         </div>
                     </div>
                 </div>

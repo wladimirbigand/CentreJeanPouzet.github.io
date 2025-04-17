@@ -151,27 +151,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.admin-block.actions #btn-add-colo {
-    background-color: #9DBD91;
-}
-.admin-block.actions #btn-add-colo:hover {
-    background-color: #7C9572;
-}
-.admin-block.actions #btn-modify-colo {
-    background-color: grey;
-}
-.admin-block.actions #btn-modify-colo:hover {
-    background-color: dimgrey;
-}
-.admin-block.actions #btn-delete-colo {
-    background-color: #c0392b;
-}
-.admin-block.actions #btn-delete-colo:hover {
-    background-color: #a93226;
-}
-
-
-
 .admin-block.actions #Add {
     background-color: #9DBD91;
 }

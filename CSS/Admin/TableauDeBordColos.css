@@ -87,6 +87,34 @@
     background-color: #a93226;
 }
 
+.admin-block.actions #btn-add-colo {
+    background-color: #9DBD91;
+}
+.admin-block.actions #btn-add-colo:hover {
+    background-color: #7C9572;
+}
+.admin-block.actions #btn-modify-colo {
+    background-color: grey;
+}
+.admin-block.actions #btn-modify-colo:hover {
+    background-color: dimgrey;
+}
+.admin-block.actions #btn-delete-colo {
+    background-color: #c0392b;
+}
+.admin-block.actions #btn-delete-colo:hover {
+    background-color: #a93226;
+}
+
+#deleteColoSelect {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
 
 /* Style du bouton sélectionné (active) */
 .action-options button.active {
