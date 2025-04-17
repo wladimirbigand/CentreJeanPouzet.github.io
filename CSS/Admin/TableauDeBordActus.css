@@ -51,9 +51,10 @@
 #btn-modify-actus { background: grey; }
 #btn-delete-actus { background: #c0392b; }
 .action-options button:hover { filter: brightness(0.9); }
+
 .action-options button.active {
-    box-shadow: 0 0 8px rgba(0,0,0,0.4);
-    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(0,0,0);
+    transform: scale(1.02);
 }
 
 #selectActusToDelete {
