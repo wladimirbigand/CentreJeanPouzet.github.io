@@ -33,7 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Centre Jean Pouzet</title>
+    <link rel="stylesheet" href="../../CSS/User/Fonts.css">
     <link rel="stylesheet" href="../../CSS/Admin/Login.css">
+    <!-- jQuery depuis le CDN de Google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <section class="Login">

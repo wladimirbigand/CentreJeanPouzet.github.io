@@ -11,6 +11,13 @@ body {
     background: url('../../Images/Accueil/3.jpg') no-repeat center center/cover;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 /* Conteneur global de la section Login */
 .Login {
     display: grid;
@@ -47,7 +54,7 @@ body {
 
 /* Boîte principale du formulaire (un peu plus grande) */
 .LoginContainer {
-    background-color: rgba(245, 241, 225, 0.85); /* Beige avec transparence */
+    background-color: rgba(245, 241, 225, 0.65); /* Beige avec transparence */
     border-radius: 10px;
     /*border: 2px solid #FFEDA7;*/
     width: 450px;        /* Augmentation de la largeur */
@@ -56,13 +63,18 @@ body {
     grid-template-rows: auto 1fr; /* Première ligne pour le titre, seconde pour le formulaire */
     gap: 20px;
     box-shadow: 0 0 10px rgba(0,0,0);
+    backdrop-filter: blur(10px);
+    /*background: rgba(255, 255, 255, 0.2);*/
+    /*border: 1px solid rgba(255, 255, 255, 0.3);*/
+
 }
 
 /* Titre principal (Interface administrateur) */
 .Interface h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #333;
     text-align: center;
+    font-family: 'Mukta SemiBold';
 }
 
 /* Conteneur du formulaire */
@@ -75,12 +87,14 @@ body {
     margin-top: 15px;
     display: grid;
     gap: 5px;
+    font-family: 'Mukta Light';
 }
 
 /* Label (Identifiant / Mot de passe) */
 .champ label {
     font-weight: bold;
     color: #000;
+    font-size: 1.1rem;
 }
 
 /* Champs de saisie */
@@ -100,12 +114,17 @@ body {
     color: #fff;
     border: none;
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    /*transition: background-color 0.3s ease;*/
     width: 60%;
     justify-self: center;
+    font-family: 'Mukta Light';
+    background: linear-gradient(200deg, #9DBD91, #5e856e);
+    transition: transform 0.2s ease;
+    &:hover { transform: scale(1.05); }
+
 }
 
 /* Effet survol du bouton */

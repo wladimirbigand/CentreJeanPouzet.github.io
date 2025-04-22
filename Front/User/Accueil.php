@@ -23,6 +23,9 @@ try {
     <link rel="stylesheet" href="../../CSS/User/Fonts.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <script src="../../JS/Header.js"></script>
+    <!-- jQuery depuis le CDN de Google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <style>
         /* Section 1 avec l'image de fond récupérée depuis la BDD */
         #section1 {
