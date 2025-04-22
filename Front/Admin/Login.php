@@ -39,7 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <section class="Login">
     <div class="LoginContainer">
         <div class="Interface">
-            <h1>Interface administrateur</h1>
+            <img id="AdminIMG" src="../../Images/Admin/Admin.png" alt="Logo admin">
+            <h1>Connexion admin</h1>
         </div>
         <div class="Formulaire">
             <?php if (isset($erreur)) echo "<p style='color: red;'>$erreur</p>"; ?>

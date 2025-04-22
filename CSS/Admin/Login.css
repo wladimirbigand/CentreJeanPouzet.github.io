@@ -18,6 +18,18 @@ body {
     min-height: 100vh;
 }
 
+#AdminIMG {
+    height: 100px;
+    display: grid;
+    justify-self: center;
+}
+
+.Interface {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 30px;
+}
+
 .retour-site {
     text-align: center;
     display: inline-block;
@@ -35,14 +47,15 @@ body {
 
 /* Boîte principale du formulaire (un peu plus grande) */
 .LoginContainer {
-    background-color: rgba(245, 241, 225, 0.95); /* Beige avec transparence */
+    background-color: rgba(245, 241, 225, 0.85); /* Beige avec transparence */
     border-radius: 10px;
+    /*border: 2px solid #FFEDA7;*/
     width: 450px;        /* Augmentation de la largeur */
     padding: 40px;
     display: grid;
     grid-template-rows: auto 1fr; /* Première ligne pour le titre, seconde pour le formulaire */
     gap: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0,0,0);
 }
 
 /* Titre principal (Interface administrateur) */
