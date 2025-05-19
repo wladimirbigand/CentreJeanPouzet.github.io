@@ -1,34 +1,85 @@
 /* TableauDeBordActus.css */
 
-/* Styles spécifiques pour la page Actualités */
-
-/* Chaque item d'actualité */
-.actu-item {
-    margin-bottom: 30px;
-}
-.actu-item p {
-    margin: 10px 0 5px;
+/* Formulaire d’actualité */
+.actu-form label {
+    display: block;
     font-weight: bold;
+    margin-top: 10px;
+    color: #5E856E;
 }
-.actu-item input[type="text"],
-.actu-item textarea {
+.actu-form input[type="text"],
+.actu-form select,
+.actu-form textarea {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
+    margin: 5px 0 15px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
 }
 
-/* Style pour l'aperçu des images d'actualités */
+/* Aperçu d’image */
 .preview-container {
-    margin-top: 15px;
-    text-align: start;
+    margin-top: 10px;
 }
 .preview-container img {
-    max-width: 100%;
-    max-height: 300px;
-    border: 2px solid #5E856E; /* Vert Eucalyptus */
+    max-width: 200px;
+    max-height: 200px;
+    border: 2px solid #5E856E;
     border-radius: 5px;
+}
+
+/* Boutons d’option */
+.action-options {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 98%;
+}
+.action-options button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#btn-add-actus    { background: #9DBD91; }
+#btn-modify-actus { background: grey; }
+#btn-delete-actus { background: #c0392b; }
+.action-options button:hover { filter: brightness(0.9); }
+
+.action-options button.active {
+    box-shadow: 0 0 8px rgba(0,0,0);
+    transform: scale(1.02);
+}
+
+#selectActusToDelete {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Cacher/montrer sections */
+.action-section { display: none; }
+.action-section.active { display: grid; gap: 20px; }
+
+/* Boutons « Enregistrer » & « Confirmer » */
+.admin-block.actions button {
+    background-color: #9DBD91;
+}
+.admin-block.actions button:hover {
+    background-color: #7C9572;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .action-options { flex-direction: column; }
 }

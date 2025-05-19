@@ -13,21 +13,23 @@
     <!-- Barre de navigation latérale -->
     <aside class="sidebar">
         <div class="logo">
-            <h2>Centre Jean Pouzet</h2>
+            <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
         </div>
         <nav>
             <ul>
-                <li><a href="TableauDeBord.html">Tableau de bord</a></li>
-                <li><a href="TableauDeBordAccueil.html">Accueil</a></li>
-                <li><a href="../Admin/TableauDeBordHebergements.html" class="active">Hébergements</a></li>
+                <li><a href="TableauDeBord.php">Tableau de bord</a></li>
+                <li><a href="TableauDeBordAccueil.php">Accueil</a></li>
+                <li><a href="TableauDeBordHebergements.php" class="active">Hébergements</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="TableauDeBordActus.html">Actualités</a></li>
-                <li><a href="TableauDeBordEquipe.html">Équipe</a></li>
-                <li><a href="TableauDeBordColos.html">Colos</a></li>
+                <li><a href="TableauDeBordActus.php">Actualités</a></li>
+                <li><a href="TableauDeBordEquipe.php">Équipe</a></li>
+                <li><a href="TableauDeBordColos.php">Colos</a></li>
             </ul>
         </nav>
         <div class="logout">
-            <button>Se déconnecter</button>
+            <form method="post" action="Logout.php">
+                <button type="submit">Se déconnecter</button>
+            </form>
         </div>
     </aside>
 
@@ -59,9 +61,9 @@
 
             <!-- Troisième bloc : boutons d'actions sur les actualités -->
             <div class="admin-block actions">
-                <button id="Add">Ajouter une actualité</button>
-                <button id="Modify">Modifier une actualité</button>
-                <button id="Delete">Supprimer une actualité</button>
+                <button id="Add">Ajouter un hébergement</button>
+                <button id="Modify">Modifier une hébergement</button>
+                <button id="Delete">Supprimer une hébergement</button>
             </div>
         </section>
     </main>

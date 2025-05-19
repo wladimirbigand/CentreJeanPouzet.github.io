@@ -1,3 +1,9 @@
+/*#F5F5E1 : Beige clair*/
+/*#5E856E : Vert Eucalyptus*/
+/*#9DBD91 : Vert Sauge clair*/
+/*#FFEDA7 : Jaune Pastel*/
+/*#F9CD4A : Jaune Dor*/
+
 /* Remise à zéro des marges et paddings */
 * {
     margin: 0;
@@ -68,21 +74,6 @@
 .logout {
     margin-top: auto; /* Pousse le bouton en bas de la sidebar */
     margin-bottom: 20px;
-}
-
-.logout button {
-    background-color: #c0392b; /* Couleur rouge/brun */
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.logout button:hover {
-    background-color: #a93226; /* Variation plus sombre au survol */
 }
 
 /* ----- Contenu principal ----- */
