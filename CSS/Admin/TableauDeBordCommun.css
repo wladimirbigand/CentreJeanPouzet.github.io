@@ -19,6 +19,12 @@ body {
     background-color: #F5F5E1;
 }
 
+.logo img {
+    max-height: 120px;
+    display: grid;
+    place-items: center;
+}
+
 /* Styles pour la sidebar */
 .sidebar {
     background-color: #9DBD91; /* Vert Sauge clair */
@@ -40,6 +46,8 @@ body {
 .sidebar nav ul {
     list-style: none;
     width: 100%;
+    display: grid;
+    gap: 10px;
 }
 .sidebar nav ul li {
     margin-bottom: 15px;
@@ -106,6 +114,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 98%;
 }
 .admin-block h2 {
     margin-bottom: 10px;
@@ -141,6 +150,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .admin-block.actions #Add {
     background-color: #9DBD91;
 }

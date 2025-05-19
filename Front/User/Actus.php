@@ -24,7 +24,7 @@
             <div class="actus">
                 <a title="Les inscriptions pour le séjour de ski sont ouvertes ">
                     <div>
-                        <img src="../../Images/Nos%20colos/AFFICHE%20SKI%202025_page-0001.jpg" alt="" class="images">
+                        <img src="../../Images/Colos/AFFICHE%20SKI%202025_page-0001.jpg" alt="" class="images">
                     </div>
                 </a>
                 <div>

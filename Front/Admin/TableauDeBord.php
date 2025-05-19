@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin'])) {
+    header("Location: Login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,22 +19,25 @@
   <!-- Barre latérale -->
   <aside class="sidebar">
     <div class="logo">
-      <h2>Centre Jean Pouzet</h2>
+        <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
     </div>
     <nav>
       <ul>
-        <li><a href="TableauDeBord.html" class="active">Tableau de bord</a></li>
-        <li><a href="TableauDeBordAccueil.html">Accueil</a></li>
-        <li><a href="TableauDeBordHebergements.html">Hébergements</a></li>
+        <li><a href="TableauDeBord.php" class="active">Tableau de bord</a></li>
+        <li><a href="TableauDeBordAccueil.php">Accueil</a></li>
+        <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="TableauDeBordActus.html">Actualités</a></li>
-        <li><a href="TableauDeBordEquipe.html">Équipe</a></li>
-        <li><a href="TableauDeBordColos.html">Colos</a></li>
+        <li><a href="TableauDeBordActus.php">Actualités</a></li>
+        <li><a href="TableauDeBordEquipe.php">Équipe</a></li>
+        <li><a href="TableauDeBordColos.php">Colos</a></li>
       </ul>
     </nav>
-    <div class="logout">
-      <button>Se déconnecter</button>
-    </div>
+      <div class="logout">
+          <form method="post" action="Logout.php">
+              <button type="submit">Se déconnecter</button>
+          </form>
+      </div>
+
   </aside>
 
   <!-- Contenu principal du tableau de bord de base -->
