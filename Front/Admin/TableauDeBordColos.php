@@ -27,7 +27,9 @@
             </ul>
         </nav>
         <div class="logout">
-            <button>Se déconnecter</button>
+            <form method="post" action="Logout.php">
+                <button type="submit">Se déconnecter</button>
+            </form>
         </div>
     </aside>
 

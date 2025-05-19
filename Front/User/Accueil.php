@@ -41,7 +41,7 @@ try {
         <span></span>
     </button>
     <nav>
-        <a href="Accueil.php" class="active">NOTRE ASSOCIATION</a>
+        <a href="Accueil.php" class="active">NOTRE ASSO</a>
         <a href="Hebergements.php">NOS HEBERGEMENTS</a>
         <a href="Nous Contacter.php">NOUS CONTACTER</a>
         <a href="Actus.php">NOS ACTUS</a>

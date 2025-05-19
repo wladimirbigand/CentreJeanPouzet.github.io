@@ -61,9 +61,9 @@
 
             <!-- Troisième bloc : boutons d'actions sur les actualités -->
             <div class="admin-block actions">
-                <button id="Add">Ajouter une actualité</button>
-                <button id="Modify">Modifier une actualité</button>
-                <button id="Delete">Supprimer une actualité</button>
+                <button id="Add">Ajouter un hébergement</button>
+                <button id="Modify">Modifier une hébergement</button>
+                <button id="Delete">Supprimer une hébergement</button>
             </div>
         </section>
     </main>

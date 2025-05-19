@@ -76,25 +76,25 @@
                 </div>
                 <div class="Container1">
                     <div class="ContainerIMG">
-                        <div><img src="../Images/PHOTOS VRAC COLO/IMG_8473.jpg" id="IMG" alt="Image1"></div>
-                        <div><img src="../Images/PHOTOS VRAC COLO/IMG_8475.jpg" id="IMG" alt="Image2"></div>
-                        <div><img src="../Images/PHOTOS VRAC COLO/IMG_8477.jpg" id="IMG" alt="Image3"></div>
+                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8473.jpg" id="IMG" alt="Image1"></div>
+                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8475.jpg" id="IMG" alt="Image2"></div>
+                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8477.jpg" id="IMG" alt="Image3"></div>
                     </div>
                     <div class="ContainerIMG">
-                        <div><img src="../Images/PHOTOS VRAC COLO/IMG_8478.jpg" id="IMG" alt="Image4"></div>
-                        <div><img src="../Images/PHOTOS VRAC COLO/IMG_8482.jpg" id="IMG" alt="Image5"></div>
-                        <div><img src="../Images/PHOTOS VRAC COLO/IMG_8487.jpg" id="IMG" alt="Image6"></div>
+                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8478.jpg" id="IMG" alt="Image4"></div>
+                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8482.jpg" id="IMG" alt="Image5"></div>
+                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8487.jpg" id="IMG" alt="Image6"></div>
                     </div>
                 </div>
             </div>
             <div class="IMG">
-                <img src="../../Images/Nos%20colos/AFFICHE%20SKI%202025_page-0001.jpg" alt="Affiche ski">
+                <img src="../../Images/Colos/AFFICHE%20SKI%202025_page-0001.jpg" alt="Affiche ski">
             </div>
         </section>
         
         <section class="sectionETE">
             <div class="IMG">
-                <img src="../../Images/Nos%20colos/Affiche%20séjour%202024%20été_page-0001.jpg" alt="Affiche été">
+                <img src="../../Images/Colos/Affiche%20séjour%202024%20été_page-0001.jpg" alt="Affiche été">
             </div>
             <div class="Container">
                 <div class="title">
@@ -102,14 +102,14 @@
                 </div>
             <div class="Container1">
                 <div class="ContainerIMG">
-                    <div><img src="../../Images/Nos%20colos/photo%20été%201.jpeg" id="IMG" alt="Image7"></div>
-                    <div><img src="../../Images/Nos%20colos/photo%20été%202.jpeg" id="IMG" alt="Image8"></div>
-                    <div><img src="../../Images/Nos%20colos/photo%20été%204.jpeg" id="IMG" alt="Image9"></div>
+                    <div><img src="../../Images/Colos/photo%20été%201.jpeg" id="IMG" alt="Image7"></div>
+                    <div><img src="../../Images/Colos/photo%20été%202.jpeg" id="IMG" alt="Image8"></div>
+                    <div><img src="../../Images/Colos/photo%20été%204.jpeg" id="IMG" alt="Image9"></div>
                 </div>
                 <div class="ContainerIMG">
-                    <div><img src="../../Images/Nos%20colos/IMG_6612.jpg" id="IMG" alt="Image10"></div>
-                    <div><img src="../../Images/Nos%20colos/photo%20été%206.jpeg" id="IMG" alt="Image11"></div>
-                    <div><img src="../../Images/Nos%20colos/photo%20été%207.jpeg" id="IMG" alt="Image12"></div>
+                    <div><img src="../../Images/Colos/IMG_6612.jpg" id="IMG" alt="Image10"></div>
+                    <div><img src="../../Images/Colos/photo%20été%206.jpeg" id="IMG" alt="Image11"></div>
+                    <div><img src="../../Images/Colos/photo%20été%207.jpeg" id="IMG" alt="Image12"></div>
                 </div>
             </div>
             </div>
