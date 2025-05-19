@@ -1,3 +1,8 @@
+<?php
+include_once ('../../SQL/fonction_connexion.inc.php') ;
+$equipe = connectionPDO('../../SQL/config');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,52 +21,8 @@
 <?php
 $currentPage = 'equipe';
 require_once '../Includes/Header.php';
-
-$team = [
-    [
-        'name' => 'Xavier',
-        'role' => 'Directeur de la structure',
-        'img'  => '../../Images/Equipe/Xavier.jpg',
-        'desc' => 'Xavier est salarié de l’association et travaille à l’intendance de la structure et à l’accueil des groupes. Il sera votre interlocuteur particulier concernant les devis et les réservations (hors colonie Jean Pouzet).'
-    ],
-    [
-        'name' => 'Fabienne',
-        'role' => 'Cheffe cuisinière',
-        'img'  => '../../Images/Equipe/FABIENNE.jpg',
-        'desc' => 'Fabienne est salariée de l’association et s’occupe de préparer avec ses équipes vos délicieux repas chauds et pique-niques. N’hésitez pas à lui dire quand vous vous êtes régalé !'
-    ],
-    [
-        'name' => 'Olivier',
-        'role' => 'Président de l’association',
-        'img'  => '../../Images/Equipe/Olivier.png',
-        'desc' => 'L’histoire d’amour entre Guchen et Olivier a commencé il y a un moment… Quand il est venu en colonie de vacances. Depuis il a été colons, animateur, sous-directeur de la colonie et maintenant Président de l’association. Demandez-lui les secrets du centre si vous le croisez il en connaît un paquet !'
-    ],
-    [
-        'name' => 'Laurianne',
-        'role' => 'Présidente adjointe',
-        'img'  => '../../Images/Equipe/Laurianne.png',
-        'desc' => 'Elle est tombée dans la marmite enfant ! Au total, tous ses frères et ses cousins ont été colons et animateurs… Étant la plus jeune… Il a bien fallu qu’elle continue dans les pas de ses anciens. Aujourd’hui Laurianne est animatrice sur les séjours d’été et d’hiver au centre et s’occupe de leur promotion et de leur organisation.'
-    ],
-    [
-        'name' => 'Alice',
-        'role' => 'Secrétaire générale',
-        'img'  => '../../Images/Equipe/Alice.png',
-        'desc' => 'Ancienne colon et animatrice, Alice s’occupe des réseaux sociaux et du digital de l’association (n’hésitez pas à nous taguer dans vos publications ou stories!) et participe à l’organisation des séjours de colonies de vacances.'
-    ],
-    [
-        'name' => 'Iana',
-        'role' => 'Trésorière',
-        'img'  => '../../Images/Equipe/Iana.png',
-        'desc' => "Iana découvre l'association lors d’un séjour de colonie de vacances où elle est animatrice… Elle n’a plus jamais coupé les ponts !"
-    ],
-    [
-        'name' => 'Marie-Agnès',
-        'role' => 'Secrétaire et trésorière',
-        'img'  => '../../Images/Equipe/Marie-Agnès.png',
-        'desc' => "Ancienne colon, animatrice et maintenant secrétaire et trésorière de la colonie de vacances, Marie-Agnès vous contactera en cas d'irrégularités alors : attention !"
-    ]
-];
 ?>
+
 <main class="team-section">
     <div class="container">
         <!--        <h1 class="team-title">-->
@@ -71,17 +32,24 @@ $team = [
             <button class="carousel-btn prev-btn" aria-label="Précédent">←</button>
             <div class="carousel-track-container">
                 <ul class="carousel-track">
-                    <?php foreach ($team as $member): ?>
+                    <?php
+                    $stmt = $equipe->query('SELECT * FROM equipe');
+
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
+                        $name = htmlspecialchars($row['name'], ENT_QUOTES);
+                        $img = '../../Images/Equipe/' . htmlspecialchars($row['img'], ENT_QUOTES);
+                        $role = htmlspecialchars($row['role'], ENT_QUOTES);
+                        $description = htmlspecialchars($row['description'], ENT_QUOTES);
+                        ?>
                         <li class="carousel-slide">
-                            <img src="<?= $member['img'] ?>"
-                                 alt="Portrait de <?= htmlspecialchars($member['name'], ENT_QUOTES) ?>">
+                            <img src="<?= $img ?>" alt="Portrait de <?= $name ?>">
                             <div class="profile">
-                                <h3><?= htmlspecialchars($member['name'], ENT_QUOTES) ?></h3>
-                                <p class="role"><?= htmlspecialchars($member['role'], ENT_QUOTES) ?></p>
-                                <p class="description"><?= htmlspecialchars($member['desc'], ENT_QUOTES) ?></p>
+                                <h3><?= $name ?></h3>
+                                <p class="role"><?= $role ?></p>
+                                <p class="description"><?= $description ?></p>
                             </div>
                         </li>
-                    <?php endforeach; ?>
+                    <?php endwhile; ?>
                 </ul>
             </div>
             <button class="carousel-btn next-btn" aria-label="Suivant">→</button>
