@@ -1,3 +1,4 @@
+-- Supprime la BDD existante
 DROP database IF exists admin_panel;
 CREATE database IF NOT exists admin_panel;
 
