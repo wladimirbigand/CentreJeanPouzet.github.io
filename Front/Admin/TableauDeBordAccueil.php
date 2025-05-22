@@ -16,7 +16,6 @@ try {
 $message = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_FILES["imageFile"]) && $_FILES["imageFile"]["error"] == 0) {
-        // Le dossier physique cible : on remonte de deux niveaux depuis Front/Admin pour atteindre public
         $targetDir = "../../Images/AccueilUploads/";
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
@@ -25,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $targetFilePath = $targetDir . $fileName;
         $imageFileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
 
-        // Vérifier que le fichier est une image
         $check = getimagesize($_FILES["imageFile"]["tmp_name"]);
         if ($check === false) {
             $message = "Le fichier sélectionné n'est pas une image valide.";
@@ -35,10 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $message = "Seuls les formats JPG, JPEG, PNG, GIF, WEBP sont autorisés.";
             } else {
                 if (move_uploaded_file($_FILES["imageFile"]["tmp_name"], $targetFilePath)) {
-                    // Le chemin enregistré est absolu par rapport à la racine public
                     $relativePath = "/Images/AccueilUploads/" . $fileName;
-                    $stmt = $pdo->prepare("UPDATE page_accueil SET image_fond = :img WHERE id = 1");
-                    $stmt->execute(['img' => $relativePath]);
+                    $stmt = $pdo->prepare("INSERT INTO Multimedia (description, image, chemin_acces) VALUES ('image_accueil', :name, :path)");
+                    $stmt->execute([
+                        'name' => $fileName,
+                        'path' => $relativePath
+                    ]);
                     $message = "Image mise à jour avec succès.";
                 } else {
                     $message = "Erreur lors du téléversement.";
@@ -50,11 +50,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-// Récupération du chemin enregistré en BDD
-$stmt = $pdo->query("SELECT image_fond FROM page_accueil WHERE id = 1");
+// Récupération du chemin actuel de l’image
+$stmt = $pdo->prepare("SELECT chemin_acces FROM Multimedia WHERE description = 'image_accueil' ORDER BY id DESC LIMIT 1");
+$stmt->execute();
 $data = $stmt->fetch(PDO::FETCH_ASSOC);
-$currentImage = isset($data['image_fond']) ? $data['image_fond'] : "";
+$currentImage = $data ? $data['chemin_acces'] : "";
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

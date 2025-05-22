@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $identifiant = $_POST['identifiant'];
     $motdepasse = $_POST['motdepasse'];
 
-    $stmt = $pdo->prepare("SELECT * FROM admin WHERE identifiant = :identifiant");
+    $stmt = $pdo->prepare("SELECT * FROM Administrateur WHERE Identifiant = :identifiant");
     $stmt->execute(['identifiant' => $identifiant]);
     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($admin && password_verify($motdepasse, $admin['motdepasse'])) {
-        $_SESSION['admin'] = $admin['identifiant'];
+    if ($admin && password_verify($motdepasse, $admin['Mot_de_passe'])) {
+        $_SESSION['admin'] = $admin['Identifiant'];
         header("Location: TableauDeBord.php");
         exit();
     } else {

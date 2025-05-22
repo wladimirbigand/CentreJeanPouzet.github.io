@@ -3,10 +3,13 @@ try {
     $pdo = new PDO("mysql:host=localhost;dbname=admin_panel", "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->query("SELECT image_fond FROM page_accueil WHERE id = 1");
+    // Récupère la dernière image "image_accueil" ajoutée (ou change selon besoin)
+    $stmt = $pdo->prepare("SELECT chemin_acces FROM Multimedia WHERE description = 'image_accueil' ORDER BY id DESC LIMIT 1");
+    $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    // Si aucune image n’est définie, on utilise une image par défaut
-    $backgroundImage = isset($data['image_fond']) ? $data['image_fond'] : "/Images/Accueil/default.jpg";
+
+    // Si aucune image trouvée, utiliser une image par défaut
+    $backgroundImage = $data ? $data['chemin_acces'] : "/Images/Accueil/default.jpg";
 } catch (PDOException $e) {
     $backgroundImage = "/Images/Accueil/default.jpg";
 }
