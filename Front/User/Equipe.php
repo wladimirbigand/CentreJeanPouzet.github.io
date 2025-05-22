@@ -100,12 +100,10 @@ $team = [
                     </div>
                 <?php endforeach; ?>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselEquipe" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon color" aria-hidden="true"></span>
-                    <span class="visually-hidden">Précédent</span>
+                    <span class="carousel-control-prev-icon color button" aria-hidden="true"></span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselEquipe" data-bs-slide="next">
-                    <span class="carousel-control-next-icon color" aria-hidden="true"></span>
-                    <span class="visually-hidden">Suivant</span>
+                    <span class="carousel-control-next-icon color button" aria-hidden="true"></span>
                 </button>
             </div>
 
