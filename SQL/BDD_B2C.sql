@@ -16,7 +16,7 @@ CREATE TABLE Administrateur (
 
 -- Création de la table Section
 CREATE TABLE Section (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY,
     titre VARCHAR(100),
     description TEXT
 );
@@ -31,7 +31,7 @@ CREATE TABLE Multimedia (
 
 -- Création de la table Page
 CREATE TABLE Page (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY,
     nom VARCHAR(100),
     id_multimedia INT,
     id_section INT,
