@@ -22,9 +22,20 @@ CREATE TABLE Section (
     description TEXT
 );
 
+INSERT INTO Section (id, titre, description) VALUES
+                                                 (1, 'Qui sommes-nous ?', 'Le Centre Jean Pouzet est avant tout une association loi 1901 qui a pour vocation de permettre à toutes et tous de découvrir la montagne.
+                Le site se compose d''hébergements (82 places) et d''un parc boisé clôturé de 1,5ha. Il convient aussi bien à des classes de découvertes qu''à des grands groupes : groupes scolaires, particuliers, comités d’entreprises, clubs de sport et randonneurs peuvent se réunir chez nous et profiter de nos formules de pensions toute l’année.
+                <br>
+                Et vous… C’est quand qu’on vous y retrouve ?'),
+                                                 (2, 'Où sommes-nous', 'Le Centre Jean Pouzet est situé au cœur de la Vallée d’Aure dans l’authentique village de Guchen, à 750m d’altitude !
+                Aux portes du prestigieux Parc National des Pyrénées et à 6 km de Saint-Lary-Soulan la localisation du Centre offre des choix presque illimités d’activités ou de visites à faire à proximité toute l’année.
+                Pour l’hiver, les premières stations de ski (Peyragudes, Saint-Lary-Soulan, Val-Louron, Piau-Engaly) se trouvent dans un rayon de 30 min.
+                Pour l’été, outre le Tour de France qui passe quasiment chaque année devant la porte, des sociétés proposent du canyoning, du rafting, de l’accrobranche, de la trottinette, du VTT en montagne et de nombreux circuits de randonnées se font au départ du centre.… et beaucoup d’autres. Nos équipes se feront un plaisir de vous renseigner !
+                Pour voir le détail des hébergements, rendez-vous dans l’onglet intitulé « hébergement » et pour toutes demandes de devis dans celui intitulé « nous contacter », à bientôt dans la vallée.');
+
 -- Création de la table Multimédia
 CREATE TABLE Multimedia (
-    id INT PRIMARY KEY AUTO_INCREMENTx,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     description TEXT,
     image VARCHAR(255),
     chemin_acces VARCHAR(255)
@@ -48,7 +59,7 @@ CREATE TABLE IF NOT EXISTS Equipe (
     description VARCHAR(700) unique NOT NULL
     );
 
-INSERT INTO equipe (img, name, role, description) VALUES
+INSERT INTO Equipe (img, name, role, description) VALUES
                                                       ('Xavier.png', 'Xavier', 'Directeur de la structure', 'Xavier est salarié de l\'association et travaille à l\'intendance de la structure et à l\'accueil des groupes. Il sera votre interlocuteur particulier concernant les devis et les réservations (hors colonie Jean Pouzet).'),
 ('FABIENNE.jpg', 'Fabienne', 'Cheffe cuisinière', 'Fabienne est salariée de l\'association et s\'occupe de préparer avec ses équipes vos délicieux repas chauds et pique-niques. N\'hésitez pas à lui dire quand vous vous êtes régalé !'),
                                                       ('Olivier.png', 'Olivier', 'Président de l\'association', 'L\'histoire d\'amour entre Guchen et Olivier a commencé il y a un moment... Quand il est venu en colonie de vacances. Depuis, il a été colon, animateur, sous-directeur de la colonie et maintenant Président de l\'association. Demandez-lui les secrets du centre si vous le croisez, il en connaît un paquet !'),

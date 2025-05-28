@@ -14,7 +14,11 @@ try {
 }
 
 $message = "";
+
+// Traitement des formulaires (image et texte)
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // Upload d'image
     if (isset($_FILES["imageFile"]) && $_FILES["imageFile"]["error"] == 0) {
         $targetDir = "../../Images/AccueilUploads/";
         if (!is_dir($targetDir)) {
@@ -39,22 +43,71 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         'name' => $fileName,
                         'path' => $relativePath
                     ]);
-                    $message = "Image mise à jour avec succès.";
+                    $message .= '
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                        Swal.fire({
+                          icon: "success",
+                          title: "Succès !",
+                          text: "Image mise à jour avec succès.",
+                          confirmButtonColor: "#3085d6"
+                        });
+                        </script>';
                 } else {
-                    $message = "Erreur lors du téléversement.";
+                    $message .= '
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                        Swal.fire({
+                          icon: "error",
+                          title: "Erreur !",
+                          text: "Erreur lors du téléversement !",
+                          confirmButtonColor: "#3085d6"
+                        });
+                        </script>';
                 }
             }
         }
-    } else {
-        $message = "Veuillez sélectionner un fichier.";
+    }
+
+    // Mise à jour des textes
+    if (isset($_POST['text_qui']) && isset($_POST['text_ou'])) {
+        $textQui = $_POST['text_qui'];
+        $textOu = $_POST['text_ou'];
+
+        $stmt = $pdo->prepare("UPDATE section SET description = :desc WHERE id = :id");
+        $stmt->execute(['desc' => $textQui, 'id' => 1]);
+        $stmt->execute(['desc' => $textOu, 'id' => 2]);
+
+//        $message .= "<br>Textes mis à jour avec succès.";
+        $message .= '
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+            Swal.fire({
+              icon: "success",
+              title: "Succès !",
+              text: "Textes mis à jour avec succès.",
+              confirmButtonColor: "#3085d6"
+            });
+            </script>';
     }
 }
 
-// Récupération du chemin actuel de l’image
+// Récupération de l’image actuelle
 $stmt = $pdo->prepare("SELECT chemin_acces FROM Multimedia WHERE description = 'image_accueil' ORDER BY id DESC LIMIT 1");
 $stmt->execute();
 $data = $stmt->fetch(PDO::FETCH_ASSOC);
 $currentImage = $data ? $data['chemin_acces'] : "";
+
+// Récupération des textes actuels
+$textQui = $textOu = "";
+$stmt = $pdo->prepare("SELECT id, description FROM section WHERE id IN (1, 2)");
+$stmt->execute();
+$sections = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($sections as $section) {
+    if ($section['id'] == 1) $textQui = $section['description'];
+    if ($section['id'] == 2) $textOu = $section['description'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -124,23 +177,24 @@ $currentImage = $data ? $data['chemin_acces'] : "";
                     <?php if ($message) echo "<p style='color:green;'>$message</p>"; ?>
                 </div>
 
-                <!-- Bloc pour modifier le texte (inchangé ici) -->
-                <div class="admin-block">
-                    <h2>Modifier les différents textes de la page accueil</h2>
-                    <p>
-                        Modifiez le texte de "Qui sommes nous ?".
-                    </p>
-                    <br>
-                    <textarea placeholder="Tapez ici le texte de présentation..." rows="8"></textarea><p>
+                <!-- Bloc pour modifier le texte -->
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="admin-block">
+                        <h2>Modifier les différents textes de la page accueil</h2>
+                        <p>Modifiez le texte de "Qui sommes nous ?".</p>
                         <br>
-                        Modifiez le texte de "Où sommes nous ?".
-                    </p>
-                    <br>
-                    <textarea placeholder="Tapez ici le texte de présentation..." rows="8"></textarea>
-                    <div class="admin-block actions">
-                        <button id="Add" type="submit">Enregistrer les modifications</button>
+                        <textarea name="text_qui" placeholder="Tapez ici le texte de présentation..." rows="8"><?php echo htmlspecialchars($textQui); ?></textarea>
+                        <br><br>
+                        <p>Modifiez le texte de "Où sommes nous ?".</p>
+                        <br>
+                        <textarea name="text_ou" placeholder="Tapez ici le texte de présentation..." rows="8"><?php echo htmlspecialchars($textOu); ?></textarea>
+                        <br>
+                        <div class="admin-block actions">
+                            <button id="Add" type="submit">Enregistrer les modifications</button>
+                        </div>
                     </div>
-                </div>
+                </form>
+
             </section>
         </div>
     </main>
