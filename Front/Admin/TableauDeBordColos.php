@@ -34,7 +34,7 @@
     </aside>
 
     <!-- Contenu principal -->
-    <main class="content">
+    <main class="content scroll">
         <header class="header">
             <h1>Tableau de Bord - Colos</h1>
         </header>
