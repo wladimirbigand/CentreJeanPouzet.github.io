@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Agenda - Centre Jean Pouzet</title>
 
-    <link rel="stylesheet" href="agenda.css" />
+    <link rel="stylesheet" href="../CSS/Admin/TableauDeBordAgenda.css" />
 </head>
 
 <body>
@@ -56,7 +56,7 @@
     </section>
 </main>
 
-<script src="agenda.js"></script>
+<script src="../JS/agenda.js"></script>
 </body>
 
 </html>

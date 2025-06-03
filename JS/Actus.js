@@ -44,3 +44,24 @@ for (let i = 0; i < all_actus.length; i++) {
     // Si l'utilisateur clique à l'extérieur de la zone, on cache la div
     divbox.classList.remove('show');
 };
+
+
+
+document.getElementById('saveBtn').addEventListener('click', () => {
+    fetch('sauvegarder_jours.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ openDays: Object.keys(openDays) })
+    })
+        .then(response => response.text())
+        .then(data => {
+            alert("Jours ouverts enregistrés !");
+            console.log(data);
+        })
+        .catch(error => {
+            alert("Erreur lors de l'enregistrement.");
+            console.error(error);
+        });
+});

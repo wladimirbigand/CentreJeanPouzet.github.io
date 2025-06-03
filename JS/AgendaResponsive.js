@@ -2,93 +2,93 @@ const month_names = [
     'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
     'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
 ];
- 
-// jours ouverts / fermés
-let openDays = [2,3,4,5,6,9,10,11,12,16,17,19,20,23,24,25,27,30];    
-let closedDays = [1,7,8,14,15,13,18,21,22,26,28,29,31];                    
- 
-// Mois et année actuels
-let currentMonth = new Date().getMonth();  
+
+// Variables globales
+let allOpenDays = [];  // Toutes les dates ouvertes, format "YYYY-MM-DD"
+
+let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
- 
-// met à jour le header avec le mois et l'année selectionnés
+
 function updateHeader(month, year) {
     document.getElementById('month-picker').textContent = month_names[month];
     document.getElementById('year').textContent = year;
 }
- 
-// genere l'agenda avec le mois et l'année selectionnés
-function generateCalendar(month, year) {
+
+async function fetchOpenDays() {
+    try {
+        const response = await fetch('/Front/User/recuperer_jours.php'); // <-- vérifier chemin exact
+        const data = await response.json();
+        if (data.success) {
+            return data.openDates;
+        } else {
+            console.error('Erreur récupération jours :', data.message);
+            return [];
+        }
+    } catch (error) {
+        console.error('Erreur fetch:', error);
+        return [];
+    }
+}
+
+function generateCalendar(month, year, openDates) {
     const calendar_days = document.querySelector('.calendar-days');
-    calendar_days.innerHTML = '';   // reset le contenu de l'agenda
- 
-    const days_in_month = new Date(year, month + 1, 0).getDate(); // combien de jours dans tel mois
-    const first_day = new Date(year, month, 1).getDay();          // jours de la semaine du 1er jour du mois (0 = Dimanche , 6 = Samedi)
- 
+    calendar_days.innerHTML = '';
+
+    const days_in_month = new Date(year, month + 1, 0).getDate();
+    const first_day = new Date(year, month, 1).getDay();
+
     // cases vides avant le début du mois
     for (let i = 0; i < first_day; i++) {
-        let empty_day = document.createElement('div');
-        calendar_days.appendChild(empty_day);
+        calendar_days.appendChild(document.createElement('div'));
     }
- 
-    // générer chaque jour du mois
+
     for (let day = 1; day <= days_in_month; day++) {
         let day_cell = document.createElement('div');
         day_cell.textContent = day;
- 
-        // verifie si c'est le jour actuel
-        const isToday =
-            day === new Date().getDate() &&
-            month === new Date().getMonth() &&
-            year === new Date().getFullYear();
- 
-        if (isToday) {
-            if (openDays.includes(day)) {
-                day_cell.classList.add('open-current-date');
-            } else if (closedDays.includes(day)) {
-                day_cell.classList.add('closed-current-date');
-            }
-        }
- 
-        // classes en fonction des jours ouverts / fermés
-        if (openDays.includes(day)) {
+
+        const dateStr = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+
+        if (openDates.includes(dateStr)) {
             day_cell.classList.add('open');
-        } else if (closedDays.includes(day)) {
+        } else {
             day_cell.classList.add('closed');
         }
- 
-        calendar_days.appendChild(day_cell);    // ajoute la cell du jour à l'agenda
+
+        const today = new Date();
+        if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+            day_cell.classList.add(openDates.includes(dateStr) ? 'open-current-date' : 'closed-current-date');
+        }
+
+        calendar_days.appendChild(day_cell);
     }
 }
- 
-// ajoute un jour ouvert à la liste et reload l'agenda
-function addOpenDay(day) {
-    config.openDays.push(day);
-    generateCalendar(currentMonth, currentYear);
+
+async function initCalendar() {
+    allOpenDays = await fetchOpenDays();
+    updateHeader(currentMonth, currentYear);
+    generateCalendar(currentMonth, currentYear, allOpenDays);
 }
- 
-// Bouton "Mois précédent"
-document.getElementById('prev-month').addEventListener('click', () => {
-    currentMonth -= 1;
-    if (currentMonth < 0) {
+
+// Navigation mois précédent / suivant
+document.getElementById('prev-month').addEventListener('click', async () => {
+    currentMonth--;
+    if(currentMonth < 0) {
         currentMonth = 11;
-        currentYear -= 1;
+        currentYear--;
     }
     updateHeader(currentMonth, currentYear);
-    generateCalendar(currentMonth, currentYear);
+    generateCalendar(currentMonth, currentYear, allOpenDays);
 });
- 
-// Bouton "Mois Suivant"
-document.getElementById('next-month').addEventListener('click', () => {
-    currentMonth += 1;
-    if (currentMonth > 11) {    // Si mois dépasse décembre
-        currentMonth = 0;       // Mois actuel = Janvier
-        currentYear += 1;       // Année actuelle ++
+
+document.getElementById('next-month').addEventListener('click', async () => {
+    currentMonth++;
+    if(currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
     }
     updateHeader(currentMonth, currentYear);
-    generateCalendar(currentMonth, currentYear);
+    generateCalendar(currentMonth, currentYear, allOpenDays);
 });
- 
-// Lance l'agenda avec le mois et l'année actuels
-updateHeader(currentMonth, currentYear);
-generateCalendar(currentMonth, currentYear);
+
+// Au chargement de la page
+document.addEventListener('DOMContentLoaded', initCalendar);

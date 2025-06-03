@@ -74,6 +74,6 @@
     <?php
     require_once '../Includes/Footer.php';
     ?>
-    <script src="../../JS/AgendaResponsive.js" async></script>
-</body>
+    <script src="../../JS/AgendaResponsive.js"></script>
+    </body>
 </html>

@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS Administrateur;
 DROP TABLE IF EXISTS Section;
 DROP TABLE IF EXISTS Multimedia;
 DROP TABLE IF EXISTS Page;
+DROP TABLE IF EXISTS JoursOuverts;
 
 -- Création de la table Administrateur
 CREATE TABLE Administrateur (
@@ -25,7 +26,7 @@ CREATE TABLE Section (
 
 -- Création de la table Multimédia
 CREATE TABLE Multimedia (
-    id INT PRIMARY KEY AUTO_INCREMENTx,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     description TEXT,
     image VARCHAR(255),
     chemin_acces VARCHAR(255)
@@ -48,6 +49,11 @@ CREATE TABLE IF NOT EXISTS Equipe (
     role VARCHAR(50) NOT NULL,
     description VARCHAR(700) unique NOT NULL
     );
+
+CREATE TABLE jours_ouverts (
+id INT AUTO_INCREMENT PRIMARY KEY,
+date DATE NOT NULL
+);
 
 INSERT INTO equipe (img, name, role, description) VALUES
                                                       ('Xavier.png', 'Xavier', 'Directeur de la structure', 'Xavier est salarié de l\'association et travaille à l\'intendance de la structure et à l\'accueil des groupes. Il sera votre interlocuteur particulier concernant les devis et les réservations (hors colonie Jean Pouzet).'),
