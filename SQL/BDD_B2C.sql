@@ -288,3 +288,27 @@ INSERT INTO section(id,titre,description)VALUES
 (201,'#', '#'),
 (202,'#', '#'),
 (203,'#', '#');
+
+-- Omar & Antoine
+
+CREATE TABLE jours_ouverts (
+date DATE PRIMARY KEY
+);
+
+-- Simon 
+
+CREATE TABLE if not exists actus (
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL  ,
+    date DATE,
+    titre VARCHAR(250) NOT NULL,
+    texte VARCHAR(550) NOT NULL,
+    image VARCHAR(100) NOT NULL
+    );
+
+INSERT INTO actus (id, titre, texte, image, date) VALUES
+(1, 'Les inscriptions pour le séjour de ski sont ouvertes !', 'Les inscriptions pour le séjour de ski sont ouvertes...', '/Images/Colos/AFFICHE%20SKI%202025_page-0001.jpg', '2025-03-12'),
+(2, 'Bonne année 2025 !', 'Pour la 4ème édition du nouvel an à Jean Pouzet...', '../../Images/Actus/2025_ACTUS.jpg', '2025-01-01'),
+(3, 'Classe découverte !', 'Nous avons eu le plaisir d\'accueillir pour la deuxième...', '/Images/Actus/CLASSE_DECOUVERTE_1.jpg', '2024-12-04'),
+(4, 'La saison hivernale est lancée !', 'La neige est là, il ne manque plus que vous. Le ...', '/Images/Actus/SAISON_HIVERNALE.JPG', '2024-12-21'),
+(5, 'Ces entreprises qui nous font confiance !', 'Le Centre Jean Pouzet est à même de proposer ...', '/Images/Actus/entreprises.jpg', '2024-10-11'),
+(6, 'Les Pyrénées à vélo !', 'Pla d\'Adet, Tourmalet, Col d\'Aspin, Peyresourde...', '/Images/Actus/vélo.jpg', '2024-10-01');
