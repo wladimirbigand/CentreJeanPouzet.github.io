@@ -2,51 +2,6 @@
     line-height: 1.6;
 }
 
-/* Section de l'image */
-#image {
-    display: flex;
-    justify-content: center; /* Centrer le contenu horizontalement */
-    align-items: center; /* Centrer le contenu verticalement */
-    background-image: url(../Images/Image\ fond\ blog.JPG);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh; /* Utilisez toute la hauteur de la fenêtre */
-    filter: brightness(70%);
-    position: relative;
-    margin: 0;
-}
-
-#image p, #image h1 {
-    position: absolute;
-    top: 50%; /* Place le texte au centre verticalement */
-    color: white; /* Couleur du texte */
-    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    text-align: center;
-    z-index: 2;
-}
-    
-#image h1 {
-font-size: 35px; /* Plus grand pour le titre */
-}
-    
-#image p {
-font-size: 28px; /* Plus petit pour le paragraphe */
-top: 60%; /* Décaler légèrement sous le h1 */
-}
-
-@media (max-width: 768px) {
-    #image h1 {
-        font-size: 20px;
-    }
-    #image p {
-        font-size: 14px;
-    }
-}
-
 
 
 
@@ -69,19 +24,23 @@ main h1{
 
 .actus {
     width: 350px;
-    height: 300px; /* Maintient un ratio 3:2 */
+    height: 200px; /* Maintient un ratio 3:2 */
     position: relative;
     overflow: hidden;
     border-radius: 8px;
     margin: 10px;
     transition: all 0.3s ease-in-out;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3); /* Facultatif : ombre douce */
+    align-items: center;
+    justify-content: center;
 }
 
 .actus img {
     width: 100%; /* Adapte l'image à la largeur du conteneur */
     height: 100%; /* Adapte l'image à la hauteur */
     object-fit: cover; /* Maintient un aspect esthétique */
+    object-position: center;
+    display: block;
     border-radius: 8px; /* Facultatif : coins arrondis */
     transition: transform 0.3s ease-in-out;
 }
@@ -132,7 +91,7 @@ main h1{
 }
 
 #main_container .actus:hover h1{
-transition: transform 0.5s ease-out, opacity 0.3s ease-out; /* Animation fluide */
+    transition: transform 0.5s ease-out, opacity 0.3s ease-out; /* Animation fluide */
 }
 
 #main_container .actus:hover h1{
@@ -150,6 +109,10 @@ transition: transform 0.5s ease-out, opacity 0.3s ease-out; /* Animation fluide 
 #main_container .actus:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Ombre plus intense au survol */
     transform: translateY(-5px); /* Légère élévation du conteneur */
+}
+
+#main_container .actus .date {
+    display: none;
 }
 
 /* Media query pour les écrans de téléphone */
@@ -192,8 +155,9 @@ transition: transform 0.5s ease-out, opacity 0.3s ease-out; /* Animation fluide 
 }
 
 #actu_container.show #chosen_img {
- max-width: 50%;
- height: 50%;
- object-position: center; /* Centre l'image dans le conteneur */
- border-radius: 8px;
+    max-width: 50%;
+    height: 50%;
+    object-position: center; /* Centre l'image dans le conteneur */
+    border-radius: 8px;
 }
+

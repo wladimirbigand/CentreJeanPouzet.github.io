@@ -1,7 +1,11 @@
 /* TableauDeBordColos.css */
 
 /* Styles spécifiques pour la gestion des colos */
-
+.scroll {
+    height: 100vh;
+    background-color: #F5F5E1;
+    overflow-y: scroll;
+}
 /* Bloc d'informations générales sur la colo */
 .colo-info label {
     display: block;

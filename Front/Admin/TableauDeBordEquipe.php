@@ -1,3 +1,8 @@
+<?php
+include_once ('../../SQL/fonction_connexion.inc.php') ;
+$equipe = connectionPDO('../../SQL/config');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,9 +23,9 @@
                 <li><a href="TableauDeBord.php">Tableau de bord</a></li>
                 <li><a href="TableauDeBordAccueil.php">Accueil</a></li>
                 <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="TableauDeBordAgenda.php">Contact</a></li>
                 <li><a href="TableauDeBordActus.php">Actualités</a></li>
-                <li><a href="#" class="active">Équipe</a></li>
+                <li><a href="TableauDeBordEquipe.php" class="active">Équipe</a></li>
                 <li><a href="TableauDeBordColos.php">Colos</a></li>
             </ul>
         </nav>
@@ -46,54 +51,170 @@
 
         <!-- Section « Ajouter » -->
         <section id="add-member" class="action-section active">
-            <div class="admin-block team-member-info">
-                <h2>Ajouter un membre</h2>
-                <label for="addMemberName">Prénom :</label>
-                <input type="text" id="addMemberName" placeholder="Alice">
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="admin-block team-member-info">
+                    <h2>Ajouter un membre</h2>
+                    <label for="addMemberName">Prénom :</label>
+                    <input type="text" id="addMemberName" name="addMemberName" placeholder="Qui-est-ce ?">
 
-                <label for="addMemberImage">Photo du membre :</label>
-                <input type="file" id="addMemberImage" accept="image/*">
-                <div class="preview-container" id="previewAddMemberImage"></div>
+                    <label for="addMemberImage">Photo du membre :</label>
+                    <input type="file" id="addMemberImage" name="addMemberImage" accept="image/*">
+                    <div class="preview-container" id="previewAddMemberImage"></div>
 
-                <label for="addMemberDesc">Description :</label>
-                <textarea id="addMemberDesc" rows="5" placeholder="Présentation du membre..."></textarea>
-            </div>
-            <div class="admin-block actions">
-                <button id="btn-add-member-save">Enregistrer un membre</button>
-            </div>
+                    <label for="addMemberRole">Poste :</label>
+                    <input type="text" id="addMemberRole" name="addMemberRole" placeholder="Quel est son poste ?">
+
+                    <label for="addMemberDesc">Description :</label>
+                    <textarea id="addMemberDesc" rows="5" name="addMemberDesc" placeholder="Présentation du membre..."></textarea>
+                </div>
+                <div class="admin-block actions">
+                    <button type="submit" id="btn-add-member-save">Enregistrer un membre</button>
+                </div>
+
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                    $cheminImage = null;
+
+                    if (isset($_FILES['addMemberImage']) && $_FILES['addMemberImage']['error'] === 0) {
+                        $dossier = "../../Images/Equipe/";
+                        $nomFichier = time() . '_' . basename($_FILES['addMemberImage']['name']);
+                        $chemin = $dossier . $nomFichier;
+
+                        if (move_uploaded_file($_FILES['addMemberImage']['tmp_name'], $chemin)) {
+                            $cheminImage = $nomFichier;
+                        }
+                    }
+
+                    if (!empty($_POST['addMemberName']) && !empty($_POST['addMemberDesc']) && !empty($_POST['addMemberRole']) && $cheminImage !== null) {
+                        $name = $_POST['addMemberName'];
+                        $role = $_POST['addMemberRole'];
+                        $description = $_POST['addMemberDesc'];
+
+                        $stmt = $equipe->prepare("INSERT INTO equipe (img, name, role, description) VALUES (:img, :name, :role, :description)");
+                        $stmt->bindValue(':img', $cheminImage);
+                        $stmt->bindValue(':name', $name);
+                        $stmt->bindValue(':role', $role);
+                        $stmt->bindValue(':description', $description);
+
+                        if ($stmt->execute()) {
+                            header('Location: TableauDeBordEquipe.php');
+                            exit();
+                        } else {
+                            $stmt->execute();
+                        }
+                    }
+                }
+
+                ?>
+            </form>
         </section>
 
         <!-- Section « Modifier » -->
         <section id="modify-member" class="action-section">
-            <div class="admin-block team-member-info">
-                <h2>Modifier un membre</h2>
-                <p>Choisir le membre :</p>
-                <select id="selectMemberToEdit">
-                    <option value="1">Alice</option>
-                    <option value="2">Olivier</option>
-                    <option value="2">Iana</option>
-                    <option value="2">Xavier</option>
-                    <option value="2">Fabienne</option>
-                    <option value="2">Marie-Agnès</option>
-                    <!-- … -->
-                </select>
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="admin-block team-member-info">
+                    <h2>Modifier un membre</h2>
+                    <p>Choisir le membre :</p>
+                    <select id="selectMemberToEdit" name="selectMemberToEdit" onchange="this.form.submit()">
+                        <option value=" "> -- Choisissez un membre -- </option>
+                        <?php
+                        $stmt = $equipe->query('SELECT name FROM equipe');
+                        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($results as $value) {
+                            $sauvegarde = (isset($_POST['selectMemberToEdit']) && $_POST['selectMemberToEdit'] === $value['name']) ? 'selected' : '';
+                            echo '<option value="' . htmlspecialchars($value['name']) . '" ' . $sauvegarde . '>' . htmlspecialchars($value['name']) . '</option>';
 
-                <label for="modifyMemberName">Prénom :</label>
-                <input type="text" id="modifyMemberName" value="Alice">
+                        }
+                        ?>
+                    </select>
 
-                <label for="modifyMemberImage">Photo du membre :</label>
-                <input type="file" id="modifyMemberImage" accept="image/*">
+                    <?php
 
-                <div class="preview-container" id="previewModifyMemberImage">
-                    <img src="../../Images/Equipe/ALICE.webp" alt="Photo actuelle">
+                    $name = '';
+                    $role = '';
+                    $description = '';
+                    $img = '';
+
+                    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["selectMemberToEdit"])) {
+                        $choix = $_POST["selectMemberToEdit"];
+                        $stmt = $equipe->prepare('SELECT * FROM equipe WHERE name = :name');
+                        $stmt->bindParam(':name', $choix);
+                        $stmt->execute();
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        if ($row){
+                            $name = $row['name'];
+                            $role = $row['role'];
+                            $description = $row['description'];
+                            $img = $row['img'];
+                        }
+                    }
+                    ?>
+
+
+                    <label for="modifyMemberName">Prénom :</label>
+                    <input type="text" id="modifyMemberName" name="modifyMemberName" value="<?php echo htmlspecialchars($name); ?>">
+
+                    <label for="modifyMemberImage">Photo du membre :</label>
+                    <input type="file" id="modifyMemberImage" name="modifyMemberImage" accept="image/*">
+
+                    <div class="preview-container" id="previewModifyMemberImage">
+                        <img src="../../Images/Equipe/<?php echo htmlspecialchars($img); ?>" alt="Photo actuelle">
+                    </div>
+
+                    <label for="modifyMemberRole">Poste :</label>
+                    <input type="text" id="modifyMemberRole" name="modifyMemberRole" value="<?php echo htmlspecialchars($role); ?>">
+
+                    <label for="modifyMemberDesc">Description :</label>
+                    <textarea id="modifyMemberDesc" name="modifyMemberDesc" rows="5"><?php echo htmlspecialchars($description); ?></textarea>
+                </div>
+                <div class="admin-block actions">
+                    <button type="submit" name="btn-modify-member-save" id="btn-modify-member-save">Enregistrer la modification</button>
+                    <?php
+
+                    if (isset($_POST["btn-modify-member-save"])) {
+                        $nomavantmodif = $_POST["selectMemberToEdit"];
+                        $name = $_POST['modifyMemberName'];
+                        $role = $_POST['modifyMemberRole'];
+                        $description = $_POST['modifyMemberDesc'];
+                        $cheminImage = null;
+
+                        $stmt = $equipe->prepare('SELECT id, img FROM equipe WHERE name = :name');
+                        $stmt->bindValue(':name', $nomavantmodif);
+                        $stmt->execute();
+                        $member = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+                        if ($member) {
+                            $memberId = $member['id'];
+                            $cheminImage = $member['img'];
+
+                            if (isset($_FILES['modifyMemberImage']) && $_FILES['modifyMemberImage']['error'] === 0) {
+                                $dossier = "../../Images/Equipe/";
+                                $nomFichier = time() . '_' . basename($_FILES['modifyMemberImage']['name']);
+                                $chemin = $dossier . $nomFichier;
+
+                                if (move_uploaded_file($_FILES['modifyMemberImage']['tmp_name'], $chemin)) {
+                                    $cheminImage = $nomFichier;
+                                }
+                            }
+
+                            $stmt = $equipe->prepare("UPDATE equipe SET img = :img, name = :name, role = :role, description = :description WHERE id = :id");
+                            $stmt->bindValue(':id', $memberId);
+                            $stmt->bindValue(':img', $cheminImage);
+                            $stmt->bindValue(':name', $name);
+                            $stmt->bindValue(':role', $role);
+                            $stmt->bindValue(':description', $description);
+                            $stmt->execute();
+
+                            header('Location: TableauDeBordEquipe.php?section_modif');
+                            exit();
+                        }
+                    }
+
+                    ?>
                 </div>
 
-                <label for="modifyMemberDesc">Description :</label>
-                <textarea id="modifyMemberDesc" rows="5">Description actuelle…</textarea>
-            </div>
-            <div class="admin-block actions">
-                <button id="btn-modify-member-save">Enregistrer la modification</button>
-            </div>
+            </form>
         </section>
 
         <!-- Section « Supprimer » -->
@@ -101,19 +222,33 @@
             <div class="admin-block team-member-delete">
                 <h2>Supprimer un membre</h2>
                 <p>Choisir le membre à supprimer :</p>
-                <select id="selectMemberToDelete">
-                    <option value="1">Alice</option>
-                    <option value="2">Olivier</option>
-                    <option value="2">Iana</option>
-                    <option value="2">Xavier</option>
-                    <option value="2">Fabienne</option>
-                    <option value="2">Marie-Agnès</option>
-                    <!-- … -->
-                </select>
-            </div>
-            <div class="admin-block actions">
-                <button id="btn-delete-member-save">Confirmer la suppression</button>
-            </div>
+
+                <form method="post" action="">
+                    <div>
+
+                        <select id="selectMemberToDelete" name="selectMemberToDelete">
+                            <?php
+                            $stmt = $equipe->query('SELECT name FROM equipe');
+                            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                            foreach ($results as $value) {
+                                echo '<option value="' . htmlspecialchars($value['name']) . '">' . htmlspecialchars($value['name']) . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="admin-block actions">
+                        <button type="submit" id="btn-delete-member-save">Confirmer la suppression</button>
+                    </div>
+
+                    <?php
+                    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["selectMemberToDelete"])) {
+                        $choix = $_POST["selectMemberToDelete"];
+                        $stmt = $equipe->prepare('DELETE FROM equipe WHERE name = :name');
+                        $stmt->bindParam(':name', $choix);
+                        $stmt->execute();
+                    }
+                    ?>
+                </form>
         </section>
     </main>
 </div>

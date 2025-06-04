@@ -1,3 +1,72 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin'])) {
+    header("Location: Login.php");
+    exit();
+}
+
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=admin_panel", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erreur : " . $e->getMessage());
+}
+
+$message = "";
+
+if (isset($_POST['addColo'])) {
+    $titre = $_POST['titre'];
+
+    $uploadDir = '././Images/Colos/';
+
+    function uploadImage($name, $uploadDir) {
+        if (isset($_FILES[$name]) && $_FILES[$name]['error'] === UPLOAD_ERR_OK) {
+            $fileName = uniqid() . '_' . basename($_FILES[$name]['name']);
+            $filePath = $uploadDir . $fileName;
+            move_uploaded_file($_FILES[$name]['tmp_name'], $filePath);
+            return $filePath;
+        }
+        return null;
+    }
+
+    $affiche = uploadImage('affiche', $uploadDir);
+    $images = [];
+    for ($i = 1; $i <= 6; $i++) {
+        $images[$i] = uploadImage("image$i", $uploadDir);
+    }
+
+    if ($affiche && !in_array(null, $images)) {
+        $stmt = $pdo->prepare("INSERT INTO colos (titre, affiche, image1, image2, image3, image4, image5, image6) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$titre, $affiche, $images[1], $images[2], $images[3], $images[4], $images[5], $images[6]]);
+
+        $message = '
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    Swal.fire({
+      icon: "success",
+      title: "Colo ajoutée !",
+      text: "La colo a été ajoutée avec succès.",
+      confirmButtonColor: "#3085d6"
+    });
+    </script>';
+    } else {
+        $message = '
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    Swal.fire({
+      icon: "error",
+      title: "Erreur",
+      text: "Un problème est survenu lors de l’upload des images.",
+      confirmButtonColor: "#d33"
+    });
+    </script>';
+    }
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,7 +89,7 @@
                 <li><a href="TableauDeBord.php">Tableau de bord</a></li>
                 <li><a href="TableauDeBordAccueil.php">Accueil</a></li>
                 <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="TableauDeBordAgenda.php">Contact</a></li>
                 <li><a href="TableauDeBordActus.php">Actualités</a></li>
                 <li><a href="TableauDeBordEquipe.php">Équipe</a></li>
                 <li><a href="TableauDeBordColos.php" class="active">Colos</a></li>
@@ -34,7 +103,7 @@
     </aside>
 
     <!-- Contenu principal -->
-    <main class="content">
+    <main class="content scroll">
         <header class="header">
             <h1>Tableau de Bord - Colos</h1>
         </header>
@@ -46,62 +115,42 @@
             <button id="btn-delete">Supprimer une colo</button>
         </div>
 
-        <!-- Section Ajouter une colo -->
-        <section id="add-colo" class="action-section">
-            <div class="admin-block colo-info">
-                <h2>Ajouter une colo</h2>
-                <label for="addColoTitle">Titre/Nom de la colo :</label>
-                <input type="text" id="addColoTitle" placeholder="Ex : Colo d'hiver 2025">
+        <!-- Ajouter une colo -->
+        <form method="post" enctype="multipart/form-data">
+            <section id="add-colo" class="action-section">
+                <div class="admin-block colo-info">
+                    <h2>Ajouter une colo</h2>
 
-                <label for="addColoAffiche">Affiche :</label>
-                <input type="file" id="addColoAffiche" accept="image/*">
-                <div class="preview-container" id="previewAddAffiche"></div>
+                    <label for="addColoTitle">Titre/Nom de la colo :</label>
+                    <input name="titre" type="text" id="addColoTitle" placeholder="Ex : Colo d'hiver 2025" required>
 
-<!--                <label for="addColoDescription">Description :</label>-->
-<!--                <textarea id="addColoDescription" rows="5" placeholder="Infos, dates, activités..."></textarea>-->
-            </div>
+                    <label for="addColoAffiche">Affiche :</label>
+                    <input type="file" id="addColoAffiche" name="affiche" accept="image/*" required>
+                    <div class="preview-container" id="previewAddAffiche"></div>
+                </div>
 
-            <!-- Bloc dédié aux 6 images fixes -->
-            <div class="admin-block colo-images">
-                <h2>Images associées (6 fixées)</h2>
-                <div class="colo-colonnes">
-                    <div class="image-slot">
-                        <label>Image 1 :</label>
-                        <input type="file" id="addColoImage1" accept="image/*">
-                        <div class="preview-container" id="previewAddImage1"></div>
-                    </div>
-                    <div class="image-slot">
-                        <label>Image 2 :</label>
-                        <input type="file" id="addColoImage2" accept="image/*">
-                        <div class="preview-container" id="previewAddImage2"></div>
-                    </div>
-                    <div class="image-slot">
-                        <label>Image 3 :</label>
-                        <input type="file" id="addColoImage3" accept="image/*">
-                        <div class="preview-container" id="previewAddImage3"></div>
-                    </div>
-                    <div class="image-slot">
-                        <label>Image 4 :</label>
-                        <input type="file" id="addColoImage4" accept="image/*">
-                        <div class="preview-container" id="previewAddImage4"></div>
-                    </div>
-                    <div class="image-slot">
-                        <label>Image 5 :</label>
-                        <input type="file" id="addColoImage5" accept="image/*">
-                        <div class="preview-container" id="previewAddImage5"></div>
-                    </div>
-                    <div class="image-slot">
-                        <label>Image 6 :</label>
-                        <input type="file" id="addColoImage6" accept="image/*">
-                        <div class="preview-container" id="previewAddImage6"></div>
+                <!-- Bloc dédié aux 6 images fixes -->
+                <div class="admin-block colo-images">
+                    <h2>Images associées (6 fixées)</h2>
+                    <div class="colo-colonnes">
+                        <?php for ($i = 1; $i <= 6; $i++): ?>
+                            <div class="image-slot">
+                                <label for="addColoImage<?= $i ?>">Image <?= $i ?> :</label>
+                                <input type="file" id="addColoImage<?= $i ?>" name="image<?= $i ?>" accept="image/*" required>
+                                <div class="preview-container" id="previewAddImage<?= $i ?>"></div>
+                            </div>
+                        <?php endfor; ?>
                     </div>
                 </div>
-            </div>
 
-            <div class="admin-block actions">
-                <button id="btn-add-colo">Enregistrer la colo</button>
-            </div>
-        </section>
+                <div class="admin-block actions">
+                    <input type="hidden" name="addColo" value="1">
+                    <button id="btn-add-colo" type="submit">Enregistrer</button>
+                </div>
+
+                <?php if (isset($message)) echo $message; ?>
+            </section>
+        </form>
 
         <!-- Section Modifier une colo -->
         <section id="modify-colo" class="action-section">

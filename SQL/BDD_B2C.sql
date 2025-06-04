@@ -16,6 +16,31 @@ CREATE TABLE Administrateur (
     Mot_de_passe VARCHAR(255) NOT NULL
 );
 
+-- Table Colos
+CREATE TABLE colos (
+                       id INT AUTO_INCREMENT PRIMARY KEY,
+                       titre VARCHAR(255),
+                       affiche VARCHAR(255),
+                       image1 VARCHAR(255),
+                       image2 VARCHAR(255),
+                       image3 VARCHAR(255),
+                       image4 VARCHAR(255),
+                       image5 VARCHAR(255),
+                       image6 VARCHAR(255),
+                       date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO colos (id, titre, affiche, image1, image2, image3, image4, image5, image6) VALUES
+(1, "Colo d'été 2024","../../Images/Colos/Affiche%20séjour%202024%20été_page-0001.jpg",
+"../../Images/Colos/photo%20été%201.jpeg","../../Images/Colos/photo%20été%202.jpeg",
+"../../Images/Colos/photo%20été%204.jpeg","../../Images/Colos/IMG_6612.jpg",
+"../../Images/Colos/photo%20été%206.jpeg","../../Images/Colos/photo%20été%207.jpeg"),
+
+(2, "Colo d'hiver 2025", "../../Images/Colos/AFFICHE%20SKI%202025_page-0001.jpg",
+"../../Images/PHOTOS VRAC COLO/IMG_8473.jpg","../../Images/PHOTOS VRAC COLO/IMG_8475.jpg",
+"../../Images/PHOTOS VRAC COLO/IMG_8477.jpg","../../Images/PHOTOS VRAC COLO/IMG_8478.jpg",
+"../../Images/PHOTOS VRAC COLO/IMG_8482.jpg","../../Images/PHOTOS VRAC COLO/IMG_8487.jpg");
+
 -- Création de la table Section
 CREATE TABLE Section (
     id INT PRIMARY KEY,
@@ -23,9 +48,20 @@ CREATE TABLE Section (
     description TEXT
 );
 
+INSERT INTO Section (id, titre, description) VALUES
+                                                 (1, 'Qui sommes-nous ?', 'Le Centre Jean Pouzet est avant tout une association loi 1901 qui a pour vocation de permettre à toutes et tous de découvrir la montagne.
+                Le site se compose d''hébergements (82 places) et d''un parc boisé clôturé de 1,5ha. Il convient aussi bien à des classes de découvertes qu''à des grands groupes : groupes scolaires, particuliers, comités d’entreprises, clubs de sport et randonneurs peuvent se réunir chez nous et profiter de nos formules de pensions toute l’année.
+                <br>
+                Et vous… C’est quand qu’on vous y retrouve ?'),
+                                                 (2, 'Où sommes-nous', 'Le Centre Jean Pouzet est situé au cœur de la Vallée d’Aure dans l’authentique village de Guchen, à 750m d’altitude !
+                Aux portes du prestigieux Parc National des Pyrénées et à 6 km de Saint-Lary-Soulan la localisation du Centre offre des choix presque illimités d’activités ou de visites à faire à proximité toute l’année.
+                Pour l’hiver, les premières stations de ski (Peyragudes, Saint-Lary-Soulan, Val-Louron, Piau-Engaly) se trouvent dans un rayon de 30 min.
+                Pour l’été, outre le Tour de France qui passe quasiment chaque année devant la porte, des sociétés proposent du canyoning, du rafting, de l’accrobranche, de la trottinette, du VTT en montagne et de nombreux circuits de randonnées se font au départ du centre.… et beaucoup d’autres. Nos équipes se feront un plaisir de vous renseigner !
+                Pour voir le détail des hébergements, rendez-vous dans l’onglet intitulé « hébergement » et pour toutes demandes de devis dans celui intitulé « nous contacter », à bientôt dans la vallée.');
+
 -- Création de la table Multimédia
 CREATE TABLE Multimedia (
-    id INT PRIMARY KEY AUTO_INCREMENTx,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     description TEXT,
     image VARCHAR(255),
     chemin_acces VARCHAR(255)
@@ -49,7 +85,7 @@ CREATE TABLE IF NOT EXISTS Equipe (
     description VARCHAR(700) unique NOT NULL
     );
 
-INSERT INTO equipe (img, name, role, description) VALUES
+INSERT INTO Equipe (img, name, role, description) VALUES
                                                       ('Xavier.png', 'Xavier', 'Directeur de la structure', 'Xavier est salarié de l\'association et travaille à l\'intendance de la structure et à l\'accueil des groupes. Il sera votre interlocuteur particulier concernant les devis et les réservations (hors colonie Jean Pouzet).'),
 ('FABIENNE.jpg', 'Fabienne', 'Cheffe cuisinière', 'Fabienne est salariée de l\'association et s\'occupe de préparer avec ses équipes vos délicieux repas chauds et pique-niques. N\'hésitez pas à lui dire quand vous vous êtes régalé !'),
                                                       ('Olivier.png', 'Olivier', 'Président de l\'association', 'L\'histoire d\'amour entre Guchen et Olivier a commencé il y a un moment... Quand il est venu en colonie de vacances. Depuis, il a été colon, animateur, sous-directeur de la colonie et maintenant Président de l\'association. Demandez-lui les secrets du centre si vous le croisez, il en connaît un paquet !'),
@@ -224,6 +260,57 @@ INSERT INTO Multimedia (description, image, chemin_acces) VALUES
 ('image_vrac', '20230224_091417.jpg', '/Images/20230224_091417.jpg'),
 ('image_vrac', 'IMG_20230824_142853.jpg', '/Images/IMG_20230824_142853.jpg');
 
+-- Emeric
 
+INSERT INTO multimedia(id,description, image, chemin_acces)VALUES 
+(200,'#', '#', '#'),
+(201,'#', '#', '#'),
+(202,'#', '#', '#'),
+(203,'#', '#', '#'),
+(204,'#', '#', '#'),
+(205,'#', '#', '#'),
+(206,'#', '#', '#'),
+(207,'#', '#', '#'),
+(208,'#', '#', '#'),
+(209,'#', '#', '#'),
+(210,'#', '#', '#'),
+(211,'#', '#', '#'),
+(212,'#', '#', '#'),
+(213,'#', '#', '#'),
+(214,'#', '#', '#'),
+(215,'#', '#', '#'),
+(216,'#', '#', '#'),
+(217,'#', '#', '#'),
+(218,'#', '#', '#'),
+(219,'#', '#', '#'),
+(220,'#', '#', '#');
 
+INSERT INTO section(id,titre,description)VALUES 
+(201,'#', '#'),
+(202,'#', '#'),
+(203,'#', '#');
+
+-- Omar & Antoine
+
+CREATE TABLE jours_ouverts (
+date DATE PRIMARY KEY
+);
+
+-- Simon 
+
+CREATE TABLE if not exists actus (
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL  ,
+    date DATE,
+    titre VARCHAR(250) NOT NULL,
+    texte VARCHAR(550) NOT NULL,
+    image VARCHAR(100) NOT NULL
+    );
+
+INSERT INTO actus (id, titre, texte, image, date) VALUES
+(1, 'Les inscriptions pour le séjour de ski sont ouvertes !', 'Les inscriptions pour le séjour de ski sont ouvertes...', '/Images/Colos/AFFICHE%20SKI%202025_page-0001.jpg', '2025-03-12'),
+(2, 'Bonne année 2025 !', 'Pour la 4ème édition du nouvel an à Jean Pouzet...', '../../Images/Actus/2025_ACTUS.jpg', '2025-01-01'),
+(3, 'Classe découverte !', 'Nous avons eu le plaisir d\'accueillir pour la deuxième...', '/Images/Actus/CLASSE_DECOUVERTE_1.jpg', '2024-12-04'),
+(4, 'La saison hivernale est lancée !', 'La neige est là, il ne manque plus que vous. Le ...', '/Images/Actus/SAISON_HIVERNALE.JPG', '2024-12-21'),
+(5, 'Ces entreprises qui nous font confiance !', 'Le Centre Jean Pouzet est à même de proposer ...', '/Images/Actus/entreprises.jpg', '2024-10-11'),
+(6, 'Les Pyrénées à vélo !', 'Pla d\'Adet, Tourmalet, Col d\'Aspin, Peyresourde...', '/Images/Actus/vélo.jpg', '2024-10-01');
 
