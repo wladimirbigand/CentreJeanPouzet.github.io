@@ -76,103 +76,179 @@ $texteSalle  = $tabsalle [1];
 
     <!-- Zone de contenu principale -->
     <main class="content">
-        <div class="scroll">
+        <div>
             <!-- En-tête -->
             <header class="header">
                 <h1>Tableau de Bord - Hébergements</h1>
             </header>
 
-            <div><?php if(isset($_GET['success']) && ($_GET['success'] === 1)){echo "<h3>Données Mises à jour !</h3><br>";}?></div>
+            <div class="action-options">
+                <button id="btn-add" class="active">Chalet</button>
+                <button id="btn-modify">Bâtiment</button>
+                <button id="btn-delete">Salle de jeu</button>
+            </div>
 
-            <!-- Section d’édition (à personnaliser selon vos besoins) -->
-            <form action="traitementhebergement.inc.php" method="POST" enctype="multipart/form-data">
+            <section id="section-chalet" class="action-section active"> <!-- active pour la 1ère -->
+                <form action="traitementhebergement.inc.php" method="POST" enctype="multipart/form-data">
 
-                <section class="admin-section">
-                    <!-- Premier bloc : modifier du texte -->
-                    <div class="admin-block">
-                        <h2>Sélectionnez le texte à ajouter / modifier :</h2>
-                        <input type="text" placeholder="Texte 1" name="nouvtitreChalet" value="<?php echo $titreChalet ?>">
-                        <textarea placeholder="Aperçu du texte à modifier" name="nouvtexteChalet"><?php echo $texteChalet ?></textarea>
-                    </div>
+                    <section class="admin-section scroll">
+                        <!-- Premier bloc : modifier du texte -->
+                        <div class="admin-block">
+                            <h2>Sélectionnez le texte à ajouter / modifier :</h2>
+                            <input type="text" placeholder="Texte 1" name="nouvtitreChalet" value="<?php echo $titreChalet ?>">
+                            <textarea placeholder="Aperçu du texte à modifier" name="nouvtexteChalet"><?php echo $texteChalet ?></textarea>
+                        </div>
 
-                    <!-- Deuxième bloc : modifier des images ou carrousels -->
-                    <div class="admin-block">
-                        <h2>Sélectionnez une image à ajouter / modifier :</h2>
-                        <input type="file" placeholder="Image 1" name="nouvimageChalet" accept="image/*"/>
-                        <br><br><br>
-                        <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
-                        <input type="file" placeholder="Carrousel 1" name="chaletcarrousel1"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="chaletcarrousel2"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="chaletcarrousel3"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="chaletcarrousel4"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="chaletcarrousel5"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="chaletcarrousel6"/>
-                    </div>
+                        <!-- Deuxième bloc : modifier des images ou carrousels -->
+                        <div class="admin-block">
+                            <h2>Sélectionnez une image à ajouter / modifier :</h2>
+                            <input type="file" placeholder="Image 1" name="nouvimageChalet" accept="image/*"/>
+                            <br><br><br>
+                            <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
+                            <input type="file" placeholder="Carrousel 1" name="chaletcarrousel1"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel2"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel3"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel4"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel5"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel6"/>
+                        </div>
 
+                        <div class="admin-block actions">
+                            <button id="Add" type="submit">Enregistrer les modifications</button>
+                        </div>
+                    </section>
+                </form>
+            </section>
 
-                    <!-- Deuxième bloc : Section batiment -->
-                    <div class="admin-block">
-                        <h2>Sélectionnez le texte à ajouter / modifier :</h2>
-                        <input type="text" placeholder="Texte 2" name="nouvtitreBatiment" value="<?php echo $titreBatiment ?>"/>
-                        <textarea placeholder="Aperçu du texte à modifier" name="nouvtexteBatiment"><?php echo $texteBatiment?></textarea>
-                    </div>
+            <section id="section-batiment" class="action-section">
+                <form action="traitementhebergement.inc.php" method="POST" enctype="multipart/form-data">
+                    <section class="admin-section scroll">
+                        <!-- Deuxième bloc : Section batiment -->
+                        <div class="admin-block">
+                            <h2>Sélectionnez le texte à ajouter / modifier :</h2>
+                            <input type="text" placeholder="Texte 2" name="nouvtitreBatiment" value="<?php echo $titreBatiment ?>"/>
+                            <textarea placeholder="Aperçu du texte à modifier" name="nouvtexteBatiment"><?php echo $texteBatiment?></textarea>
+                        </div>
 
-                    <div class="admin-block">
-                        <h2>Sélectionnez une image à ajouter / modifier :</h2>
-                        <input type="file" placeholder="Image 1" name="nouvimageBatiment" accept="image/*"/>
-                        <br><br><br>
-                        <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
-                        <input type="file" placeholder="Carrousel 1" name="batimentcarrousel1"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="batimentcarrousel2"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 3" name="batimentcarrousel3"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 4" name="batimentcarrousel4"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 5" name="batimentcarrousel5"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 6" name="batimentcarrousel6"/>
-                    </div>
+                        <div class="admin-block">
+                            <h2>Sélectionnez une image à ajouter / modifier :</h2>
+                            <input type="file" placeholder="Image 1" name="nouvimageBatiment" accept="image/*"/>
+                            <br><br><br>
+                            <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
+                            <input type="file" placeholder="Carrousel 1" name="batimentcarrousel1"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="batimentcarrousel2"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 3" name="batimentcarrousel3"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 4" name="batimentcarrousel4"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 5" name="batimentcarrousel5"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 6" name="batimentcarrousel6"/>
+                        </div>
 
+                        <div class="admin-block actions">
+                            <button id="Add" type="submit">Enregistrer les modifications</button>
+                        </div>
+                    </section>
+                </form>
+            </section>
 
-                    <!-- Troisieme bloc : Section salle -->
-                    <div class="admin-block">
-                        <h2>Sélectionnez le texte à ajouter / modifier :</h2>
-                        <input type="text" placeholder="Texte 3" name="nouvtitreSalle" value="<?php echo $titreSalle?>"/>
-                        <textarea placeholder="Aperçu du texte à modifier" name="nouvtexteSalle"><?php echo $texteSalle?></textarea>
-                    </div>
+            <section id="section-salle" class="action-section">
+                <form action="traitementhebergement.inc.php" method="POST" enctype="multipart/form-data">
 
-                    <div class="admin-block">
-                        <h2>Sélectionnez une image à ajouter / modifier :</h2>
-                        <input type="file" placeholder="Image 1" name="nouvimageSalle" accept="image/*"/>
-                        <br><br><br>
-                        <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
-                        <input type="file" placeholder="Carrousel 1" name="sallecarrousel1"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="sallecarrousel2"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="sallecarrousel3"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="sallecarrousel4"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="sallecarrousel5"/>
-                        <br><br>
-                        <input type="file" placeholder="Carrousel 2" name="sallecarrousel6"/>
-                    </div>
+                    <section class="admin-section scroll">
+                        <!-- Troisieme bloc : Section salle -->
+                        <div class="admin-block">
+                            <h2>Sélectionnez le texte à ajouter / modifier :</h2>
+                            <input type="text" placeholder="Texte 3" name="nouvtitreSalle" value="<?php echo $titreSalle?>"/>
+                            <textarea placeholder="Aperçu du texte à modifier" name="nouvtexteSalle"><?php echo $texteSalle?></textarea>
+                        </div>
 
+                        <div class="admin-block">
+                            <h2>Sélectionnez une image à ajouter / modifier :</h2>
+                            <input type="file" placeholder="Image 1" name="nouvimageSalle" accept="image/*"/>
+                            <br><br><br>
+                            <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
+                            <input type="file" placeholder="Carrousel 1" name="sallecarrousel1"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel2"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel3"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel4"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel5"/>
+                            <br><br>
+                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel6"/>
+                        </div>
 
-                    <input type="submit" value="Valider">
-                </section>
-            </form>
+                        <div class="admin-block actions">
+                            <button id="Add" type="submit">Enregistrer les modifications</button>
+                        </div>
+                    </section>
+                </form>
+            </section>
         </div>
     </main>
 </div>
+
+<script>
+    const buttons = {
+        chalet: document.getElementById('btn-add'),
+        batiment: document.getElementById('btn-modify'),
+        salle: document.getElementById('btn-delete'),
+    };
+
+    const sections = {
+        chalet: document.getElementById('section-chalet'),
+        batiment: document.getElementById('section-batiment'),
+        salle: document.getElementById('section-salle'),
+    };
+
+    function resetSections() {
+        Object.values(sections).forEach(section => section.classList.remove('active'));
+        Object.values(buttons).forEach(btn => btn.classList.remove('active'));
+    }
+
+    buttons.chalet.addEventListener('click', () => {
+        resetSections();
+        buttons.chalet.classList.add('active');
+        sections.chalet.classList.add('active');
+    });
+
+    buttons.batiment.addEventListener('click', () => {
+        resetSections();
+        buttons.batiment.classList.add('active');
+        sections.batiment.classList.add('active');
+    });
+
+    buttons.salle.addEventListener('click', () => {
+        resetSections();
+        buttons.salle.classList.add('active');
+        sections.salle.classList.add('active');
+    });
+</script>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Modifications enregistrées !',
+            text: 'Les contenus ont bien été mis à jour.',
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+<?php endif; ?>
 
 </body>
 </html>

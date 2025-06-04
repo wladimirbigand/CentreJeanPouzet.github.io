@@ -68,13 +68,11 @@ $equipe = connectionPDO('../../SQL/config');
                     <label for="addMemberDesc">Description :</label>
                     <textarea id="addMemberDesc" rows="5" name="addMemberDesc" placeholder="Présentation du membre..." required></textarea>
                 </div>
-                <div class="admin-block actions">
-                    <button type="submit" id="btn-add-member-save">Enregistrer un membre</button>
-                </div>
 
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $cheminImage = null;
+                    $message = "";
 
                     if (isset($_FILES['addMemberImage']) && $_FILES['addMemberImage']['error'] === 0) {
                         $dossier = "../../Images/Equipe/";
@@ -97,17 +95,41 @@ $equipe = connectionPDO('../../SQL/config');
                         $stmt->bindValue(':role', $role);
                         $stmt->bindValue(':description', $description);
 
-                        if ($stmt->execute()) {
-                            header('Location: TableauDeBordEquipe.php');
-                            exit();
+                        if ($stmt->execute() == true) {
+                            $message .= '
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                        Swal.fire({
+                          icon: "success",
+                          title: "Succès !",
+                          text: "Membre ajouté avec succès.",
+                          confirmButtonColor: "#3085d6"
+                        });
+                        </script>';
                         } else {
-                            $stmt->execute();
+                            $message .= '
+                                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                                <script>
+                                Swal.fire({
+                                  icon: "error",
+                                  title: "Erreur !",
+                                  text: "Erreur lors de l\'ajout !",
+                                  confirmButtonColor: "#3085d6"
+                                });
+                                </script>';
                         }
                     }
                 }
 
                 ?>
+
+                <div class="admin-block actions">
+                    <button type="submit" id="btn-add-member-save">Enregistrer un membre</button>
+                </div>
+
             </form>
+
+            <?php if (!empty($message)) echo $message; ?>
         </section>
 
         <!-- Section « Modifier » -->
@@ -208,6 +230,18 @@ $equipe = connectionPDO('../../SQL/config');
                             $stmt->execute();
 
                             header('Location: TableauDeBordEquipe.php?section_modif');
+                            $message = '
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                            Swal.fire({
+                              icon: "success",
+                              title: "Succès !",
+                              text: "Membre modifié avec succès.",
+                              confirmButtonColor: "#3085d6"
+                            });
+                            </script>';
+                            echo $message;
+                            header('Location: TableauDeBordEquipe.php?section_modif');
                             exit();
                         }
                     }
@@ -239,11 +273,28 @@ $equipe = connectionPDO('../../SQL/config');
                         <button type="submit" id="btn-delete-member-save">Confirmer la suppression</button>
                     </div>
                     <?php
+                    $success = false;
+
                     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["selectMemberToDelete"])) {
                         $id = (int) $_POST["selectMemberToDelete"];
                         $stmt = $equipe->prepare('DELETE FROM equipe WHERE id = :id');
                         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                        $stmt->execute();
+                        $success = $stmt->execute();
+                    }
+                    if ($success) {
+                        $message = '
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                        Swal.fire({
+                          icon: "success",
+                          title: "Succès !",
+                          text: "Membre supprimé avec succès.",
+                          confirmButtonColor: "#3085d6"
+                        });
+                        </script>';
+                        echo $message;
+                        header('Location: TableauDeBordEquipe.php');
+                        exit();
                     }
                     ?>
                 </form>

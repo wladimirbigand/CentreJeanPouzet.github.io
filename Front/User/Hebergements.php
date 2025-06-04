@@ -18,6 +18,7 @@ $hebergementsdatatxt = $requetetxt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre Jean Pouzet</title>
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <link rel="stylesheet" href="../../CSS/User/Hebergements.css">
     <link rel="stylesheet" href="../../CSS/User/Footer.css">
     <link rel="stylesheet" href="../../CSS/User/Header.css">
@@ -26,7 +27,6 @@ $hebergementsdatatxt = $requetetxt->fetchAll(PDO::FETCH_ASSOC);
     <script src="../../JS/ModalHebergements.js"></script>
     <script src="../../JS/hebergement.js" async></script>
     <script src="../../JS/carroussel.js" async></script>
-    <link rel="icon" type="image/vnd.icon" href="../Images/Logoù/logo.png">
 </head>
 <body>
 <?php $currentPage = 'hebergements'; ?>

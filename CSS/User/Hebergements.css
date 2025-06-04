@@ -4,7 +4,7 @@
   padding: 0;
   font-family: 'Mukta Regular';
 }
- 
+
 body{
   line-height: 1.6;
   background-color: #F5F5E1;
@@ -13,7 +13,7 @@ body{
 main {
   display: grid;
 }
- 
+
 /* Section avec l'image de fond
 #background {
   background-image: url(../Images/JPrando.jpg);
@@ -21,7 +21,7 @@ main {
   background-position: center;
   margin-top: -12vh;
 } */
- 
+
 /* Introduction */
 #intro {
   text-align: center;
@@ -30,14 +30,14 @@ main {
   padding: 20px;
   background-color: blanchedalmond;
   margin-top: -14vh;
-  background-image: url(../Images/Accueil/JPrando.jpg);
+  background-image: url(../../Images/Accueil/JPrando.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 98vh;
   display: grid;
   gap: 20px;
 }
- 
+
 .contenuIntro {
   margin-top: 14vh;
   background-color: #F5F5E1;
@@ -50,7 +50,7 @@ main {
   place-content: center;
   place-self: center;
 }
- 
+
 .separation{
   display: grid;
   background-color: #89b287;
@@ -59,17 +59,17 @@ main {
   height: 10px;
   border-radius: 5px;
 }
- 
+
 /* Liste */
 ul{
   list-style-position: inside;
 }
- 
+
 #liste {
   padding-left: 35%;
   text-align: left;
 }
- 
+
 /* Conteneur principal des images */
 .container {
   display: flex;
@@ -78,7 +78,7 @@ ul{
   justify-content: space-evenly;
   padding: 20px 0;
 }
- 
+
 /* Cartes d'images */
 .thumbex {
   margin: 10px 20px 30px;
@@ -92,7 +92,7 @@ ul{
   box-shadow: 5px 10px 40px 5px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
- 
+
 .thumbnail {
   overflow: hidden;
   min-width: 250px;
@@ -101,7 +101,7 @@ ul{
   opacity: 0.88;
   transition: all 0.4s ease-out;
 }
- 
+
 .thumbnail img {
   position: absolute;
   z-index: 1;
@@ -111,7 +111,7 @@ ul{
   width: auto;
   transform: translate(-50%, -50%);
 }
- 
+
 .thumbnail span {
   position: absolute;
   z-index: 2;
@@ -129,20 +129,20 @@ ul{
   letter-spacing: 0.2px;
   transition: all 0.3s ease-out;
 }
- 
+
 .thumbnail:hover {
   transform: scale(1.15);
   opacity: 1;
 }
- 
+
 .thumbnail:hover span {
   opacity: 0;
 }
- 
+
 #vert1, #vert2, #vert3 {
   margin: 50px;
 }
- 
+
 /* Images avec IDs spécifiques */
 #img1, #img2, #img3 {
   display: flex;
@@ -150,54 +150,136 @@ ul{
   justify-content: space-around;
   margin: 20px 0;
 }
- 
+
 /* Titre des images */
 .titreimages {
   color: black;
   font-size: 36px;
   margin: 10px 40px;
 }
- 
+
 /* Texte sous les images */
 .textimage {
   color: black;
   font-size: 20px;
   margin-left: 40px;
+  margin-bottom: 30px; /* ✔ espace entre le texte et le carrousel */
 }
- 
+
 /* Images spécifiques */
 .imgd {
   width: 15%;
   border-radius: 15px;
   transition: transform 1s;
 }
- 
+
 .imgd:hover {
   transform: scale(1.05);
 }
- 
+
+/* === Carrousel === */
+
+.slideshow-container,
+.slideshow-container1,
+.slideshow-container2 {
+  width: 90%;
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slideshow-container img,
+.slideshow-container1 img,
+.slideshow-container2 img {
+  width: 60%;              /* ✅ prend 60% du conteneur */
+  max-width: 100%;         /* ne dépasse jamais le conteneur */
+  height: auto;            /* conserve le ratio */
+  border-radius: 15px;     /* coins arrondis */
+  object-fit: contain;     /* ✅ évite le crop (pour préserver le visuel si demandé) */
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15); /* optionnel pour effet classe */
+}
+
+.mySlides,
+.mySlides1,
+.mySlides2 {
+  display: none;
+}
+
+.prev, .next,
+.prev1, .next1,
+.prev2, .next2 {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.next, .next1, .next2 {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover,
+.prev1:hover, .next1:hover,
+.prev2:hover, .next2:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+.dot, .dot1, .dot2 {
+  height: 15px;
+  width: 15px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot:hover, .dot1:hover, .dot2:hover {
+  background-color: #717171;
+}
+
+
 /* MEDIA QUERIES */
- 
+
 /* Ajustement pour les écrans moyens */
 @media (max-width: 768px) {
   #img1, #img2, #img3 {
     flex-direction: column; /* Les images passent en colonne */
     align-items: center;
   }
- 
+
   .imgd {
     width: 80%; /* Augmente la taille des images pour qu'elles soient plus lisibles */
     margin: 20px;
   }
+
+  .slideshow-container img,
+  .slideshow-container1 img,
+  .slideshow-container2 img {
+    width: 90%;  /* ✅ plus grand sur mobile */
+  }
 }
- 
+
 /* Ajustement pour les petits écrans */
 @media (max-width: 480px) {
   #img1, #img2, #img3 {
     flex-direction: column; /* Les images restent en colonne */
     align-items: center;
   }
- 
+
   .imgd {
     width: 80%; /* Les images deviennent plus grandes pour un meilleur affichage */
   }
