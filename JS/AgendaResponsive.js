@@ -92,4 +92,3 @@ document.getElementById('next-month').addEventListener('click', async () => {
 
 // Au chargement de la page
 document.addEventListener('DOMContentLoaded', initCalendar);
-
