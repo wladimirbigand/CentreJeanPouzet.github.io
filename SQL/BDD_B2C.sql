@@ -15,6 +15,30 @@ CREATE TABLE Administrateur (
     Mot_de_passe VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE colos (
+                       id INT AUTO_INCREMENT PRIMARY KEY,
+                       titre VARCHAR(255),
+                       affiche VARCHAR(255),
+                       image1 VARCHAR(255),
+                       image2 VARCHAR(255),
+                       image3 VARCHAR(255),
+                       image4 VARCHAR(255),
+                       image5 VARCHAR(255),
+                       image6 VARCHAR(255),
+                       date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO colos (id, titre, affiche, image1, image2, image3, image4, image5, image6) VALUES
+(1, "Colo d'été 2024","../../Images/Colos/Affiche%20séjour%202024%20été_page-0001.jpg",
+"../../Images/Colos/photo%20été%201.jpeg","../../Images/Colos/photo%20été%202.jpeg",
+"../../Images/Colos/photo%20été%204.jpeg","../../Images/Colos/IMG_6612.jpg",
+"../../Images/Colos/photo%20été%206.jpeg","../../Images/Colos/photo%20été%207.jpeg"),
+
+(2, "Colo d'hiver 2025", "../../Images/Colos/AFFICHE%20SKI%202025_page-0001.jpg",
+"../../Images/PHOTOS VRAC COLO/IMG_8473.jpg","../../Images/PHOTOS VRAC COLO/IMG_8475.jpg",
+"../../Images/PHOTOS VRAC COLO/IMG_8477.jpg","../../Images/PHOTOS VRAC COLO/IMG_8478.jpg",
+"../../Images/PHOTOS VRAC COLO/IMG_8482.jpg","../../Images/PHOTOS VRAC COLO/IMG_8487.jpg");
+
 -- Création de la table Section
 CREATE TABLE Section (
     id INT PRIMARY KEY,

@@ -1,3 +1,19 @@
+<?php
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=admin_panel", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Récupération des colos
+    $stmt = $pdo->query("SELECT * FROM colos ORDER BY date_creation DESC");
+    $colos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    echo "<p style='color:red;'>Erreur de connexion à la base de données : " . $e->getMessage() . "</p>";
+    $colos = [];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -69,51 +85,30 @@
             </div>
         </section>
 
-        <section class="sectionSKI">
-            <div class="Container">
-                <div class="title">
-                    <H1>Colo d'hiver 2025</H1>    
+        <?php foreach ($colos as $colo): ?>
+            <section class="sectionETE">
+                <div class="IMG">
+                    <img src="<?= htmlspecialchars($colo['affiche']) ?>" alt="Affiche <?= htmlspecialchars($colo['titre']) ?>">
                 </div>
-                <div class="Container1">
-                    <div class="ContainerIMG">
-                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8473.jpg" id="IMG" alt="Image1"></div>
-                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8475.jpg" id="IMG" alt="Image2"></div>
-                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8477.jpg" id="IMG" alt="Image3"></div>
+                <div class="Container">
+                    <div class="title">
+                        <h1><?= htmlspecialchars($colo['titre']) ?></h1>
                     </div>
-                    <div class="ContainerIMG">
-                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8478.jpg" id="IMG" alt="Image4"></div>
-                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8482.jpg" id="IMG" alt="Image5"></div>
-                        <div><img src="../../Images/PHOTOS VRAC COLO/IMG_8487.jpg" id="IMG" alt="Image6"></div>
+                    <div class="Container1">
+                        <div class="ContainerIMG">
+                            <div><img src="<?= htmlspecialchars($colo['image1']) ?>" alt="Image 1"></div>
+                            <div><img src="<?= htmlspecialchars($colo['image2']) ?>" alt="Image 2"></div>
+                            <div><img src="<?= htmlspecialchars($colo['image3']) ?>" alt="Image 3"></div>
+                        </div>
+                        <div class="ContainerIMG">
+                            <div><img src="<?= htmlspecialchars($colo['image4']) ?>" alt="Image 4"></div>
+                            <div><img src="<?= htmlspecialchars($colo['image5']) ?>" alt="Image 5"></div>
+                            <div><img src="<?= htmlspecialchars($colo['image6']) ?>" alt="Image 6"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="IMG">
-                <img src="../../Images/Colos/AFFICHE%20SKI%202025_page-0001.jpg" alt="Affiche ski">
-            </div>
-        </section>
-        
-        <section class="sectionETE">
-            <div class="IMG">
-                <img src="../../Images/Colos/Affiche%20séjour%202024%20été_page-0001.jpg" alt="Affiche été">
-            </div>
-            <div class="Container">
-                <div class="title">
-                    <H1>Colo d'été 2024</H1>
-                </div>
-            <div class="Container1">
-                <div class="ContainerIMG">
-                    <div><img src="../../Images/Colos/photo%20été%201.jpeg" id="IMG" alt="Image7"></div>
-                    <div><img src="../../Images/Colos/photo%20été%202.jpeg" id="IMG" alt="Image8"></div>
-                    <div><img src="../../Images/Colos/photo%20été%204.jpeg" id="IMG" alt="Image9"></div>
-                </div>
-                <div class="ContainerIMG">
-                    <div><img src="../../Images/Colos/IMG_6612.jpg" id="IMG" alt="Image10"></div>
-                    <div><img src="../../Images/Colos/photo%20été%206.jpeg" id="IMG" alt="Image11"></div>
-                    <div><img src="../../Images/Colos/photo%20été%207.jpeg" id="IMG" alt="Image12"></div>
-                </div>
-            </div>
-            </div>
-        </section>
+            </section>
+        <?php endforeach; ?>
 
         <section id="sectionArchives">
             <div class="titleArchives">
