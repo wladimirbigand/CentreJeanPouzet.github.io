@@ -155,7 +155,6 @@ document.getElementById('next-month').addEventListener('click', () => {
 
 fetchOpenDaysFromServer();
 
-// ✅ Chemin mis à jour ici : (pas IA)
 document.getElementById('saveBtn').addEventListener('click', () => {
     const openDates = Object.keys(openDays);
 

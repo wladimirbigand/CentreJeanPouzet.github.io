@@ -23,6 +23,8 @@ try {
     <link rel="stylesheet" href="../../CSS/User/Header.css">
     <link rel="stylesheet" href="../../CSS/User/Footer.css">
     <link rel="stylesheet" href="../../CSS/User/Fonts.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../../JS/ModalColo.js"></script>
     <title>Centre Jean Pouzet</title>
     <script src="../../JS/Header.js"></script>
@@ -32,16 +34,6 @@ try {
 <?php $currentPage = 'colos'; ?>
 <?php require_once '../Includes/Header.php'; ?>
     <main>
-        <div id="myModal" class="modal">
-            <!-- Bouton de fermeture -->
-            <span class="close">&times;</span>
-          
-            <!-- Modal Content (The Image) -->
-            <img class="modal-content" id="img01">
-          
-            <!-- Modal Caption (Image Text) -->
-            <div id="caption"></div>
-        </div>
 
         <section class="sectionIntro">
             <div class="ContainerIntro">
@@ -96,14 +88,14 @@ try {
                     </div>
                     <div class="Container1">
                         <div class="ContainerIMG">
-                            <div><img src="<?= htmlspecialchars($colo['image1']) ?>" alt="Image 1"></div>
-                            <div><img src="<?= htmlspecialchars($colo['image2']) ?>" alt="Image 2"></div>
-                            <div><img src="<?= htmlspecialchars($colo['image3']) ?>" alt="Image 3"></div>
+                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image1']) ?>" alt="Image 1"></div>
+                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image2']) ?>" alt="Image 2"></div>
+                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image3']) ?>" alt="Image 3"></div>
                         </div>
                         <div class="ContainerIMG">
-                            <div><img src="<?= htmlspecialchars($colo['image4']) ?>" alt="Image 4"></div>
-                            <div><img src="<?= htmlspecialchars($colo['image5']) ?>" alt="Image 5"></div>
-                            <div><img src="<?= htmlspecialchars($colo['image6']) ?>" alt="Image 6"></div>
+                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image4']) ?>" alt="Image 4"></div>
+                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image5']) ?>" alt="Image 5"></div>
+                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image6']) ?>" alt="Image 6"></div>
                         </div>
                     </div>
                 </div>
@@ -111,37 +103,52 @@ try {
         <?php endforeach; ?>
 
         <section id="sectionArchives">
-            <div class="titleArchives">
-                <H1>Nos archives</H1>
-            </div>
-            <div class="ContainerArchives">
-                <div class="ContainerIMGArchives">
-                    <div><img src="../../Images/Photo%20archives/IMG_8011.jpg" id="IMG" alt="Rassemblement dans la prairie, date inconnue."></div>
-                    <div><img src="../../Images/Photo%20archives/IMG_8482.jpg" id="IMG" alt="Les patrouilles pour dormir à 8, années 70."></div>
-                    <div><img src="../../Images/Photo%20archives/IMG_8490.jpg" id="IMG" alt="Randonnée en altitude, année inconnue."></div>
-                    <div><img src="../../Images/Photo%20archives/IMG_8489.jpg" id="IMG" alt="Le bivouac des ados. Année inconnue."></div>
+            <div class="archives-bootstrap py-5">
+                <div class="container">
+                    <h1 class="text-center mb-5">Nos archives</h1>
+
+                    <div class="row g-5">
+                        <?php
+                        $images = [
+                            "IMG_8011.jpg" => "Rassemblement dans la prairie, date inconnue.",
+                            "IMG_8482.jpg" => "Les patrouilles pour dormir à 8, années 70.",
+                            "IMG_8490.jpg" => "Randonnée en altitude, année inconnue.",
+                            "IMG_8489.jpg" => "Le bivouac des ados. Année inconnue.",
+                            "IMG_8478.jpg" => "Foot dans la prairie, années 90.",
+                            "IMG_8477.jpg" => "Veillée jeux dans la prairie, années 60.",
+                            "IMG_8487.jpg" => "Les totems, groupe des grands, années 90.",
+                            "IMG_8488.jpg" => "Spectacle des petits, années 70.",
+                            "IMG_8475.jpg" => "Les animateurs du séjour, années 60.",
+                            "IMG_8473.jpg" => "Le terrain de foot et la salle de jeux, années 90.",
+                            "IMG_8469.jpg" => "Le Centre et le clocher de Guchen. Année inconnue.",
+                            "IMG_8463.jpg" => "Jeu dans la prairie. Année inconnue."
+                        ];
+
+                        foreach ($images as $file => $alt): ?>
+                            <div class="col-6 col-md-3 d-flex justify-content-center align-items-center">
+                                <img src="../../Images/Photo%20archives/<?= $file ?>"
+                                     class="img-fluid modal-img rounded shadow"
+                                     alt="<?= $alt ?>"
+                                     style="cursor:pointer;">
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-                <hr>
-                <div class="ContainerIMGArchives">
-                    <div><img src="../../Images/Photo%20archives/IMG_8478.jpg" id="IMG" alt="Foot dans la prairie, années 90."></div>
-                    <div><img src="../../Images/Photo%20archives/IMG_8477.jpg" id="IMG" alt="Veillée jeux dans la prairie, années 60."></div>
-                    <div><img src="../../Images/Photo%20archives/IMG_8487.jpg" id="IMG" alt="Les totems, groupe des grands, années 90."></div>
-                    <div><img src="../../Images/Photo%20archives/IMG_8488.jpg" id="IMG" alt="Spectacle des petits, années 70."></div>
-                </div>
-                <hr>
-                <div class="ContainerIMGArchives">
-                    <div><img src="../../Images/Photo%20archives/IMG_8475.jpg" id="IMG" alt="Les animateurs du séjour, années 60."></div>
-                    <div><img src="../../Images/Photo%20archives/IMG_8473.jpg" id="IMG" alt="Le terrain de foot et la salle de jeux, années 90."></div>
-                    <div><img src="../../Images/Photo%20archives/IMG_8469.jpg" id="IMG" alt=" Le Centre et le clocher de Guchen. Année inconnue."></div>
-                    <div><img src="../../Images/Photo%20archives/IMG_8463.jpg" id="IMG" alt="Jeu dans la prairie. Année inconnue."></div>
-                </div>
-                <!-- <hr> -->
             </div>
         </section>
+
 
     </main>
 <?php
 require_once '../Includes/Footer.php';
 ?>
+
+<!-- Modal pour image -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
 </body>
 </html>

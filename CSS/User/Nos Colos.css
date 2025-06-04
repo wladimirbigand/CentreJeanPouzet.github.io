@@ -1,3 +1,5 @@
+
+/* RESET & GLOBAL */
 * {
     margin: 0;
     padding: 0;
@@ -8,106 +10,161 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    overflow-x: hidden; /* Empêche le débordement horizontal */
+    overflow-x: hidden;
 }
 
 main {
     margin-top: 12vh;
     display: grid;
     grid-template-rows: auto;
-    gap: 0;
 }
 
 section {
-  padding: 0;
+    padding: 0;
 }
 
-section img {
-    height: 80%;
+/* TITLES */
+section h1 {
+    text-align: center;
+    font-family: 'Mukta SemiBold';
+    font-size: 2em;
+    margin: 5vh 0 2vh;
 }
 
-.IMG {
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.titleArchives {
+    padding: 20px;
+}
+
+/* SECTION INTRO */
+.sectionIntro {
+    min-height: 90vh;
+    display: grid;
+    place-items: center;
+    background-image: url(../../Images/Accueil/JPrando.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ContainerIntro {
+    background-color: #f5f1e1;
+    border-radius: 10px;
+    padding: 40px;
+    opacity: 0.9;
+    width: 70%;
+    height: 70%;
+    display: grid;
+    gap: 10px;
+    grid-template-rows: repeat(4, 1fr);
+    place-content: center;
+    place-self: center;
+}
+
+.ContenuIntro {
     display: grid;
     place-items: center;
 }
 
-.sectionIntro {
-  max-height: 90vh;
-  display: grid;
-  place-items: center;
-  background-image: url(../Images/Nos\ colos/IMG_8605.JPG);
-  background-repeat: no-repeat;
-}
-
-.ContainerIntro {
-  background-color: #f5f1e1;
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  border-radius: 10px;
-  padding: 40px;
-  opacity: 0.9;
-  display: grid;
-  gap: 10px;
-  width: 70%;
-  height: 60%;
-  place-content: center;
-  place-self: center;
-}
-
-.ContenuIntro {
-  display: grid;
-  place-items: center;
-}
-
 #ParagrapheIntro {
-  font-size: 17px;
+    font-size: 21px;
 }
 
 .ContenuIntro b {
-  font-size: 17px;
-  font-family: 'Mukta SemiBold';
+    font-size: 22px;
+    font-family: 'Mukta SemiBold';
+}
+
+u {
+    text-decoration-color: #9DBD91;
 }
 
 .ContenuIntro p {
-  font-family: 'Mukta Regular';
+    font-size: 19px;
+    font-family: 'Mukta Regular';
 }
 
-.sectionIntro, .sectionSKI {
-  height: auto; /* Hauteur adaptative */
-  min-height: 90vh; /* Supprime les différences de hauteur */
+/* BUTTON */
+.button {
+    display: grid;
+    place-items: center;
 }
 
-.sectionETE{
+.sectionIntro button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: black;
+    width: 20%;
+    max-width: 185px;
+    border: solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Mukta ExtraLight';
+    transition: all 0.3s ease;
+}
+
+.sectionIntro button:hover {
+    background-color: #F5F5E1;
+    color: #333;
+    transform: scale(1.1);
+}
+
+/* SECTIONS ETE / SKI */
+.sectionETE, .sectionSKI {
     min-height: 90vh;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    /* gap: 20px; */
     background-color: #f5f1e1;
+}
+
+.sectionETE {
+    grid-template-columns: 1fr 2fr;
 }
 
 .sectionSKI {
-    display: grid;
     grid-template-columns: 2fr 1fr;
+}
+
+/* ARCHIVES */
+#sectionArchives {
+    min-height: 100vh;
     background-color: #f5f1e1;
+    display: grid;
+    place-items: center;
 }
 
-section h1 {
-    /* align-items: center; */
-    text-align: center;
-    margin-top: 5vh;
-    font-family: 'Mukta SemiBold';
-    font-size: 2em;
-    margin: 0;
+.archives-bootstrap {
+    padding: 50px 0;
 }
 
-.title {
-    display: flex; /* Active Flexbox */
-    justify-content: center; /* Centre horizontalement */
-    align-items: flex-end; /* Place à la fin verticalement */
-    height: 100%; /* S'assure que le conteneur prend toute la hauteur disponible */
+.archives-bootstrap .row {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1.5rem;
 }
 
+.archives-bootstrap img.modal-img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
 
+.archives-bootstrap img.modal-img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* CONTAINERS */
 .Container {
     display: grid;
     grid-template-rows: 1fr 6fr;
@@ -118,223 +175,116 @@ section h1 {
     grid-template-rows: 1fr 1fr;
 }
 
-.ContainerIMG {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* S'adapte automatiquement */
-  gap: 15px; /* Ajoute de l'espacement entre les images */
-  place-items: center; /* Centre le contenu */
+.ContainerIMG, .ContainerIMGArchives {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    place-items: center;
 }
 
-
-.ContainerIMG img {
-    max-width: 90%; /* Ne dépasse pas la largeur de la cellule */
-    height: auto; /* Garde le ratio d'aspect */
-    display: block; /* Évite les espaces indésirables */
-    margin: auto; /* Centre l'image horizontalement */
+.ContainerIMG img, .ContainerIMGArchives img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: auto;
     border: solid #333;
     border-radius: 5px;
     padding: 5px;
 }
 
-
-#IMG {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  #IMG:hover {
-    opacity: 0.6;
-  }
-
-  /* The Modal (background) */
+/* MODAL */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
+    display: none;
+    position: fixed;
+    z-index: 1050;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-  }
-  
-  /* Modal Content (Image) */
-  .modal-content {
-    max-width: 90%; /* Réduire la largeur à 80% de la fenêtre */
-    max-height: 80vh; /* Réduire la hauteur à 80% de la hauteur de l'écran */
-    object-fit: contain; /* Maintenir les proportions */
-    margin: auto; /* Centrer l'image */
-    display: block;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    padding-top: 80px;
+    animation: fadeIn 0.3s ease;
 }
 
-  
-  /* Caption of Modal Image (Image Text) - Same Width as the Image */
-  #caption {
-    margin: auto;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
     display: block;
-    width: 80%;
-    max-width: 700px;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    animation: zoom 0.4s ease;
+}
+
+@keyframes zoom {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+#caption {
+    margin-top: 10px;
     text-align: center;
+    font-size: 18px;
     color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-  }
-  
-  /* Add Animation - Zoom in the Modal */
-  .modal-content, #caption {
-    animation-name: zoom;
-    animation-duration: 0.6s;
-  }
-  
-  @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
-  }
-  
-  /* The Close Button */
-  .close {
+    font-family: 'Mukta Regular';
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 0.6s ease;
+}
+
+.close {
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 35px;
-    color: #f1f1f1;
+    color: #fff;
     font-size: 40px;
     font-weight: bold;
-    transition: 0.3s;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #bbb;
-    text-decoration: none;
     cursor: pointer;
-  }
-
-  @media (max-width: 1124px) {
-
-    .ContainerIntro {
-      width: 90%; /* Augmenter la largeur pour mieux remplir l'écran */
-      height: auto; /* Adapter la hauteur au contenu */
-      padding: 20px; /* Réduire le padding */
-      font-size: 0.9em; /* Réduire légèrement la taille des textes */
-    }
-
-    /* Sections principales en ligne */
-    .sectionETE,
-    .sectionSKI {
-      grid-template-columns: 1fr; /* Une seule colonne */
-      grid-template-rows: auto auto; /* Réorganiser en lignes */
-    }
-  
-    /* Les affiches en premier */
-    .sectionETE .IMG, 
-    .sectionSKI .IMG {
-      order: 0; /* Les affiches passent en premier */
-      justify-self: center; /* Centrer l'affiche horizontalement */
-      padding: 10px;
-    }
-  
-    /* Conteneur texte et images après les affiches */
-    .sectionETE .Container, 
-    .sectionSKI .Container {
-      order: 1; /* Placer après l'affiche */
-      padding: 20px;
-    }
-  
-    /* Ajustement des conteneurs d'images */
-    .ContainerIMG {
-      grid-template-columns: repeat(3, 1fr); /* Deux colonnes pour mieux utiliser l'espace */
-      /* gap: 15px; */
-      margin: 0px;
-      padding: 0px;
-    }
-  
-    .ContainerIMG img {
-      height: 180px; /* Taille réduite des images */
-      width: auto; /* Respecter le ratio */
-    }
-
-    section h1 {
-      margin-top: 0px;
-    }
-  
-    /* Ajustement des titres */
-    .title {
-      place-items: center;
-      font-size: 1.5em; /* Taille adaptée pour l'écran réduit */
-      margin-top: 0px;
-    }
-  }
-  
-@media (max-width: 768px) {
-  
-  .ContainerIntro {
-    width: 100%; /* Prendre toute la largeur */
-    padding: 15px; /* Réduire encore les marges intérieures */
-    gap: 5px; /* Réduire l'espace entre les éléments */
-    font-size: 0.8em; /* Adapter la taille des textes pour petits écrans */
-  }
-
-  /* Réorganiser les sections principales */
-  .sectionETE,
-  .sectionSKI {
-    grid-template-columns: 1fr; /* Une seule colonne */
-    grid-template-rows: auto auto; /* Adaptation à la hauteur de contenu */
-  }
-
-  .sectionETE .IMG, 
-  .sectionSKI .IMG {
-    order: 0; /* Place l'image après le texte */
-    padding: 10px; /* Réduire les marges */
-  }
-
-  .sectionETE .Container, 
-  .sectionSKI .Container {
-    order: 1; /* Place le texte avant les images */
-    padding: 20px;
-  }
-
-  .Container {
-    display: grid;
-    grid-template-rows: 1fr 9fr;
-  }
-
-  .title {
-    place-items: center;
-    font-size: 1.5em;
-  }
-
-  /* Adapter les images de la galerie */
-  .ContainerIMG {
-    grid-template-columns: 1fr; /* 2 colonnes au lieu de 3 */
-    gap: 10px; /* Ajout d'espacement entre les images */
-  }
-
-  .ContainerIMG img {
-    height: 70%; /* Réduire la taille des images */
-  }
-
-  /* Adapter le texte des titres */
-  section h1 {
-    margin-top: 0px;
-  }
-
-  /* Adapter le modal pour petits écrans */
-  .modal-content {
-    max-width: 90%; /* Utiliser tout l'écran */
-    max-height: 70vh; /* Garder une hauteur adaptée */
-  }
+    transition: color 0.3s ease;
 }
 
-@media (max-width: 480px) {
-  .ContainerIntro {
-    width: 100%; /* Toujours 100% pour petits écrans */
-    padding: 10px; /* Minimiser les marges intérieures */
-    font-size: 0.7em; /* Réduire encore les textes */
-    gap: 2px; /* Espacement minimal entre les éléments */
-    height: 80%;
-  }
+.close:hover {
+    color: #aaa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .ContainerIntro {
+        width: 90%;
+        padding: 20px;
+        font-size: 0.9em;
+        height: auto;
+    }
+
+    .sectionETE, .sectionSKI {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .modal-content {
+        max-width: 90%;
+        max-height: 70vh;
+    }
+
+    #caption {
+        font-size: 16px;
+    }
+
+    .close {
+        font-size: 35px;
+        top: 15px;
+        right: 20px;
+    }
+
+    .sectionIntro button {
+        width: 60%;
+        max-width: 180px;
+    }
 }

@@ -1,28 +1,24 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var modal = document.getElementById("myModal");
-    const images = document.querySelectorAll(".ContainerIMG img#IMG, .ContainerIMGArchives img#IMG");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    var span = document.getElementsByClassName("close")[0]; // Sélectionne la croix pour fermer
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("myModal");
+    const modalImg = document.getElementById("img01");
+    const captionText = document.getElementById("caption");
+    const span = document.querySelector(".close");
 
-    // Ouvre le modal au clic sur une image
-    images.forEach((img) => {
-        img.onclick = function () {
+    document.querySelectorAll(".modal-img").forEach((img) => {
+        img.addEventListener("click", function () {
             modal.style.display = "block";
             modalImg.src = this.src;
             captionText.innerHTML = this.alt;
-        };
+        });
     });
 
-    // Ferme le modal au clic sur la croix
-    span.onclick = function () {
+    span.addEventListener("click", function () {
         modal.style.display = "none";
-    };
+    });
 
-    // Ferme le modal au clic en dehors de l'image
-    modal.onclick = function (e) {
+    modal.addEventListener("click", function (e) {
         if (e.target === modal) {
             modal.style.display = "none";
         }
-    };
+    });
 });

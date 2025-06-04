@@ -300,6 +300,7 @@ $equipe = connectionPDO('../../SQL/config');
                     }
                     ?>
                 </form>
+            </div>
         </section>
     </main>
 </div>
