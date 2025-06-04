@@ -192,22 +192,23 @@ if (isset($_POST['deleteActus'])) {
         <!-- Section Ajouter -->
         <section id="add-actus" class="action-section active">
             <form method="POST" action="" enctype="multipart/form-data">
+                <section class="admin-section">
+                    <div class="admin-block actu-form">
+                        <h2>Ajouter une actualité</h2>
+                        <label for="addActusTitle">Titre :</label>
+                        <input type="text" id="addActusTitle" placeholder="Nouveau titre" name="titre" required>
 
-                <div class="admin-block actu-form">
-                    <h2>Ajouter une actualité</h2>
-                    <label for="addActusTitle">Titre :</label>
-                    <input type="text" id="addActusTitle" placeholder="Nouveau titre" name="titre" required>
+                        <label for="addActusImage">Image d’illustration :</label>
+                        <input type="file" id="addActusImage" accept="image/*" name="image">
+                        <div class="preview-container" id="previewAddActusImage"></div>
 
-                    <label for="addActusImage">Image d’illustration :</label>
-                    <input type="file" id="addActusImage" accept="image/*" name="image">
-                    <div class="preview-container" id="previewAddActusImage"></div>
-
-                    <label for="addActusDesc">Description :</label>
-                    <textarea id="addActusDesc" rows="5" placeholder="Texte de l’actualité…" name="texte" required></textarea>
-                </div>
-                <div class="admin-block actions">
-                    <button id="btn-add-actus-save" type="submit" name="addActus">Enregistrer une nouvelle actualité</button>
-                </div>
+                        <label for="addActusDesc">Description :</label>
+                        <textarea id="addActusDesc" rows="5" placeholder="Texte de l’actualité…" name="texte" required></textarea>
+                    </div>
+                    <div class="admin-block actions">
+                        <button id="btn-add-actus-save" type="submit" name="addActus">Enregistrer une nouvelle actualité</button>
+                    </div>
+                </section>
             </form>
         </section>
 
@@ -216,7 +217,7 @@ if (isset($_POST['deleteActus'])) {
 
         <section id="modify-actus" class="action-section">
             <form method="POST" action="TableauDeBordActus.php" enctype="multipart/form-data">
-
+                <section class="admin-section">
                 <div class="admin-block actu-form">
                     <h2>Modifier une actualité</h2>
                     <p>Veuillez sélectionner l'actualité à modifier :</p>
@@ -241,6 +242,7 @@ if (isset($_POST['deleteActus'])) {
                 <div class="admin-block actions">
                     <button id="btn-modify-actus-save" type="submit" name="saveModif">Enregistrer la modification</button>
                 </div>
+                </section>
             </form>
 
         </section>
@@ -249,7 +251,7 @@ if (isset($_POST['deleteActus'])) {
 
         <section id="delete-actus" class="action-section">
             <form method="POST" action="">
-
+                <section class="admin-section">
                 <div class="admin-block">
                     <h2>Supprimer une actualité</h2>
                     <p>Sélectionner :</p>
@@ -262,6 +264,7 @@ if (isset($_POST['deleteActus'])) {
                 <div class="admin-block actions">
                     <button id="btn-delete-actus-save" type="submit" name="deleteActus">Confirmer la suppression</button>
                 </div>
+                </section>
             </form>
 
         </section>

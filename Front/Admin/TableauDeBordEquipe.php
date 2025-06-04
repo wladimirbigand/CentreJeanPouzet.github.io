@@ -53,6 +53,7 @@ $equipe = connectionPDO('../../SQL/config');
         <!-- Section « Ajouter » -->
         <section id="add-member" class="action-section active">
             <form method="post" action="" enctype="multipart/form-data">
+                <section class="admin-section">
                 <div class="admin-block team-member-info">
                     <h2>Ajouter un membre</h2>
                     <label for="addMemberName">Prénom :</label>
@@ -126,7 +127,7 @@ $equipe = connectionPDO('../../SQL/config');
                 <div class="admin-block actions">
                     <button type="submit" id="btn-add-member-save">Enregistrer un membre</button>
                 </div>
-
+                </section>
             </form>
 
             <?php if (!empty($message)) echo $message; ?>
@@ -135,6 +136,7 @@ $equipe = connectionPDO('../../SQL/config');
         <!-- Section « Modifier » -->
         <section id="modify-member" class="action-section">
             <form method="post" action="" enctype="multipart/form-data">
+                <section class="admin-section">
                 <div class="admin-block team-member-info">
                     <h2>Modifier un membre</h2>
                     <p>Choisir le membre :</p>
@@ -248,7 +250,7 @@ $equipe = connectionPDO('../../SQL/config');
 
                     ?>
                 </div>
-
+                </section>
             </form>
         </section>
 

@@ -84,10 +84,10 @@
     background-color: #7C9572;
 }
 .admin-block.actions #btn-modify-member-save {
-    background-color: grey;
+    background-color: #9DBD91;
 }
 .admin-block.actions #btn-modify-member-save:hover {
-    background-color: dimgrey;
+    background-color: #7C9572;
 }
 .admin-block.actions #btn-delete-member-save {
     background-color: #c0392b;
