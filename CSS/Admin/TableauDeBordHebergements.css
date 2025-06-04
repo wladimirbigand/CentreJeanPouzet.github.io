@@ -93,3 +93,11 @@ textarea {
     height: 250px;
     resize: vertical; /* ou none, both, horizontal */
 }
+
+.preview-container img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}

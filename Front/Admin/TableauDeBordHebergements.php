@@ -29,6 +29,43 @@ $stmtsalle = $pdo->query("SELECT titre,description FROM section where id=203;");
 $tabsalle = $stmtsalle ->fetch();
 $titreSalle  = $tabsalle [0];
 $texteSalle  = $tabsalle [1];
+
+// Récupération des images actuelles du carrousel du chalet (id 211 à 216 par exemple)
+$carouselChalet = [];
+for ($i = 1; $i <= 6; $i++) {
+    $stmt = $pdo->prepare("SELECT chemin_acces FROM multimedia WHERE id = ?");
+    $stmt->execute([203 + $i]); // exemple : ID 211 à 216
+    $carouselChalet[$i] = $stmt->fetchColumn();
+}
+
+// Carrousel du bâtiment (IDs 221 à 226 par exemple)
+$carouselBatiment = [];
+for ($i = 1; $i <= 6; $i++) {
+    $stmt = $pdo->prepare("SELECT chemin_acces FROM multimedia WHERE id = ?");
+    $stmt->execute([209 + $i]); // Ex : 221 à 226
+    $carouselBatiment[$i] = $stmt->fetchColumn();
+}
+
+// Carrousel de la salle (IDs 231 à 236 par exemple)
+$carouselSalle = [];
+for ($i = 1; $i <= 6; $i++) {
+    $stmt = $pdo->prepare("SELECT chemin_acces FROM multimedia WHERE id = ?");
+    $stmt->execute([215 + $i]); // Ex : 231 à 236
+    $carouselSalle[$i] = $stmt->fetchColumn();
+}
+
+// Images principales (hors carrousel)
+$stmt = $pdo->prepare("SELECT chemin_acces FROM multimedia WHERE id = ?");
+$stmt->execute([201]);
+$imageChalet = $stmt->fetchColumn();
+
+$stmt->execute([202]);
+$imageBatiment = $stmt->fetchColumn();
+
+$stmt->execute([203]);
+$imageSalle = $stmt->fetchColumn();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -102,20 +139,34 @@ $texteSalle  = $tabsalle [1];
                         <!-- Deuxième bloc : modifier des images ou carrousels -->
                         <div class="admin-block">
                             <h2>Sélectionnez une image à ajouter / modifier :</h2>
-                            <input type="file" placeholder="Image 1" name="nouvimageChalet" accept="image/*"/>
+                            <input type="file" name="nouvimageChalet" id="inputImageChalet" accept="image/*">
+
+                            <?php if (!empty($imageChalet)): ?>
+                                <div class="preview-container">
+                                    <img src="../../Admin/<?php echo $imageChalet; ?>" alt="Image Chalet" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="preview-container" id="previewImageChalet"></div>
                             <br><br><br>
                             <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
-                            <input type="file" placeholder="Carrousel 1" name="chaletcarrousel1"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel2"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel3"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel4"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel5"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="chaletcarrousel6"/>
+
+                            <?php for ($i = 1; $i <= 6; $i++): ?>
+                                <label for="inputChaletCarousel<?= $i ?>">Carrousel <?= $i ?> :</label>
+                                <input type="file" name="chaletcarrousel<?= $i ?>" id="inputChaletCarousel<?= $i ?>" accept="image/*">
+
+                                <!-- Image actuelle -->
+                                <?php if (!empty($carouselChalet[$i])): ?>
+                                    <div class="preview-container">
+                                        <img src="../../Admin/<?php echo $carouselChalet[$i]; ?>" alt="Carrousel <?= $i ?>" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                    </div>
+                                <?php endif; ?>
+
+                                <!-- Preview JS -->
+                                <div class="preview-container" id="previewChaletCarousel<?= $i ?>"></div>
+                                <br>
+                            <?php endfor; ?>
+
                         </div>
 
                         <div class="admin-block actions">
@@ -137,20 +188,31 @@ $texteSalle  = $tabsalle [1];
 
                         <div class="admin-block">
                             <h2>Sélectionnez une image à ajouter / modifier :</h2>
-                            <input type="file" placeholder="Image 1" name="nouvimageBatiment" accept="image/*"/>
+                            <input type="file" name="nouvimageBatiment" id="inputImageBatiment" accept="image/*">
+
+                            <?php if (!empty($imageBatiment)): ?>
+                                <div class="preview-container">
+                                    <img src="../../Admin/<?php echo $imageBatiment; ?>" alt="Image Bâtiment" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="preview-container" id="previewImageBatiment"></div>
                             <br><br><br>
                             <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
-                            <input type="file" placeholder="Carrousel 1" name="batimentcarrousel1"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="batimentcarrousel2"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 3" name="batimentcarrousel3"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 4" name="batimentcarrousel4"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 5" name="batimentcarrousel5"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 6" name="batimentcarrousel6"/>
+
+                            <?php for ($i = 1; $i <= 6; $i++): ?>
+                                <label for="inputBatimentCarousel<?= $i ?>">Carrousel <?= $i ?> :</label>
+                                <input type="file" name="batimentcarrousel<?= $i ?>" id="inputBatimentCarousel<?= $i ?>" accept="image/*">
+
+                                <?php if (!empty($carouselBatiment[$i])): ?>
+                                    <div class="preview-container">
+                                        <img src="../../Admin/<?php echo $carouselBatiment[$i]; ?>" alt="Carrousel <?= $i ?>" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                    </div>
+                                <?php endif; ?>
+
+                                <div class="preview-container" id="previewBatimentCarousel<?= $i ?>"></div>
+                                <br>
+                            <?php endfor; ?>
                         </div>
 
                         <div class="admin-block actions">
@@ -173,20 +235,31 @@ $texteSalle  = $tabsalle [1];
 
                         <div class="admin-block">
                             <h2>Sélectionnez une image à ajouter / modifier :</h2>
-                            <input type="file" placeholder="Image 1" name="nouvimageSalle" accept="image/*"/>
+                            <input type="file" name="nouvimageSalle" id="inputImageSalle" accept="image/*">
+
+                            <?php if (!empty($imageSalle)): ?>
+                                <div class="preview-container">
+                                    <img src="../../Admin/<?php echo $imageSalle; ?>" alt="Image Salle" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="preview-container" id="previewImageSalle"></div>
                             <br><br><br>
                             <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
-                            <input type="file" placeholder="Carrousel 1" name="sallecarrousel1"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel2"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel3"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel4"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel5"/>
-                            <br><br>
-                            <input type="file" placeholder="Carrousel 2" name="sallecarrousel6"/>
+
+                            <?php for ($i = 1; $i <= 6; $i++): ?>
+                                <label for="inputSalleCarousel<?= $i ?>">Carrousel <?= $i ?> :</label>
+                                <input type="file" name="sallecarrousel<?= $i ?>" id="inputSalleCarousel<?= $i ?>" accept="image/*">
+
+                                <?php if (!empty($carouselSalle[$i])): ?>
+                                    <div class="preview-container">
+                                        <img src="../../Admin/<?php echo $carouselSalle[$i]; ?>" alt="Carrousel <?= $i ?>" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                    </div>
+                                <?php endif; ?>
+
+                                <div class="preview-container" id="previewSalleCarousel<?= $i ?>"></div>
+                                <br>
+                            <?php endfor; ?>
                         </div>
 
                         <div class="admin-block actions">
@@ -234,6 +307,66 @@ $texteSalle  = $tabsalle [1];
         buttons.salle.classList.add('active');
         sections.salle.classList.add('active');
     });
+
+    function previewSingleImage(input, previewContainer) {
+        if (!input.files || !input.files[0]) {
+            previewContainer.innerHTML = '';
+            return;
+        }
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewContainer.innerHTML = '<img src="' + e.target.result + '" alt="Aperçu" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-top: 10px;" />';
+        }
+        reader.readAsDataURL(file);
+    }
+
+    // Exemple pour l’image principale du chalet
+    const inputChalet = document.querySelector('input[name="nouvimageChalet"]');
+    const previewChalet = document.getElementById('previewChaletImage');
+    inputChalet.addEventListener('change', function() {
+        previewSingleImage(this, previewChalet);
+    });
+
+    //Châlet
+    for (let i = 1; i <= 6; i++) {
+        const input = document.getElementById('inputChaletCarousel' + i);
+        const preview = document.getElementById('previewChaletCarousel' + i);
+        input.addEventListener('change', function () {
+            previewSingleImage(this, preview);
+        });
+    }
+
+    // Bâtiment
+    for (let i = 1; i <= 6; i++) {
+        const input = document.getElementById('inputBatimentCarousel' + i);
+        const preview = document.getElementById('previewBatimentCarousel' + i);
+        input.addEventListener('change', function () {
+            previewSingleImage(this, preview);
+        });
+    }
+
+    // Salle
+    for (let i = 1; i <= 6; i++) {
+        const input = document.getElementById('inputSalleCarousel' + i);
+        const preview = document.getElementById('previewSalleCarousel' + i);
+        input.addEventListener('change', function () {
+            previewSingleImage(this, preview);
+        });
+    }
+
+    document.getElementById("inputImageChalet").addEventListener('change', function () {
+        previewSingleImage(this, document.getElementById('previewImageChalet'));
+    });
+
+    document.getElementById("inputImageBatiment").addEventListener('change', function () {
+        previewSingleImage(this, document.getElementById('previewImageBatiment'));
+    });
+
+    document.getElementById("inputImageSalle").addEventListener('change', function () {
+        previewSingleImage(this, document.getElementById('previewImageSalle'));
+    });
+
 </script>
 
 <!-- SweetAlert2 -->

@@ -1,6 +1,6 @@
 <aside class="sidebar">
     <div class="logo">
-        <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
+        <a href="#"><img src="../../Images/Logo/LogoJeanPouzet.svg" alt=""></a>
     </div>
     <nav>
         <ul>
