@@ -15,6 +15,7 @@ CREATE TABLE Administrateur (
     Mot_de_passe VARCHAR(255) NOT NULL
 );
 
+-- Table Colos
 CREATE TABLE colos (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        titre VARCHAR(255),
@@ -258,6 +259,32 @@ INSERT INTO Multimedia (description, image, chemin_acces) VALUES
 ('image_vrac', '20230224_091417.jpg', '/Images/20230224_091417.jpg'),
 ('image_vrac', 'IMG_20230824_142853.jpg', '/Images/IMG_20230824_142853.jpg');
 
+-- Emeric
 
+INSERT INTO multimedia(id,description, image, chemin_acces)VALUES 
+(200,'#', '#', '#'),
+(201,'#', '#', '#'),
+(202,'#', '#', '#'),
+(203,'#', '#', '#'),
+(204,'#', '#', '#'),
+(205,'#', '#', '#'),
+(206,'#', '#', '#'),
+(207,'#', '#', '#'),
+(208,'#', '#', '#'),
+(209,'#', '#', '#'),
+(210,'#', '#', '#'),
+(211,'#', '#', '#'),
+(212,'#', '#', '#'),
+(213,'#', '#', '#'),
+(214,'#', '#', '#'),
+(215,'#', '#', '#'),
+(216,'#', '#', '#'),
+(217,'#', '#', '#'),
+(218,'#', '#', '#'),
+(219,'#', '#', '#'),
+(220,'#', '#', '#');
 
-
+INSERT INTO section(id,titre,description)VALUES 
+(201,'#', '#'),
+(202,'#', '#'),
+(203,'#', '#');
