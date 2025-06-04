@@ -10,6 +10,7 @@ $equipe = connectionPDO('../../SQL/config');
     <title>Tableau de Bord – Équipe</title>
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordEquipe.css">
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
 <body>
 <div class="dashboard-container">

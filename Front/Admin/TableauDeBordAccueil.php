@@ -117,6 +117,7 @@ foreach ($sections as $section) {
     <title>Tableau de Bord - Accueil</title>
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordAccueil.css">
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
 <body>
 <div class="dashboard-container">

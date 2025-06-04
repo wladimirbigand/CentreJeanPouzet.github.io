@@ -39,6 +39,7 @@ $texteSalle  = $tabsalle [1];
     <!-- Lien vers votre fichier CSS -->
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordHebergements.css">
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
 <style>
     .content {

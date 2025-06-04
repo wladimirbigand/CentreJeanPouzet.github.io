@@ -76,6 +76,7 @@ if (isset($_POST['addColo'])) {
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <!-- Styles spécifiques pour la page Colos -->
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordColos.css">
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
 <body>
 <div class="dashboard-container">

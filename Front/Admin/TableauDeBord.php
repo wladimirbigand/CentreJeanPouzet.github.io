@@ -13,6 +13,7 @@ if (!isset($_SESSION['admin'])) {
   <title>Tableau de Bord - Interface Administrateur</title>
   <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
   <link rel="stylesheet" href="../../CSS/Admin/TableauDeBord.css">
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
 <body>
 <div class="dashboard-container">

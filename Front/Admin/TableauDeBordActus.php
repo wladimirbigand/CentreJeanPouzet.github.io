@@ -114,6 +114,7 @@ if (isset($_POST['deleteActus'])) {
     <title>Tableau de Bord – Actualités</title>
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordActus.css">
+    <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <script>
         // Affichage Dynamique du titre choisi pour l'actualité présente.
         const actusData = <?php

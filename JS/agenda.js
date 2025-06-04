@@ -123,11 +123,21 @@ function fetchOpenDaysFromServer() {
                 updateHeader(currentMonth, currentYear);
                 generateCalendar(currentMonth, currentYear);
             } else {
-                alert('Erreur lors du chargement des jours ouverts');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erreur',
+                    text: 'Erreur lors du chargement des jours ouverts.',
+                    confirmButtonColor: '#d33'
+                });
             }
         })
         .catch(error => {
-            alert('Erreur réseau lors du chargement : ' + error.message);
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreur réseau',
+                text: error.message,
+                confirmButtonColor: '#d33'
+            });
         });
 }
 
@@ -162,13 +172,27 @@ document.getElementById('saveBtn').addEventListener('click', () => {
         })
         .then(data => {
             if (data.success) {
-                alert('Modifications enregistrées avec succès !');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Succès !',
+                    text: 'Modifications enregistrées avec succès.',
+                    confirmButtonColor: '#3085d6'
+                });
             } else {
-                alert('Erreur lors de l\'enregistrement : ' + (data.message || ''));
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erreur',
+                    text: 'Erreur lors de l\'enregistrement : ' + (data.message || 'Erreur inconnue'),
+                    confirmButtonColor: '#d33'
+                });
             }
         })
         .catch(error => {
-            alert('Erreur réseau : ' + error.message);
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreur réseau',
+                text: error.message,
+                confirmButtonColor: '#d33'
+            });
         });
 });
-
