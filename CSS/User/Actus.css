@@ -1,7 +1,10 @@
 * {
     line-height: 1.6;
 }
- 
+
+
+
+
 /* Blog avec côtés vides */
 #main_container {
     display: grid;
@@ -13,14 +16,14 @@
     box-sizing: border-box;
     padding: 20px 0; /* Ajoute un espace autour du contenu */
 }
- 
+
 main h1{
     display: grid;
     place-items: center;
 }
- 
+
 .actus {
-    width: 400px;
+    width: 350px;
     height: 200px; /* Maintient un ratio 3:2 */
     position: relative;
     overflow: hidden;
@@ -28,18 +31,20 @@ main h1{
     margin: 10px;
     transition: all 0.3s ease-in-out;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3); /* Facultatif : ombre douce */
+    align-items: center;
+    justify-content: center;
 }
- 
+
 .actus img {
     width: 100%; /* Adapte l'image à la largeur du conteneur */
     height: 100%; /* Adapte l'image à la hauteur */
     object-fit: cover; /* Maintient un aspect esthétique */
     object-position: center;
+    display: block;
     border-radius: 8px; /* Facultatif : coins arrondis */
     transition: transform 0.3s ease-in-out;
 }
- 
- 
+
 .titre{
     position: absolute;     /* Positionne le titre par rapport au conteneur parent */
     bottom: 0;              /* Place le titre en bas du conteneur */
@@ -51,12 +56,12 @@ main h1{
     font-size: 16px;        /* Taille du texte */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
- 
+
 .titre:hover{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
     transition: all 0.3s ease-in-out;
 }
- 
+
 #main_container .actus p {
     position: absolute;
     bottom: -10px;
@@ -77,22 +82,22 @@ main h1{
     text-overflow: ellipsis; /* Ajoute "..." si le texte dépasse */
     margin-bottom: 10px;
 }
- 
+
 /* Texte visible au survol */
 #main_container .actus:hover p {
     opacity: 1; /* Rend le texte visible */
     transform: translateY(0); /* Déplace le texte vers le haut */
     font-size: 15px;
 }
- 
+
 #main_container .actus:hover h1{
-transition: transform 0.5s ease-out, opacity 0.3s ease-out; /* Animation fluide */
+    transition: transform 0.5s ease-out, opacity 0.3s ease-out; /* Animation fluide */
 }
- 
+
 #main_container .actus:hover h1{
     opacity: 0;
 }
- 
+
 #main_container .actus {
     position: relative; /* Assurez-vous qu'il est positionné correctement */
     background-color: white; /* Ajoute un fond blanc pour l'ombre visible */
@@ -100,50 +105,40 @@ transition: transform 0.5s ease-out, opacity 0.3s ease-out; /* Animation fluide 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Animation fluide */
 }
- 
+
 #main_container .actus:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Ombre plus intense au survol */
     transform: translateY(-5px); /* Légère élévation du conteneur */
 }
- 
-#chosen_text {
-    text-align: center;
-    margin-left: 200px;
-    margin-right: 200px;
-    font-size: 20px;
+
+#main_container .actus .date {
+    display: none;
 }
- 
+
 /* Media query pour les écrans de téléphone */
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 768px) {
     #main_container {
         display: grid;
         grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
         grid-template-rows: auto; /* Permet au contenu de s'adapter */
-        max-width: 60%; /* Réduit légèrement la largeur maximale */
-        padding: 5px; /* Réduit les marges internes */
+        max-width: 95%; /* Réduit légèrement la largeur maximale */
+        padding: 10px; /* Réduit les marges internes */
     }
- 
+
     .actus {
-        width: auto; /* Remplir toute la largeur disponible */
-        height: 80%; /* Laisse l'image s'adapter à la taille */
-        margin: 5px 0; /* Espacement vertical entre les éléments */
+        width: 100%; /* Remplir toute la largeur disponible */
+        height: auto; /* Laisse l'image s'adapter à la taille */
+        margin: 10px 0; /* Espacement vertical entre les éléments */
     }
- 
+
     .titre {
         font-size: 14px; /* Réduit la taille du texte pour les petits écrans */
         padding: 8px 0; /* Ajuste l'espacement du titre */
     }
- 
+
     #main_container .actus p {
         font-size: 14px; /* Réduit la taille du texte */
         padding: 8px; /* Ajuste l'espacement */
-    }
- 
-    #chosen_text {
-        text-align: center;
-        margin-left: 0px;
-        margin-right: 0px;
-        font-size: 20px;
     }
 }
 #actu_container {
@@ -152,16 +147,17 @@ transition: transform 0.5s ease-out, opacity 0.3s ease-out; /* Animation fluide 
     pointer-events: none; /* Empêche les interactions avec la div quand elle est masquée */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Animation fluide pour l'opacité et la translation */
 }
- 
+
 #actu_container.show {
     opacity: 1; /* Rendre la div visible */
     transform: translateY(0); /* Remet la div à sa position d'origine */
     pointer-events: auto; /* Permet les interactions avec la div une fois visible */
 }
- 
+
 #actu_container.show #chosen_img {
- max-width: 50%;
- height: 50%;
- object-position: center; /* Centre l'image dans le conteneur */
- border-radius: 8px;
+    max-width: 50%;
+    height: 50%;
+    object-position: center; /* Centre l'image dans le conteneur */
+    border-radius: 8px;
 }
+
