@@ -56,17 +56,17 @@ $equipe = connectionPDO('../../SQL/config');
                 <div class="admin-block team-member-info">
                     <h2>Ajouter un membre</h2>
                     <label for="addMemberName">Prénom :</label>
-                    <input type="text" id="addMemberName" name="addMemberName" placeholder="Qui-est-ce ?">
+                    <input type="text" id="addMemberName" name="addMemberName" placeholder="Qui-est-ce ?" required>
 
                     <label for="addMemberImage">Photo du membre :</label>
-                    <input type="file" id="addMemberImage" name="addMemberImage" accept="image/*">
+                    <input type="file" id="addMemberImage" name="addMemberImage" accept="image/*" required>
                     <div class="preview-container" id="previewAddMemberImage"></div>
 
                     <label for="addMemberRole">Poste :</label>
-                    <input type="text" id="addMemberRole" name="addMemberRole" placeholder="Quel est son poste ?">
+                    <input type="text" id="addMemberRole" name="addMemberRole" placeholder="Quel est son poste ?" required>
 
                     <label for="addMemberDesc">Description :</label>
-                    <textarea id="addMemberDesc" rows="5" name="addMemberDesc" placeholder="Présentation du membre..."></textarea>
+                    <textarea id="addMemberDesc" rows="5" name="addMemberDesc" placeholder="Présentation du membre..." required></textarea>
                 </div>
                 <div class="admin-block actions">
                     <button type="submit" id="btn-add-member-save">Enregistrer un membre</button>
@@ -223,16 +223,14 @@ $equipe = connectionPDO('../../SQL/config');
             <div class="admin-block team-member-delete">
                 <h2>Supprimer un membre</h2>
                 <p>Choisir le membre à supprimer :</p>
-
                 <form method="post" action="">
                     <div>
-
                         <select id="selectMemberToDelete" name="selectMemberToDelete">
                             <?php
-                            $stmt = $equipe->query('SELECT name FROM equipe');
+                            $stmt = $equipe->query('SELECT name, id FROM equipe');
                             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             foreach ($results as $value) {
-                                echo '<option value="' . htmlspecialchars($value['name']) . '">' . htmlspecialchars($value['name']) . '</option>';
+                                echo '<option value="' . htmlspecialchars($value['id']) . '">' . htmlspecialchars($value['name']) . '</option>';
                             }
                             ?>
                         </select>
@@ -240,12 +238,11 @@ $equipe = connectionPDO('../../SQL/config');
                     <div class="admin-block actions">
                         <button type="submit" id="btn-delete-member-save">Confirmer la suppression</button>
                     </div>
-
                     <?php
                     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["selectMemberToDelete"])) {
-                        $choix = $_POST["selectMemberToDelete"];
-                        $stmt = $equipe->prepare('DELETE FROM equipe WHERE name = :name');
-                        $stmt->bindParam(':name', $choix);
+                        $id = (int) $_POST["selectMemberToDelete"];
+                        $stmt = $equipe->prepare('DELETE FROM equipe WHERE id = :id');
+                        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                         $stmt->execute();
                     }
                     ?>
