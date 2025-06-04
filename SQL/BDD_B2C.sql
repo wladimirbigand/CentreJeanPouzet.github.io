@@ -312,3 +312,4 @@ INSERT INTO actus (id, titre, texte, image, date) VALUES
 (4, 'La saison hivernale est lancée !', 'La neige est là, il ne manque plus que vous. Le ...', '/Images/Actus/SAISON_HIVERNALE.JPG', '2024-12-21'),
 (5, 'Ces entreprises qui nous font confiance !', 'Le Centre Jean Pouzet est à même de proposer ...', '/Images/Actus/entreprises.jpg', '2024-10-11'),
 (6, 'Les Pyrénées à vélo !', 'Pla d\'Adet, Tourmalet, Col d\'Aspin, Peyresourde...', '/Images/Actus/vélo.jpg', '2024-10-01');
+
