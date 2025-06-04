@@ -39,17 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_CONTENT_TYPE']
     }
     exit();
 }
-
-// Récupérer les infos actuelles
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=admin_panel", "root", "");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $stmt = $pdo->query("SELECT * FROM contact_infos LIMIT 1");
-    $contact = $stmt->fetch(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erreur : " . $e->getMessage());
-}
 ?>
 
 <!DOCTYPE html>
