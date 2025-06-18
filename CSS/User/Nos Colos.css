@@ -1,4 +1,3 @@
-
 /* RESET & GLOBAL */
 * {
     margin: 0;
@@ -31,11 +30,10 @@ section h1 {
     margin: 5vh 0 2vh;
 }
 
-.title {
+.title, .titleArchives {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 100%;
 }
 
 .titleArchives {
@@ -47,9 +45,7 @@ section h1 {
     min-height: 90vh;
     display: grid;
     place-items: center;
-    background-image: url(../../Images/Accueil/JPrando.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url(../../Images/Accueil/JPrando.jpg) center/cover no-repeat;
 }
 
 .ContainerIntro {
@@ -58,12 +54,11 @@ section h1 {
     padding: 40px;
     opacity: 0.9;
     width: 70%;
-    height: 70%;
+    height: 75%;
     display: grid;
     gap: 10px;
     grid-template-rows: repeat(4, 1fr);
-    place-content: center;
-    place-self: center;
+    justify-items: center;
 }
 
 .ContenuIntro {
@@ -89,19 +84,14 @@ u {
     font-family: 'Mukta Regular';
 }
 
-/* BUTTON */
-.button {
-    display: grid;
-    place-items: center;
-}
-
+/* BUTTONS */
 .sectionIntro button {
     padding: 10px 20px;
     background-color: transparent;
     color: black;
-    width: 20%;
+    width: 100%;
     max-width: 185px;
-    border: solid black;
+    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
@@ -115,31 +105,12 @@ u {
     transform: scale(1.1);
 }
 
-/* SECTIONS ETE / SKI */
-.sectionETE, .sectionSKI {
-    min-height: 90vh;
-    display: grid;
-    background-color: #f5f1e1;
-}
-
-.sectionETE {
-    grid-template-columns: 1fr 2fr;
-}
-
-.sectionSKI {
-    grid-template-columns: 2fr 1fr;
-}
-
 /* ARCHIVES */
 #sectionArchives {
     min-height: 100vh;
     background-color: #f5f1e1;
     display: grid;
     place-items: center;
-}
-
-.archives-bootstrap {
-    padding: 50px 0;
 }
 
 .archives-bootstrap .row {
@@ -149,29 +120,31 @@ u {
 
 .archives-bootstrap img.modal-img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 9;      /* force le ratio paysage */
+    object-fit: cover;         /* recadre pour remplir sans déformation */
     border: 2px solid #333;
     border-radius: 10px;
-    padding: 5px;
-    background-color: #fff;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     cursor: pointer;
 }
 
 .archives-bootstrap img.modal-img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     opacity: 0.9;
 }
 
+
 /* CONTAINERS */
-.Container {
+.Container, .Container1 {
     display: grid;
+}
+
+.Container {
     grid-template-rows: 1fr 6fr;
 }
 
 .Container1 {
-    display: grid;
     grid-template-rows: 1fr 1fr;
 }
 
@@ -185,9 +158,7 @@ u {
 .ContainerIMG img, .ContainerIMGArchives img {
     max-width: 90%;
     height: auto;
-    display: block;
-    margin: auto;
-    border: solid #333;
+    border: 1px solid #333;
     border-radius: 5px;
     padding: 5px;
 }
@@ -197,10 +168,7 @@ u {
     display: none;
     position: fixed;
     z-index: 1050;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-color: rgba(0,0,0,0.85);
     padding-top: 80px;
     animation: fadeIn 0.3s ease;
@@ -228,14 +196,12 @@ u {
 }
 
 #caption {
-    margin-top: 10px;
+    margin: 10px auto 0;
     text-align: center;
     font-size: 18px;
     color: #ccc;
     font-family: 'Mukta Regular';
     max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
     animation: fadeIn 0.6s ease;
 }
 
@@ -254,47 +220,46 @@ u {
     color: #aaa;
 }
 
+/* SECTION COLO */
 .sectionColo {
-    height: 100vh;
-    display: flex;
-    align-items: center;
+    padding: 40px 20px;
     background-color: #f5f1e1;
-    padding: 0;
-    margin: 0;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+}
+
+.sectionColo-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Mukta SemiBold';
 }
 
 .sectionColo-grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    width: 100%;
-    height: 100%;
-}
-
-.sectionColo.reverse-grid .sectionColo-grid {
-    grid-template-columns: 2fr 1fr;
-}
-
-.affiche-col {
-    display: flex;
+    gap: 20px;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
+}
+
+.reverse-grid {
+    direction: rtl;
+}
+
+.reverse-grid > * {
+    direction: ltr;
 }
 
 .affiche-img {
-    width: 80%;
+    max-width: 60%;
     height: auto;
-    max-height: 80%;
-    object-fit: contain;
-    display: block;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .affiche-img:hover {
     transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .photos-col {
@@ -304,17 +269,11 @@ u {
     justify-content: center;
 }
 
-.photos-col h2 {
-    font-family: 'Mukta SemiBold';
-    font-size: 2.4rem;
-    color: #333;
-}
-
+/* GALERIE D’IMAGES */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    height: auto;
 }
 
 .gallery-img-wrapper {
@@ -322,7 +281,8 @@ u {
     height: 220px;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-img {
@@ -330,17 +290,35 @@ u {
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
 .gallery-img:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .sectionColo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reverse-grid {
+        direction: ltr;
+    }
+
     .ContainerIntro {
         width: 90%;
         padding: 20px;

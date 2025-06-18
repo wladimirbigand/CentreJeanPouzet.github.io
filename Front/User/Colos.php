@@ -78,9 +78,11 @@ try {
         </section>
 
         <?php foreach ($colos as $index => $colo): ?>
-            <section class="sectionColo py-5">
+            <section class="sectionColo">
+                <h2 class="sectionColo-title text-center fw-bold mb-4"><?= htmlspecialchars($colo['titre']) ?></h2>
+
                 <div class="sectionColo-grid <?= $index % 2 === 0 ? '' : 'reverse-grid' ?>">
-                <!-- Colonne affiche -->
+                    <!-- Colonne affiche -->
                     <div class="affiche-col d-flex justify-content-center align-items-center">
                         <img src="<?= htmlspecialchars($colo['affiche']) ?>"
                              alt="Affiche <?= htmlspecialchars($colo['titre']) ?>"
@@ -89,7 +91,6 @@ try {
 
                     <!-- Colonne photos -->
                     <div class="photos-col">
-                        <h2 class="text-center fw-bold mb-4"><?= htmlspecialchars($colo['titre']) ?></h2>
                         <div class="gallery-grid">
                             <?php for ($i = 1; $i <= 6; $i++):
                                 $img = htmlspecialchars($colo["image$i"]);
@@ -103,6 +104,7 @@ try {
                 </div>
             </section>
         <?php endforeach; ?>
+
 
 
 

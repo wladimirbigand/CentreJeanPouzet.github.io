@@ -152,8 +152,6 @@ if (isset($_POST['modifyColo']) && !empty($_POST['idToModify'])) {
         });
         </script>';
 
-
-    $activeTab = 'modify';
     $message = '<script>Swal.fire("Modifiée !", "La colo a été mise à jour.", "success")</script>';
 }
 
@@ -362,8 +360,9 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
 </div>
 
 <script>
-    const activeTab = "<?php echo $activeTab; ?>";
+    const activeTab = "<?= isset($activeTab) ? $activeTab : 'add' ?>";
 </script>
+
 
 <script>
     const optionButtons = document.querySelectorAll('.action-options button');

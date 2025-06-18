@@ -20,62 +20,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* ----- Barre latérale ----- */
-.sidebar {
-    background-color: #9DBD91;  /* Vert Sauge clair */
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-/* Logo ou nom du centre */
-.sidebar .logo {
-    margin-bottom: 40px;
-}
-
-.sidebar .logo h2 {
-    font-size: 1.8rem;
-    text-align: center;
-}
-
-/* Liens de navigation */
-.sidebar nav ul {
-    list-style: none;
-    width: 100%;
-}
-
-.sidebar nav ul li {
-    margin-bottom: 15px;
-}
-
-.sidebar nav ul li a {
-    display: block;
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    background-color: #5E856E;  /* Vert Eucalyptus */
-}
-
-.sidebar nav ul li a.active {
-    background-color: #F9CD4A;  /* Jaune Dor pour l'élément actif */
-    color: #000;
-}
-
-.sidebar nav ul li a:hover {
-    background-color: #FFEDA7;  /* Jaune Pastel au survol */
-    color: #000;
-}
-
-/* Bouton de déconnexion */
-.logout {
-    margin-top: auto; /* Pousse le bouton en bas de la sidebar */
-    margin-bottom: 20px;
-}
-
 /* ----- Contenu principal ----- */
 .content {
     background-color: #F5F5E1;  /* Beige clair */
