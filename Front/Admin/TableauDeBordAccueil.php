@@ -118,6 +118,7 @@ foreach ($sections as $section) {
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordAccueil.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 </head>
 <body>
 <div class="dashboard-container">
@@ -182,13 +183,13 @@ foreach ($sections as $section) {
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="admin-block">
                         <h2>Modifier les différents textes de la page accueil</h2>
-                        <p>Modifiez le texte de "Qui sommes nous ?".</p>
+                        <p>Modifiez le texte de "Qui sommes nous ?"</p>
                         <br>
-                        <textarea name="text_qui" placeholder="Tapez ici le texte de présentation..." rows="8"><?php echo htmlspecialchars($textQui); ?></textarea>
+                        <textarea id="texteQui" name="text_qui"><?php echo htmlspecialchars($textQui); ?></textarea>
                         <br><br>
-                        <p>Modifiez le texte de "Où sommes nous ?".</p>
+                        <p>Modifiez le texte de "Où sommes nous ?"</p>
                         <br>
-                        <textarea name="text_ou" placeholder="Tapez ici le texte de présentation..." rows="8"><?php echo htmlspecialchars($textOu); ?></textarea>
+                        <textarea id="texteOu" name="text_ou"><?php echo htmlspecialchars($textOu); ?></textarea>
                         <br>
                         <div class="admin-block actions">
                             <button id="Add" type="submit">Enregistrer les modifications</button>
@@ -219,6 +220,13 @@ foreach ($sections as $section) {
             imagePreview.style.display = 'none';
         }
     });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#texteQui'))
+        .catch(error => console.error(error));ClassicEditor
+        .create(document.querySelector('#texteOu'))
+        .catch(error => console.error(error));ClassicEditor
 </script>
 </body>
 </html>

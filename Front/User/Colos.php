@@ -77,30 +77,34 @@ try {
             </div>
         </section>
 
-        <?php foreach ($colos as $colo): ?>
-            <section class="sectionETE">
-                <div class="IMG">
-                    <img src="<?= htmlspecialchars($colo['affiche']) ?>" alt="Affiche <?= htmlspecialchars($colo['titre']) ?>">
-                </div>
-                <div class="Container">
-                    <div class="title">
-                        <h1><?= htmlspecialchars($colo['titre']) ?></h1>
+        <?php foreach ($colos as $index => $colo): ?>
+            <section class="sectionColo py-5">
+                <div class="sectionColo-grid <?= $index % 2 === 0 ? '' : 'reverse-grid' ?>">
+                <!-- Colonne affiche -->
+                    <div class="affiche-col d-flex justify-content-center align-items-center">
+                        <img src="<?= htmlspecialchars($colo['affiche']) ?>"
+                             alt="Affiche <?= htmlspecialchars($colo['titre']) ?>"
+                             class="affiche-img">
                     </div>
-                    <div class="Container1">
-                        <div class="ContainerIMG">
-                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image1']) ?>" alt="Image 1"></div>
-                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image2']) ?>" alt="Image 2"></div>
-                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image3']) ?>" alt="Image 3"></div>
-                        </div>
-                        <div class="ContainerIMG">
-                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image4']) ?>" alt="Image 4"></div>
-                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image5']) ?>" alt="Image 5"></div>
-                            <div><img id="IMG" src="<?= htmlspecialchars($colo['image6']) ?>" alt="Image 6"></div>
+
+                    <!-- Colonne photos -->
+                    <div class="photos-col">
+                        <h2 class="text-center fw-bold mb-4"><?= htmlspecialchars($colo['titre']) ?></h2>
+                        <div class="gallery-grid">
+                            <?php for ($i = 1; $i <= 6; $i++):
+                                $img = htmlspecialchars($colo["image$i"]);
+                                if ($img): ?>
+                                    <div class="gallery-img-wrapper">
+                                        <img src="<?= $img ?>" alt="Image <?= $i ?>" class="gallery-img modal-img">
+                                    </div>
+                                <?php endif; endfor; ?>
                         </div>
                     </div>
                 </div>
             </section>
         <?php endforeach; ?>
+
+
 
         <section id="sectionArchives">
             <div class="archives-bootstrap py-5">

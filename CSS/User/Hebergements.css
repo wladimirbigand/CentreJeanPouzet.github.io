@@ -251,6 +251,12 @@ ul{
   background-color: #717171;
 }
 
+.dot.active, .dot1.active, .dot2.active {
+  background-color: #717171;
+  transform: scale(1.2);
+}
+
+
 
 /* MEDIA QUERIES */
 
