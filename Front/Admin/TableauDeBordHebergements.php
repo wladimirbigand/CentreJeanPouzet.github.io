@@ -77,6 +77,7 @@ $imageSalle = $stmt->fetchColumn();
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordHebergements.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 </head>
 <style>
     .content {
@@ -133,7 +134,7 @@ $imageSalle = $stmt->fetchColumn();
                         <div class="admin-block">
                             <h2>Sélectionnez le texte à ajouter / modifier :</h2>
                             <input type="text" placeholder="Texte 1" name="nouvtitreChalet" value="<?php echo $titreChalet ?>">
-                            <textarea placeholder="Aperçu du texte à modifier" name="nouvtexteChalet"><?php echo $texteChalet ?></textarea>
+                            <textarea id="editorChalet" name="nouvtexteChalet"><?php echo $texteChalet ?></textarea>
                         </div>
 
                         <!-- Deuxième bloc : modifier des images ou carrousels -->
@@ -183,7 +184,7 @@ $imageSalle = $stmt->fetchColumn();
                         <div class="admin-block">
                             <h2>Sélectionnez le texte à ajouter / modifier :</h2>
                             <input type="text" placeholder="Texte 2" name="nouvtitreBatiment" value="<?php echo $titreBatiment ?>"/>
-                            <textarea placeholder="Aperçu du texte à modifier" name="nouvtexteBatiment"><?php echo $texteBatiment?></textarea>
+                            <textarea id="editorBatiment" name="nouvtexteBatiment"><?php echo $texteBatiment ?></textarea>
                         </div>
 
                         <div class="admin-block">
@@ -230,7 +231,7 @@ $imageSalle = $stmt->fetchColumn();
                         <div class="admin-block">
                             <h2>Sélectionnez le texte à ajouter / modifier :</h2>
                             <input type="text" placeholder="Texte 3" name="nouvtitreSalle" value="<?php echo $titreSalle?>"/>
-                            <textarea placeholder="Aperçu du texte à modifier" name="nouvtexteSalle"><?php echo $texteSalle?></textarea>
+                            <textarea id="editorSalle" name="nouvtexteSalle"><?php echo $texteSalle ?></textarea>
                         </div>
 
                         <div class="admin-block">
@@ -383,5 +384,13 @@ $imageSalle = $stmt->fetchColumn();
     </script>
 <?php endif; ?>
 
+<script>ClassicEditor
+        .create(document.querySelector('#editorChalet'))
+        .catch(error => console.error(error));ClassicEditor
+        .create(document.querySelector('#editorBatiment'))
+        .catch(error => console.error(error));ClassicEditor
+        .create(document.querySelector('#editorSalle'))
+        .catch(error => console.error(error));
+</script>
 </body>
 </html>

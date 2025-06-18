@@ -251,7 +251,7 @@ ul{
   background-color: #717171;
 }
 
-.dot.active, .dot1.active, .dot2.active {
+.dot.active, .dot1.active1, .dot2.active2 {
   background-color: #717171;
   transform: scale(1.2);
 }
