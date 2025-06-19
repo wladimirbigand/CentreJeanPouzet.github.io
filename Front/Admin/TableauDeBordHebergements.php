@@ -143,7 +143,7 @@ $imageSalle = $stmt->fetchColumn();
                             <label for="inputImageChalet" class="file-input-label btn btn-outline-success w-100 d-flex align-items-center justify-content-center" style="gap:.5rem;"><i class="bi bi-image fs-3"></i><span>Modifier l’image d'en-tête</span></label>
 
                             <?php if (!empty($imageChalet)): ?>
-                                <div class="preview-container"><img src="../../Admin/<?php echo $imageChalet; ?>" alt="Image Chalet" style="max-width:200px;max-height:200px;border-radius:8px;margin-bottom:10px;"></div>
+                                <div class="preview-container"><img src="../../Admin/<?php echo $imageChalet; ?>" alt="Image Chalet"></div>
                             <?php endif; ?>
 
                             <div class="preview-container" id="previewImageChalet"></div>
@@ -154,7 +154,7 @@ $imageSalle = $stmt->fetchColumn();
                             <?php for($i=1;$i<=6;$i++): ?>
                                 <input type="file" name="chaletcarrousel<?= $i ?>" id="inputChaletCarousel<?= $i ?>" accept="image/*" class="d-none">
                                 <label for="inputChaletCarousel<?= $i ?>" class="file-input-label btn btn-outline-success w-100 d-flex align-items-center justify-content-center" style="gap:.5rem;"><i class="bi bi-image fs-3"></i><span>Carrousel <?= $i ?></span></label>
-                                <?php if(!empty($carouselChalet[$i])): ?><div class="preview-container"><img src="../../Admin/<?php echo $carouselChalet[$i]; ?>" alt="Carrousel <?= $i ?>" style="max-width:200px;max-height:200px;border-radius:8px;margin-bottom:10px;"></div><?php endif; ?>
+                                <?php if(!empty($carouselChalet[$i])): ?><div class="preview-container"><img src="../../Admin/<?php echo $carouselChalet[$i]; ?>" alt="Carrousel <?= $i ?>"></div><?php endif; ?>
                                 <div class="preview-container" id="previewChaletCarousel<?= $i ?>"></div>
                             <?php endfor; ?>
                         </div>
@@ -187,12 +187,13 @@ $imageSalle = $stmt->fetchColumn();
 
                             <?php if (!empty($imageBatiment)): ?>
                                 <div class="preview-container">
-                                    <img src="../../Admin/<?php echo $imageBatiment; ?>" alt="Image Bâtiment" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                    <img src="../../Admin/<?php echo $imageBatiment; ?>" alt="Image Bâtiment">
                                 </div>
                             <?php endif; ?>
 
                             <div class="preview-container" id="previewImageBatiment"></div>
-                            <br><br><br>
+                        </div>
+                        <div class="admin-block">
                             <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
 
                             <?php for ($i = 1; $i <= 6; $i++): ?>
@@ -204,7 +205,7 @@ $imageSalle = $stmt->fetchColumn();
 
                                 <?php if (!empty($carouselBatiment[$i])): ?>
                                     <div class="preview-container">
-                                        <img src="../../Admin/<?php echo $carouselBatiment[$i]; ?>" alt="Carrousel <?= $i ?>" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                        <img src="../../Admin/<?php echo $carouselBatiment[$i]; ?>" alt="Carrousel <?= $i ?>">
                                     </div>
                                 <?php endif; ?>
 
@@ -241,12 +242,13 @@ $imageSalle = $stmt->fetchColumn();
 
                             <?php if (!empty($imageSalle)): ?>
                                 <div class="preview-container">
-                                    <img src="../../Admin/<?php echo $imageSalle; ?>" alt="Image Salle" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                    <img src="../../Admin/<?php echo $imageSalle; ?>" alt="Image Salle">
                                 </div>
                             <?php endif; ?>
 
                             <div class="preview-container" id="previewImageSalle"></div>
-                            <br><br><br>
+                        </div>
+                        <div class="admin-block">
                             <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
 
                             <?php for ($i = 1; $i <= 6; $i++): ?>
@@ -258,7 +260,7 @@ $imageSalle = $stmt->fetchColumn();
 
                                 <?php if (!empty($carouselSalle[$i])): ?>
                                     <div class="preview-container">
-                                        <img src="../../Admin/<?php echo $carouselSalle[$i]; ?>" alt="Carrousel <?= $i ?>" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                                        <img src="../../Admin/<?php echo $carouselSalle[$i]; ?>" alt="Carrousel <?= $i ?>" class="preview-container">
                                     </div>
                                 <?php endif; ?>
 
@@ -321,7 +323,7 @@ $imageSalle = $stmt->fetchColumn();
         const file = input.files[0];
         const reader = new FileReader();
         reader.onload = function(e) {
-            previewContainer.innerHTML = '<img src="' + e.target.result + '" alt="Aperçu" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-top: 10px;" />';
+            previewContainer.innerHTML = '<img src="' + e.target.result + '" alt="Aperçu" class="preview-container" />';
         }
         reader.readAsDataURL(file);
     }
@@ -371,6 +373,41 @@ $imageSalle = $stmt->fetchColumn();
     document.getElementById("inputImageSalle").addEventListener('change', function () {
         previewSingleImage(this, document.getElementById('previewImageSalle'));
     });
+
+    // Sauvegarde de l’onglet actif dans localStorage lors du clic
+    buttons.chalet.addEventListener('click', () => {
+        resetSections();
+        buttons.chalet.classList.add('active');
+        sections.chalet.classList.add('active');
+        localStorage.setItem('ongletActif', 'chalet');
+    });
+
+    buttons.batiment.addEventListener('click', () => {
+        resetSections();
+        buttons.batiment.classList.add('active');
+        sections.batiment.classList.add('active');
+        localStorage.setItem('ongletActif', 'batiment');
+    });
+
+    buttons.salle.addEventListener('click', () => {
+        resetSections();
+        buttons.salle.classList.add('active');
+        sections.salle.classList.add('active');
+        localStorage.setItem('ongletActif', 'salle');
+    });
+
+    // ✅ Quand la page se recharge, on relit la valeur du localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+        const ongletActif = localStorage.getItem('ongletActif') || 'chalet';
+
+        // Réinitialisation
+        resetSections();
+
+        // Activation de l'onglet correspondant
+        buttons[ongletActif].classList.add('active');
+        sections[ongletActif].classList.add('active');
+    });
+
 
 </script>
 

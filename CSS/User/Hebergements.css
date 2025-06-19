@@ -194,9 +194,9 @@ ul{
 .slideshow-container img,
 .slideshow-container1 img,
 .slideshow-container2 img {
-  aspect-ratio: 16 / 9;       /* 🔥 ratio forcé */
-  width: 100%;                /* occupe toute la largeur du conteneur */
-  object-fit: cover;          /* zoom/cadre pour remplir l'espace */
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
   border-radius: 15px;
   display: block;
   margin: 0 auto;
