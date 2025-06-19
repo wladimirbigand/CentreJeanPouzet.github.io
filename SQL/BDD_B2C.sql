@@ -264,9 +264,9 @@ INSERT INTO Multimedia (description, image, chemin_acces) VALUES
 
 INSERT INTO multimedia(id,description, image, chemin_acces)VALUES 
 (200,'#', '#', '#'),
-(201,'#', '#', '#'),
-(202,'#', '#', '#'),
-(203,'#', '#', '#'),
+(201,'image_Chalet', 'Châlet', '../../Images/hebergement/chalet.jpg'),
+(202,'image_Bâtiment', 'Bâtiment', '../../Images/hebergement/batiment.jpg'),
+(203,'image_sallejeux', 'Salle de jeux', '../../Images/hebergement/sallejeux.jpg'),
 (204,'#', '#', '#'),
 (205,'#', '#', '#'),
 (206,'#', '#', '#'),
@@ -286,9 +286,9 @@ INSERT INTO multimedia(id,description, image, chemin_acces)VALUES
 (220,'#', '#', '#');
 
 INSERT INTO section(id,titre,description)VALUES 
-(201,'#', '#'),
-(202,'#', '#'),
-(203,'#', '#');
+(201,'Châlet', '#'),
+(202,'Bâtiment', '#'),
+(203,'Salle de jeux', '#');
 
 -- Omar & Antoine
 
