@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const id = select.value;
         titleInput.value = actusData[id].titre;
         textArea.value = actusData[id].texte;
+
         // Affiche l'image liée à l'actu
         if (actusData[id].image && actusData[id].image !== "") {
             currentImg.src = actusData[id].image;
@@ -20,23 +21,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     select.addEventListener('change', updateFields);
     updateFields();
-
-    document.getElementById('modifyActusImage')
-        .addEventListener('change', function() {
-            currentImg.style.display = "none";
-        });
 });
 
-    // Aperçu d’image
-    function previewImage(input, previewEl) {
-        previewEl.innerHTML = '';
-        if (!input.files[0]) return;
-        const fr = new FileReader();
-        fr.onload = e => previewEl.innerHTML = `<img src="${e.target.result}">`;
-        fr.readAsDataURL(input.files[0]);
-    }
-    document.getElementById('addActusImage')
-        .addEventListener('change', e=> previewImage(e.target, document.getElementById('previewAddActusImage')));
-    document.getElementById('modifyActusImage')
-        .addEventListener('change', e=> previewImage(e.target, document.getElementById('previewModifyActusImage')));
+// Aperçu d’image dynamique pour les deux sections
+function previewImage(input, imgId) {
+    const file = input.files[0];
+    if (!file) return;
 
+    const fr = new FileReader();
+    fr.onload = function (e) {
+        const img = document.getElementById(imgId);
+        img.src = e.target.result;
+        img.style.display = "block";
+    };
+    fr.readAsDataURL(file);
+}
+
+document.getElementById('addActusImage')
+    .addEventListener('change', e => previewImage(e.target, 'previewAddActusImage'));
+
+document.getElementById('modifyActusImage')
+    .addEventListener('change', e => previewImage(e.target, 'previewModifyActusImage'));

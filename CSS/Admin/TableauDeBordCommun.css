@@ -42,11 +42,11 @@ input[type="file"].d-none {
 
 /* État hover */
 .file-input-label:hover {
-    transform: scale(1.02);
-    background-color: #5E856E;                 /* fond success */
-    color: #fff;                               /* texte blanc */
-    border-color: #5E856E;                     /* outline same */
+    background-color: #5E856E !important;
+    color: white !important;
+    border-color: #5E856E !important;
 }
+
 
 /* BOUTON “HAMBURGER” POUR SIDEBAR */
 .sidebar-toggle {

@@ -395,8 +395,7 @@ $imageSalle = $stmt->fetchColumn();
         sections.salle.classList.add('active');
         localStorage.setItem('ongletActif', 'salle');
     });
-
-    // ✅ Quand la page se recharge, on relit la valeur du localStorage
+    
     window.addEventListener('DOMContentLoaded', () => {
         const ongletActif = localStorage.getItem('ongletActif') || 'chalet';
 

@@ -117,6 +117,8 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordActus.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <script>
         // Affichage Dynamique du titre choisi pour l'actualité présente.
         const actusData = <?php
@@ -205,9 +207,13 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
                         <label for="addActusTitle">Titre :</label>
                         <input type="text" id="addActusTitle" placeholder="Nouveau titre" name="titre" required>
 
-                        <label for="addActusImage">Image d’illustration :</label>
-                        <input type="file" id="addActusImage" accept="image/*" name="image">
+                        <input type="file" name="image" id="addActusImage" accept="image/*" class="d-none">
+                        <label for="addActusImage" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2">
+                            <i class="bi bi-image fs-3"></i>
+                            <span>Choisir une image</span>
+                        </label>
                         <div class="preview-container" id="previewAddActusImage"></div>
+
 
                         <label for="addActusDesc">Description :</label>
                         <textarea id="addActusDesc" rows="5" placeholder="Texte de l’actualité…" name="texte" required></textarea>
@@ -237,8 +243,11 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
                         <label for="modifyActusTitle">Titre :</label>
                         <input type="text" id="modifyActusTitle" value="" name="titre">
 
-                        <label for="modifyActusImage">Image d’illustration :</label>
-                        <input type="file" id="modifyActusImage" accept="image/*" name="image">
+                        <input type="file" name="image" id="modifyActusImage" accept="image/*" class="d-none">
+                        <label for="modifyActusImage" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2">
+                            <i class="bi bi-image fs-3"></i>
+                            <span>Modifier l’image</span>
+                        </label>
                         <div class="preview-container">
                             <img src="" id="previewModifyActusImage" alt="Image actuelle">
                         </div>
@@ -251,7 +260,6 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
                     </div>
                 </section>
             </form>
-
         </section>
 
         <!-- Section Supprimer -->
@@ -423,6 +431,43 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
         integrity="sha384-M0v4f7+zeZAd3vJXGy1LQ7kXfJupixz5/3Vq+aT+xy9ZZi8+Rp1U5mW7tXJj7Lu5"
         crossorigin="anonymous"
 ></script>
+<script>
+    // Gestion de la persistance de l'onglet actif
+    const btnsPersist = {
+        add: document.getElementById('btn-add-actus'),
+        mod: document.getElementById('btn-modify-actus'),
+        del: document.getElementById('btn-delete-actus')
+    };
+    const secsPersist = {
+        add: document.getElementById('add-actus'),
+        mod: document.getElementById('modify-actus'),
+        del: document.getElementById('delete-actus')
+    };
+
+    function resetPersistTabs() {
+        Object.values(btnsPersist).forEach(b => b.classList.remove('active'));
+        Object.values(secsPersist).forEach(s => s.classList.remove('active'));
+    }
+
+    function activateTab(tab) {
+        resetPersistTabs();
+        if (btnsPersist[tab] && secsPersist[tab]) {
+            btnsPersist[tab].classList.add('active');
+            secsPersist[tab].classList.add('active');
+            localStorage.setItem('activeTabActus', tab);
+        }
+    }
+
+    btnsPersist.add.addEventListener('click', () => activateTab('add'));
+    btnsPersist.mod.addEventListener('click', () => activateTab('mod'));
+    btnsPersist.del.addEventListener('click', () => activateTab('del'));
+
+    // Activation au chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+        const storedTab = localStorage.getItem('activeTabActus') || 'add';
+        activateTab(storedTab);
+    });
+</script>
 
 </body>
 </html>
