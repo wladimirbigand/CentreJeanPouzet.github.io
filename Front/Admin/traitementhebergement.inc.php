@@ -107,281 +107,69 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         }
     }
 
+    function uploadCarrousel(array $carrouselIds, string $prefixDescription, PDO $pdo, string $dossier) {
+        foreach ($carrouselIds as $inputName => $id) {
+            if (!empty($_FILES[$inputName]) && $_FILES[$inputName]['error'] === UPLOAD_ERR_OK) {
+                $nomFichier = basename($_FILES[$inputName]['name']);
+                $chemin = $dossier . $nomFichier;
 
+                if (move_uploaded_file($_FILES[$inputName]['tmp_name'], $chemin)) {
+                    $verif = $pdo->prepare("SELECT COUNT(*) FROM multimedia WHERE id = ?");
+                    $verif->execute([$id]);
+                    if ($verif->fetchColumn() == 0) {
+                        echo "<p style='color:red;'>ID $id manquant dans la base pour $inputName</p>";
+                        continue;
+                    }
 
-    //IMAGES DES CAROUSSELS
+                    $numero = substr($inputName, -1);
+                    $description = "{$numero}ème image du carrousel {$prefixDescription}";
 
-    //CAROUSEL DU CHALET
-    //IMAGE 1
-    if (!empty($_FILES['chaletcarrousel1']) && $_FILES['chaletcarrousel1']['error'] === 0){
-        $nomFichier = basename($_FILES['chaletcarrousel1']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['chaletcarrousel1']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '1er image du carrousel du chalet',image='chaletcarrousel1' WHERE id = 204;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-    //IMAGE 2
-    if (!empty($_FILES['chaletcarrousel2']) && $_FILES['chaletcarrousel2']['error'] === 0){
-        $nomFichier = basename($_FILES['chaletcarrousel2']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['chaletcarrousel2']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '2eme image du carrousel du chalet',image='chaletcarrousel2' WHERE id = 205;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 3
-    if (!empty($_FILES['chaletcarrousel3']) && $_FILES['chaletcarrousel3']['error'] === 0){
-        $nomFichier = basename($_FILES['chaletcarrousel3']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['chaletcarrousel3']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '3eme image du carrousel du chalet',image='chaletcarrousel3' WHERE id = 206;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
+                    $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin, description = :description, image = :image WHERE id = :id");
+                    $stmt->execute([
+                        ':chemin' => $chemin,
+                        ':description' => $description,
+                        ':image' => $inputName,
+                        ':id' => $id
+                    ]);
+                } else {
+                    echo "<p style='color:red;'>Erreur lors du déplacement du fichier pour $inputName</p>";
+                }
+            } elseif (!empty($_FILES[$inputName]) && $_FILES[$inputName]['error'] !== UPLOAD_ERR_NO_FILE) {
+                echo "<p style='color:orange;'>Erreur upload pour $inputName : code {$_FILES[$inputName]['error']}</p>";
+            }
         }
     }
 
-    //IMAGE 4
-    if (!empty($_FILES['chaletcarrousel4']) && $_FILES['chaletcarrousel4']['error'] === 0){
-        $nomFichier = basename($_FILES['chaletcarrousel4']['name']);
-        $chemin = $dossier . $nomFichier;
+    $chaletIds = [
+        'chaletcarrousel1' => 204,
+        'chaletcarrousel2' => 205,
+        'chaletcarrousel3' => 206,
+        'chaletcarrousel4' => 207,
+        'chaletcarrousel5' => 208,
+        'chaletcarrousel6' => 209,
+    ];
+    uploadCarrousel($chaletIds, "du chalet", $pdo, $dossier);
 
-        if (move_uploaded_file($_FILES['chaletcarrousel4']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '4eme image du carrousel du chalet',image='chaletcarrousel4' WHERE id = 207;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
+    $batimentIds = [
+        'batimentcarrousel1' => 210,
+        'batimentcarrousel2' => 211,
+        'batimentcarrousel3' => 212,
+        'batimentcarrousel4' => 213,
+        'batimentcarrousel5' => 214,
+        'batimentcarrousel6' => 215,
+    ];
+    uploadCarrousel($batimentIds, "du bâtiment", $pdo, $dossier);
 
-    //IMAGE 5
-    if (!empty($_FILES['chaletcarrousel5']) && $_FILES['chaletcarrousel5']['error'] === 0){
-        $nomFichier = basename($_FILES['chaletcarrousel5']['name']);
-        $chemin = $dossier . $nomFichier;
+    $salleIds = [
+        'sallecarrousel1' => 216,
+        'sallecarrousel2' => 217,
+        'sallecarrousel3' => 218,
+        'sallecarrousel4' => 219,
+        'sallecarrousel5' => 220,
+        'sallecarrousel6' => 221,
+    ];
+    uploadCarrousel($salleIds, "de la salle de jeux", $pdo, $dossier);
 
-        if (move_uploaded_file($_FILES['chaletcarrousel5']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '5eme image du carrousel du chalet',image='chaletcarrousel5' WHERE id = 208;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 6
-    if (!empty($_FILES['chaletcarrousel6']) && $_FILES['chaletcarrousel6']['error'] === 0){
-        $nomFichier = basename($_FILES['chaletcarrousel6']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['chaletcarrousel6']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '6eme image du carrousel du chalet',image='chaletcarrousel6' WHERE id = 209;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-
-    //CAROUSEL DU BATIMENT
-    //IMAGE 1
-    if (!empty($_FILES['batimentcarrousel1']) && $_FILES['batimentcarrousel1']['error'] === 0){
-        $nomFichier = basename($_FILES['batimentcarrousel1']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['batimentcarrousel1']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '1er image du carrousel du batiment',image='batimentcarrousel1' WHERE id = 210;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-    //IMAGE 2
-    if (!empty($_FILES['batimentcarrousel2']) && $_FILES['batimentcarrousel2']['error'] === 0){
-        $nomFichier = basename($_FILES['batimentcarrousel2']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['batimentcarrousel2']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '2eme image du carrousel du batiment',image='batimentcarrousel2' WHERE id = 211;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 3
-    if (!empty($_FILES['batimentcarrousel3']) && $_FILES['batimentcarrousel3']['error'] === 0){
-        $nomFichier = basename($_FILES['batimentcarrousel3']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['batimentcarrousel3']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '3eme image du carrousel du batiment',image='batimentcarrousel3' WHERE id = 212;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 4
-    if (!empty($_FILES['batimentcarrousel4']) && $_FILES['batimentcarrousel4']['error'] === 0){
-        $nomFichier = basename($_FILES['batimentcarrousel4']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['batimentcarrousel4']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '4eme image du carrousel du batiment',image='batimentcarrousel4' WHERE id = 213;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 5
-    if (!empty($_FILES['batimentcarrousel5']) && $_FILES['batimentcarrousel5']['error'] === 0){
-        $nomFichier = basename($_FILES['batimentcarrousel5']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['batimentcarrousel5']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '5eme image du carrousel du batiment',image='batimentcarrousel5' WHERE id = 214;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 6
-    if (!empty($_FILES['batimentcarrousel6']) && $_FILES['batimentcarrousel6']['error'] === 0){
-        $nomFichier = basename($_FILES['batimentcarrousel6']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['batimentcarrousel6']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '6eme image du carrousel du batiment',image='batimentcarrousel6' WHERE id = 215;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-
-    //CAROUSEL DE LA SALLE DE JEUX
-    //IMAGE 1
-    if (!empty($_FILES['sallecarrousel1']) && $_FILES['sallecarrousel1']['error'] === 0){
-        $nomFichier = basename($_FILES['sallecarrousel1']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['sallecarrousel1']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '1er image du carrousel de la salle de jeux',image='sallecarrousel1' WHERE id = 216;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-    //IMAGE 2
-    if (!empty($_FILES['sallecarrousel2']) && $_FILES['sallecarrousel2']['error'] === 0){
-        $nomFichier = basename($_FILES['sallecarrousel2']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['sallecarrousel2']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '2eme image du carrousel de la salle de jeux',image='sallecarrousel2' WHERE id = 217;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 3
-    if (!empty($_FILES['sallecarrousel3']) && $_FILES['sallecarrousel3']['error'] === 0){
-        $nomFichier = basename($_FILES['sallecarrousel3']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['sallecarrousel3']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '3eme image du carrousel de la salle de jeux',image='sallecarrousel3' WHERE id = 218;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 4
-    if (!empty($_FILES['sallecarrousel4']) && $_FILES['sallecarrousel4']['error'] === 0){
-        $nomFichier = basename($_FILES['sallecarrousel4']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['sallecarrousel4']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '4eme image du carrousel de la salle de jeux',image='sallecarrousel4' WHERE id = 219;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 5
-    if (!empty($_FILES['sallecarrousel5']) && $_FILES['sallecarrousel5']['error'] === 0){
-        $nomFichier = basename($_FILES['sallecarrousel5']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['sallecarrousel5']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '5eme image du carrousel de la salle de jeux',image='sallecarrousel5' WHERE id = 220;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
-
-    //IMAGE 6
-    if (!empty($_FILES['sallecarrousel6']) && $_FILES['sallecarrousel6']['error'] === 0){
-        $nomFichier = basename($_FILES['sallecarrousel6']['name']);
-        $chemin = $dossier . $nomFichier;
-
-        if (move_uploaded_file($_FILES['sallecarrousel6']['tmp_name'], $chemin)) {
-            $stmt = $pdo->prepare("UPDATE multimedia SET chemin_acces = :chemin,description = '6eme image du carrousel de la salle de jeux',image='sallecarrousel6' WHERE id = 221;");
-            $stmt->bindValue(':chemin', $chemin);
-            $stmt->execute();
-        }
-        else {
-            echo "Erreur : " . $_FILES['image']['error'];
-        }
-    }
     header("Location: TableauDeBordHebergements.php?success=1");
     exit;
 }

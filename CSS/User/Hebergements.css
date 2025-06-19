@@ -181,24 +181,28 @@ ul{
 .slideshow-container,
 .slideshow-container1,
 .slideshow-container2 {
-  width: 90%;
-  max-width: 750px;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
+  aspect-ratio: 16 / 9; /* le conteneur garde aussi le format */
   position: relative;
+  overflow: hidden;
+  border-radius: 15px;
 }
+
 
 .slideshow-container img,
 .slideshow-container1 img,
 .slideshow-container2 img {
-  width: 60%;              /* ✅ prend 60% du conteneur */
-  max-width: 100%;         /* ne dépasse jamais le conteneur */
-  height: auto;            /* conserve le ratio */
-  border-radius: 15px;     /* coins arrondis */
-  object-fit: contain;     /* ✅ évite le crop (pour préserver le visuel si demandé) */
+  aspect-ratio: 16 / 9;       /* 🔥 ratio forcé */
+  width: 100%;                /* occupe toute la largeur du conteneur */
+  object-fit: cover;          /* zoom/cadre pour remplir l'espace */
+  border-radius: 15px;
   display: block;
   margin: 0 auto;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.15); /* optionnel pour effet classe */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
+
 
 .mySlides,
 .mySlides1,

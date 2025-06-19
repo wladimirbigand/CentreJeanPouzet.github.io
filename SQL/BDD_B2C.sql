@@ -132,54 +132,54 @@ INSERT INTO Multimedia (description, image, chemin_acces) VALUES
 ('image_equipe', 'Xavier.jpg',         '/Images/Equipe/Xavier.jpg'),
 ('image_equipe', 'Xavier.png',         '/Images/Equipe/Xavier.png');
 
-INSERT INTO Multimedia (description, image, chemin_acces) VALUES
--- Hebergement
-('image_hebergement', 'batiment1.jpg', '/Images/hebergement/batiment1.jpg'),
-('image_hebergement', 'batiment1.png', '/Images/hebergement/batiment1.png'),
-('image_hebergement', 'batiment2.jpg', '/Images/hebergement/batiment2.jpg'),
-('image_hebergement', 'batiment2.png', '/Images/hebergement/batiment2.png'),
-('image_hebergement', 'batiment3.JPG', '/Images/hebergement/batiment3.JPG'),
-('image_hebergement', 'batiment3.png', '/Images/hebergement/batiment3.png'),
-('image_hebergement', 'batiment4.jpg', '/Images/hebergement/batiment4.jpg'),
-('image_hebergement', 'batiment4.png', '/Images/hebergement/batiment4.png'),
-('image_hebergement', 'batiment5.jpg', '/Images/hebergement/batiment5.jpg'),
-('image_hebergement', 'batiment5.png', '/Images/hebergement/batiment5.png'),
-('image_hebergement', 'batiment6.jpg', '/Images/hebergement/batiment6.jpg'),
-('image_hebergement', 'batiment6.png', '/Images/hebergement/batiment6.png'),
-('image_hebergement', 'batiment7.jpg', '/Images/hebergement/batiment7.jpg'),
-('image_hebergement', 'batiment7.png', '/Images/hebergement/batiment7.png'),
-('image_hebergement', 'batiment8.png', '/Images/hebergement/batiment8.png'),
-('image_hebergement', 'batiment9.png', '/Images/hebergement/batiment9.png'),
-('image_hebergement', 'batiment10.png', '/Images/hebergement/batiment10.png'),
-('image_hebergement', 'batiment11.JPG', '/Images/hebergement/batiment11.JPG'),
-('image_hebergement', 'batiment12.png', '/Images/hebergement/batiment12.png'),
-('image_hebergement', 'batiment13.png', '/Images/hebergement/batiment13.png'),
-('image_hebergement', 'batiment14.png', '/Images/hebergement/batiment14.png'),
-('image_hebergement', 'chalet.jpg', '/Images/hebergement/chalet.jpg'),
-('image_hebergement', 'chalet1.jpg', '/Images/hebergement/chalet1.jpg'),
-('image_hebergement', 'chalet2.JPG', '/Images/hebergement/chalet2.JPG'),
-('image_hebergement', 'chalet2.png', '/Images/hebergement/chalet2.png'),
-('image_hebergement', 'chalet3.JPG', '/Images/hebergement/chalet3.JPG'),
-('image_hebergement', 'chalet3.png', '/Images/hebergement/chalet3.png'),
-('image_hebergement', 'chalet4.jpg', '/Images/hebergement/chalet4.jpg'),
-('image_hebergement', 'chalet5.jpg', '/Images/hebergement/chalet5.jpg'),
-('image_hebergement', 'chalet5.png', '/Images/hebergement/chalet5.png'),
-('image_hebergement', 'chalet6.png', '/Images/hebergement/chalet6.png'),
-('image_hebergement', 'chalet7.png', '/Images/hebergement/chalet7.png'),
-('image_hebergement', 'chalet8.png', '/Images/hebergement/chalet8.png'),
-
--- Salle de jeux
-('image_sallejeux', 'sallejeux1.JPG', '/Images/hebergement/sallejeux1.JPG'),
-('image_sallejeux', 'sallejeux1.png', '/Images/hebergement/sallejeux1.png'),
-('image_sallejeux', 'sallejeux2.jpg', '/Images/hebergement/sallejeux2.jpg'),
-('image_sallejeux', 'sallejeux2.png', '/Images/hebergement/sallejeux2.png'),
-('image_sallejeux', 'sallejeux3.jpg', '/Images/hebergement/sallejeux3.jpg'),
-('image_sallejeux', 'sallejeux3.png', '/Images/hebergement/sallejeux3.png'),
-('image_sallejeux', 'sallejeux4.jpg', '/Images/hebergement/sallejeux4.jpg'),
-('image_sallejeux', 'sallejeux4.png', '/Images/hebergement/sallejeux4.png'),
-('image_sallejeux', 'sallejeux5.jpg', '/Images/hebergement/sallejeux5.jpg'),
-('image_sallejeux', 'sallejeux6.jpg', '/Images/hebergement/sallejeux6.jpg'),
-('image_sallejeux', 'sallejeux6.png', '/Images/hebergement/sallejeux6.png');
+-- INSERT INTO Multimedia (description, image, chemin_acces) VALUES
+-- -- Hebergement
+-- ('image_hebergement', 'batiment1.jpg', '/Images/hebergement/batiment1.jpg'),
+-- ('image_hebergement', 'batiment1.png', '/Images/hebergement/batiment1.png'),
+-- ('image_hebergement', 'batiment2.jpg', '/Images/hebergement/batiment2.jpg'),
+-- ('image_hebergement', 'batiment2.png', '/Images/hebergement/batiment2.png'),
+-- ('image_hebergement', 'batiment3.JPG', '/Images/hebergement/batiment3.JPG'),
+-- ('image_hebergement', 'batiment3.png', '/Images/hebergement/batiment3.png'),
+-- ('image_hebergement', 'batiment4.jpg', '/Images/hebergement/batiment4.jpg'),
+-- ('image_hebergement', 'batiment4.png', '/Images/hebergement/batiment4.png'),
+-- ('image_hebergement', 'batiment5.jpg', '/Images/hebergement/batiment5.jpg'),
+-- ('image_hebergement', 'batiment5.png', '/Images/hebergement/batiment5.png'),
+-- ('image_hebergement', 'batiment6.jpg', '/Images/hebergement/batiment6.jpg'),
+-- ('image_hebergement', 'batiment6.png', '/Images/hebergement/batiment6.png'),
+-- ('image_hebergement', 'batiment7.jpg', '/Images/hebergement/batiment7.jpg'),
+-- ('image_hebergement', 'batiment7.png', '/Images/hebergement/batiment7.png'),
+-- ('image_hebergement', 'batiment8.png', '/Images/hebergement/batiment8.png'),
+-- ('image_hebergement', 'batiment9.png', '/Images/hebergement/batiment9.png'),
+-- ('image_hebergement', 'batiment10.png', '/Images/hebergement/batiment10.png'),
+-- ('image_hebergement', 'batiment11.JPG', '/Images/hebergement/batiment11.JPG'),
+-- ('image_hebergement', 'batiment12.png', '/Images/hebergement/batiment12.png'),
+-- ('image_hebergement', 'batiment13.png', '/Images/hebergement/batiment13.png'),
+-- ('image_hebergement', 'batiment14.png', '/Images/hebergement/batiment14.png'),
+-- ('image_hebergement', 'chalet.jpg', '/Images/hebergement/chalet.jpg'),
+-- ('image_hebergement', 'chalet1.jpg', '/Images/hebergement/chalet1.jpg'),
+-- ('image_hebergement', 'chalet2.JPG', '/Images/hebergement/chalet2.JPG'),
+-- ('image_hebergement', 'chalet2.png', '/Images/hebergement/chalet2.png'),
+-- ('image_hebergement', 'chalet3.JPG', '/Images/hebergement/chalet3.JPG'),
+-- ('image_hebergement', 'chalet3.png', '/Images/hebergement/chalet3.png'),
+-- ('image_hebergement', 'chalet4.jpg', '/Images/hebergement/chalet4.jpg'),
+-- ('image_hebergement', 'chalet5.jpg', '/Images/hebergement/chalet5.jpg'),
+-- ('image_hebergement', 'chalet5.png', '/Images/hebergement/chalet5.png'),
+-- ('image_hebergement', 'chalet6.png', '/Images/hebergement/chalet6.png'),
+-- ('image_hebergement', 'chalet7.png', '/Images/hebergement/chalet7.png'),
+-- ('image_hebergement', 'chalet8.png', '/Images/hebergement/chalet8.png'),
+--
+-- -- Salle de jeux
+-- ('image_sallejeux', 'sallejeux1.JPG', '/Images/hebergement/sallejeux1.JPG'),
+-- ('image_sallejeux', 'sallejeux1.png', '/Images/hebergement/sallejeux1.png'),
+-- ('image_sallejeux', 'sallejeux2.jpg', '/Images/hebergement/sallejeux2.jpg'),
+-- ('image_sallejeux', 'sallejeux2.png', '/Images/hebergement/sallejeux2.png'),
+-- ('image_sallejeux', 'sallejeux3.jpg', '/Images/hebergement/sallejeux3.jpg'),
+-- ('image_sallejeux', 'sallejeux3.png', '/Images/hebergement/sallejeux3.png'),
+-- ('image_sallejeux', 'sallejeux4.jpg', '/Images/hebergement/sallejeux4.jpg'),
+-- ('image_sallejeux', 'sallejeux4.png', '/Images/hebergement/sallejeux4.png'),
+-- ('image_sallejeux', 'sallejeux5.jpg', '/Images/hebergement/sallejeux5.jpg'),
+-- ('image_sallejeux', 'sallejeux6.jpg', '/Images/hebergement/sallejeux6.jpg'),
+-- ('image_sallejeux', 'sallejeux6.png', '/Images/hebergement/sallejeux6.png');
 
 INSERT INTO Multimedia (description, image, chemin_acces) VALUES
 -- Logo
@@ -194,71 +194,71 @@ INSERT INTO Multimedia (description, image, chemin_acces) VALUES
 ('image_logo', 'PNG-removebg-preview.png', '/Images/Logo/PNG-removebg-preview.png'),
 ('image_logo', 'telephone.png', '/Images/Logo/telephone.png');
 
-INSERT INTO Multimedia (description, image, chemin_acces) VALUES
--- Mentions de confidentialité
-('image_mentions', 'Guchen.jpeg', '/Images/Mentions_confidentialite/Guchen.jpeg'),
-('image_mentions', 'Guchen.jpg', '/Images/Mentions_confidentialite/Guchen.jpg'),
-('image_mentions', 'Photo_du_centre_avec_des_arbres.JPG', '/Images/Mentions_confidentialite/Photo_du_centre_avec_des_arbres.JPG');
+-- INSERT INTO Multimedia (description, image, chemin_acces) VALUES
+-- -- Mentions de confidentialité
+-- ('image_mentions', 'Guchen.jpeg', '/Images/Mentions_confidentialite/Guchen.jpeg'),
+-- ('image_mentions', 'Guchen.jpg', '/Images/Mentions_confidentialite/Guchen.jpg'),
+-- ('image_mentions', 'Photo_du_centre_avec_des_arbres.JPG', '/Images/Mentions_confidentialite/Photo_du_centre_avec_des_arbres.JPG');
 
-INSERT INTO Multimedia (description, image, chemin_acces) VALUES
--- Photo archives
-('image_archive', 'IMG_8011.HEIC', '/Images/Photo archives/IMG_8011.HEIC'),
-('image_archive', 'IMG_8011.jpg', '/Images/Photo archives/IMG_8011.jpg'),
-('image_archive', 'IMG_8459.heic', '/Images/Photo archives/IMG_8459.heic'),
-('image_archive', 'IMG_8459.jpg', '/Images/Photo archives/IMG_8459.jpg'),
-('image_archive', 'IMG_8463.HEIC', '/Images/Photo archives/IMG_8463.HEIC'),
-('image_archive', 'IMG_8463.jpg', '/Images/Photo archives/IMG_8463.jpg'),
-('image_archive', 'IMG_8464.HEIC', '/Images/Photo archives/IMG_8464.HEIC'),
-('image_archive', 'IMG_8464.jpg', '/Images/Photo archives/IMG_8464.jpg'),
-('image_archive', 'IMG_8469.heic', '/Images/Photo archives/IMG_8469.heic'),
-('image_archive', 'IMG_8469.jpg', '/Images/Photo archives/IMG_8469.jpg'),
-('image_archive', 'IMG_8470.HEIC', '/Images/Photo archives/IMG_8470.HEIC'),
-('image_archive', 'IMG_8470.jpg', '/Images/Photo archives/IMG_8470.jpg'),
-('image_archive', 'IMG_8473.jpg', '/Images/Photo archives/IMG_8473.jpg'),
-('image_archive', 'IMG_8475.heic', '/Images/Photo archives/IMG_8475.heic'),
-('image_archive', 'IMG_8475.jpg', '/Images/Photo archives/IMG_8475.jpg'),
-('image_archive', 'IMG_8477.heic', '/Images/Photo archives/IMG_8477.heic'),
-('image_archive', 'IMG_8477.jpg', '/Images/Photo archives/IMG_8477.jpg'),
-('image_archive', 'IMG_8478.heic', '/Images/Photo archives/IMG_8478.heic'),
-('image_archive', 'IMG_8478.jpg', '/Images/Photo archives/IMG_8478.jpg'),
-('image_archive', 'IMG_8482.jpg', '/Images/Photo archives/IMG_8482.jpg'),
-('image_archive', 'IMG_8487.heic', '/Images/Photo archives/IMG_8487.heic'),
-('image_archive', 'IMG_8487.jpg', '/Images/Photo archives/IMG_8487.jpg'),
-('image_archive', 'IMG_8488.jpg', '/Images/Photo archives/IMG_8488.jpg'),
-('image_archive', 'IMG_8489.HEIC', '/Images/Photo archives/IMG_8489.HEIC'),
-('image_archive', 'IMG_8489.jpg', '/Images/Photo archives/IMG_8489.jpg'),
-('image_archive', 'IMG_8490.jpg', '/Images/Photo archives/IMG_8490.jpg');
+-- INSERT INTO Multimedia (description, image, chemin_acces) VALUES
+-- -- Photo archives
+-- ('image_archive', 'IMG_8011.HEIC', '/Images/Photo archives/IMG_8011.HEIC'),
+-- ('image_archive', 'IMG_8011.jpg', '/Images/Photo archives/IMG_8011.jpg'),
+-- ('image_archive', 'IMG_8459.heic', '/Images/Photo archives/IMG_8459.heic'),
+-- ('image_archive', 'IMG_8459.jpg', '/Images/Photo archives/IMG_8459.jpg'),
+-- ('image_archive', 'IMG_8463.HEIC', '/Images/Photo archives/IMG_8463.HEIC'),
+-- ('image_archive', 'IMG_8463.jpg', '/Images/Photo archives/IMG_8463.jpg'),
+-- ('image_archive', 'IMG_8464.HEIC', '/Images/Photo archives/IMG_8464.HEIC'),
+-- ('image_archive', 'IMG_8464.jpg', '/Images/Photo archives/IMG_8464.jpg'),
+-- ('image_archive', 'IMG_8469.heic', '/Images/Photo archives/IMG_8469.heic'),
+-- ('image_archive', 'IMG_8469.jpg', '/Images/Photo archives/IMG_8469.jpg'),
+-- ('image_archive', 'IMG_8470.HEIC', '/Images/Photo archives/IMG_8470.HEIC'),
+-- ('image_archive', 'IMG_8470.jpg', '/Images/Photo archives/IMG_8470.jpg'),
+-- ('image_archive', 'IMG_8473.jpg', '/Images/Photo archives/IMG_8473.jpg'),
+-- ('image_archive', 'IMG_8475.heic', '/Images/Photo archives/IMG_8475.heic'),
+-- ('image_archive', 'IMG_8475.jpg', '/Images/Photo archives/IMG_8475.jpg'),
+-- ('image_archive', 'IMG_8477.heic', '/Images/Photo archives/IMG_8477.heic'),
+-- ('image_archive', 'IMG_8477.jpg', '/Images/Photo archives/IMG_8477.jpg'),
+-- ('image_archive', 'IMG_8478.heic', '/Images/Photo archives/IMG_8478.heic'),
+-- ('image_archive', 'IMG_8478.jpg', '/Images/Photo archives/IMG_8478.jpg'),
+-- ('image_archive', 'IMG_8482.jpg', '/Images/Photo archives/IMG_8482.jpg'),
+-- ('image_archive', 'IMG_8487.heic', '/Images/Photo archives/IMG_8487.heic'),
+-- ('image_archive', 'IMG_8487.jpg', '/Images/Photo archives/IMG_8487.jpg'),
+-- ('image_archive', 'IMG_8488.jpg', '/Images/Photo archives/IMG_8488.jpg'),
+-- ('image_archive', 'IMG_8489.HEIC', '/Images/Photo archives/IMG_8489.HEIC'),
+-- ('image_archive', 'IMG_8489.jpg', '/Images/Photo archives/IMG_8489.jpg'),
+-- ('image_archive', 'IMG_8490.jpg', '/Images/Photo archives/IMG_8490.jpg');
 
-INSERT INTO Multimedia (description, image, chemin_acces) VALUES
--- PHOTOS VRAC COLO
-('image_vrac', 'IMG_6608.HEIC', '/Images/PHOTOS VRAC COLO/IMG_6608.HEIC'),
-('image_vrac', 'IMG_6608.jpg', '/Images/PHOTOS VRAC COLO/IMG_6608.jpg'),
-('image_vrac', 'IMG_6612.HEIC', '/Images/PHOTOS VRAC COLO/IMG_6612.HEIC'),
-('image_vrac', 'IMG_6612.jpg', '/Images/PHOTOS VRAC COLO/IMG_6612.jpg'),
-('image_vrac', 'IMG_6619.jpg', '/Images/PHOTOS VRAC COLO/IMG_6619.jpg'),
-('image_vrac', 'IMG_6626.HEIC', '/Images/PHOTOS VRAC COLO/IMG_6626.HEIC'),
-('image_vrac', 'IMG_6626.jpg', '/Images/PHOTOS VRAC COLO/IMG_6626.jpg'),
-('image_vrac', 'IMG_6642.jpg', '/Images/PHOTOS VRAC COLO/IMG_6642.jpg'),
-('image_vrac', 'IMG_8011.HEIC', '/Images/PHOTOS VRAC COLO/IMG_8011.HEIC'),
-('image_vrac', 'IMG_8011.jpg', '/Images/PHOTOS VRAC COLO/IMG_8011.jpg'),
-('image_vrac', 'IMG_8473.jpg', '/Images/PHOTOS VRAC COLO/IMG_8473.jpg'),
-('image_vrac', 'IMG_8473.heic', '/Images/PHOTOS VRAC COLO/IMG_8473.heic'),
-('image_vrac', 'IMG_8475.heic', '/Images/PHOTOS VRAC COLO/IMG_8475.heic'),
-('image_vrac', 'IMG_8475.jpg', '/Images/PHOTOS VRAC COLO/IMG_8475.jpg'),
-('image_vrac', 'IMG_8477.heic', '/Images/PHOTOS VRAC COLO/IMG_8477.heic'),
-('image_vrac', 'IMG_8477.jpg', '/Images/PHOTOS VRAC COLO/IMG_8477.jpg'),
-('image_vrac', 'IMG_8478.heic', '/Images/PHOTOS VRAC COLO/IMG_8478.heic'),
-('image_vrac', 'IMG_8478.jpg', '/Images/PHOTOS VRAC COLO/IMG_8478.jpg'),
-('image_vrac', 'IMG_8482.heic', '/Images/PHOTOS VRAC COLO/IMG_8482.heic'),
-('image_vrac', 'IMG_8482.jpg', '/Images/PHOTOS VRAC COLO/IMG_8482.jpg'),
-('image_vrac', 'IMG_8487.heic', '/Images/PHOTOS VRAC COLO/IMG_8487.heic'),
-('image_vrac', 'IMG_8487.jpg', '/Images/PHOTOS VRAC COLO/IMG_8487.jpg'),
-('image_vrac', 'IMG_8488.heic', '/Images/PHOTOS VRAC COLO/IMG_8488.heic'),
-('image_vrac', 'IMG_8488.jpg', '/Images/PHOTOS VRAC COLO/IMG_8488.jpg'),
-('image_vrac', 'IMG_8490.heic', '/Images/PHOTOS VRAC COLO/IMG_8490.heic'),
-('image_vrac', 'IMG_8490.jpg', '/Images/PHOTOS VRAC COLO/IMG_8490.jpg'),
-('image_vrac', '20230224_091417.jpg', '/Images/20230224_091417.jpg'),
-('image_vrac', 'IMG_20230824_142853.jpg', '/Images/IMG_20230824_142853.jpg');
+-- INSERT INTO Multimedia (description, image, chemin_acces) VALUES
+-- -- PHOTOS VRAC COLO
+-- ('image_vrac', 'IMG_6608.HEIC', '/Images/PHOTOS VRAC COLO/IMG_6608.HEIC'),
+-- ('image_vrac', 'IMG_6608.jpg', '/Images/PHOTOS VRAC COLO/IMG_6608.jpg'),
+-- ('image_vrac', 'IMG_6612.HEIC', '/Images/PHOTOS VRAC COLO/IMG_6612.HEIC'),
+-- ('image_vrac', 'IMG_6612.jpg', '/Images/PHOTOS VRAC COLO/IMG_6612.jpg'),
+-- ('image_vrac', 'IMG_6619.jpg', '/Images/PHOTOS VRAC COLO/IMG_6619.jpg'),
+-- ('image_vrac', 'IMG_6626.HEIC', '/Images/PHOTOS VRAC COLO/IMG_6626.HEIC'),
+-- ('image_vrac', 'IMG_6626.jpg', '/Images/PHOTOS VRAC COLO/IMG_6626.jpg'),
+-- ('image_vrac', 'IMG_6642.jpg', '/Images/PHOTOS VRAC COLO/IMG_6642.jpg'),
+-- ('image_vrac', 'IMG_8011.HEIC', '/Images/PHOTOS VRAC COLO/IMG_8011.HEIC'),
+-- ('image_vrac', 'IMG_8011.jpg', '/Images/PHOTOS VRAC COLO/IMG_8011.jpg'),
+-- ('image_vrac', 'IMG_8473.jpg', '/Images/PHOTOS VRAC COLO/IMG_8473.jpg'),
+-- ('image_vrac', 'IMG_8473.heic', '/Images/PHOTOS VRAC COLO/IMG_8473.heic'),
+-- ('image_vrac', 'IMG_8475.heic', '/Images/PHOTOS VRAC COLO/IMG_8475.heic'),
+-- ('image_vrac', 'IMG_8475.jpg', '/Images/PHOTOS VRAC COLO/IMG_8475.jpg'),
+-- ('image_vrac', 'IMG_8477.heic', '/Images/PHOTOS VRAC COLO/IMG_8477.heic'),
+-- ('image_vrac', 'IMG_8477.jpg', '/Images/PHOTOS VRAC COLO/IMG_8477.jpg'),
+-- ('image_vrac', 'IMG_8478.heic', '/Images/PHOTOS VRAC COLO/IMG_8478.heic'),
+-- ('image_vrac', 'IMG_8478.jpg', '/Images/PHOTOS VRAC COLO/IMG_8478.jpg'),
+-- ('image_vrac', 'IMG_8482.heic', '/Images/PHOTOS VRAC COLO/IMG_8482.heic'),
+-- ('image_vrac', 'IMG_8482.jpg', '/Images/PHOTOS VRAC COLO/IMG_8482.jpg'),
+-- ('image_vrac', 'IMG_8487.heic', '/Images/PHOTOS VRAC COLO/IMG_8487.heic'),
+-- ('image_vrac', 'IMG_8487.jpg', '/Images/PHOTOS VRAC COLO/IMG_8487.jpg'),
+-- ('image_vrac', 'IMG_8488.heic', '/Images/PHOTOS VRAC COLO/IMG_8488.heic'),
+-- ('image_vrac', 'IMG_8488.jpg', '/Images/PHOTOS VRAC COLO/IMG_8488.jpg'),
+-- ('image_vrac', 'IMG_8490.heic', '/Images/PHOTOS VRAC COLO/IMG_8490.heic'),
+-- ('image_vrac', 'IMG_8490.jpg', '/Images/PHOTOS VRAC COLO/IMG_8490.jpg'),
+-- ('image_vrac', '20230224_091417.jpg', '/Images/20230224_091417.jpg'),
+-- ('image_vrac', 'IMG_20230824_142853.jpg', '/Images/IMG_20230824_142853.jpg');
 
 -- Emeric
 
@@ -267,28 +267,37 @@ INSERT INTO multimedia(id,description, image, chemin_acces)VALUES
 (201,'image_Chalet', 'Châlet', '../../Images/hebergement/chalet.jpg'),
 (202,'image_Bâtiment', 'Bâtiment', '../../Images/hebergement/batiment.jpg'),
 (203,'image_sallejeux', 'Salle de jeux', '../../Images/hebergement/sallejeux.jpg'),
-(204,'#', '#', '#'),
-(205,'#', '#', '#'),
-(206,'#', '#', '#'),
-(207,'#', '#', '#'),
-(208,'#', '#', '#'),
-(209,'#', '#', '#'),
-(210,'#', '#', '#'),
-(211,'#', '#', '#'),
-(212,'#', '#', '#'),
-(213,'#', '#', '#'),
-(214,'#', '#', '#'),
-(215,'#', '#', '#'),
-(216,'#', '#', '#'),
-(217,'#', '#', '#'),
-(218,'#', '#', '#'),
-(219,'#', '#', '#'),
-(220,'#', '#', '#');
+(204,'1er image du carrousel du chalet', 'chaletcarrousel1', '../../Images/hebergement/chalet2.JPG'),
+(205,'2eme image du carrousel du chalet', 'chaletcarrousel2', '../../Images/hebergement/chalet2.png'),
+(206,'3eme image du carrousel du chalet', 'chaletcarrousel3', '../../Images/hebergement/chalet3.JPG'),
+(207,'4eme image du carrousel du chalet', 'chaletcarrousel4', '../../Images/hebergement/chalet5.jpg'),
+(208,'5eme image du carrousel du chalet', 'chaletcarrousel5', '../../Images/hebergement/chalet4.jpg'),
+(209,'6eme image du carrousel du chalet', 'chaletcarrousel6', '../../Images/hebergement/chalet6.png'),
+(210,'1er image du carrousel du batiment', 'batimentcarrousel1', '../../Images/hebergement/batiment3.JPG'),
+(211,'2eme image du carrousel du batiment', 'batimentcarrousel2', '../../Images/hebergement/batiment3.JPG'),
+(212,'3eme image du carrousel du batiment', 'batimentcarrousel3', '../../Images/hebergement/batiment5.jpg'),
+(213,'4eme image du carrousel du batiment', 'batimentcarrousel4', '../../Images/hebergement/batiment6.jpg'),
+(214,'5eme image du carrousel du batiment', 'batimentcarrousel5', '../../Images/hebergement/batiment7.jpg'),
+(215,'6eme image du carrousel du batiment', 'batimentcarrousel6', '../../Images/hebergement/batiment11.JPG'),
+(216,'1ème image du carrousel de la salle de jeux', 'sallecarrousel1', '../../Images/hebergement/sallejeux1.JPG'),
+(217,'2ème image du carrousel de la salle de jeux', 'sallecarrousel2', '../../Images/hebergement/sallejeux3.jpg'),
+(218,'3ème image du carrousel de la salle de jeux', 'sallecarrousel3', '../../Images/hebergement/sallejeux4.jpg'),
+(219,'4ème image du carrousel de la salle de jeux', 'sallecarrousel4', '../../Images/hebergement/sallejeux6.jpg'),
+(220,'5ème image du carrousel de la salle de jeux', 'sallecarrousel5', '../../Images/hebergement/sallejeux5.jpg#'),
+(221,'6ème image du carrousel de la salle de jeux', 'sallecarrousel6', '../../Images/hebergement/sallejeux2.jpg');
 
 INSERT INTO section(id,titre,description)VALUES 
-(201,'Châlet', '#'),
-(202,'Bâtiment', '#'),
-(203,'Salle de jeux', '#');
+(201,'Châlet', "Le chalet se trouve au centre de la prairie, c’est un bâtiment indépendant. Il peut accueillir jusqu’à 14 personnes. Il est disponible avec les formules classiques du centre : pension, demi-pension, nuitée ou nuitée et petit déjeuner ou bien  <b>en gestion libre contrairement au reste du bâtiment.</b><br>Ce chalet dispose de deux dortoirs de 6 lits, d’une salle de bain commune avec 3 douches, 4 lavabos et 2 toilettes. Au fond du couloir une salle à manger et cuisine toute équipée avec 2 lits individuels supplémentaires. Il est possible de réserver pour le chalet en contactant le mail info@centrejeanpouzet.fr ou via <a class='lien' href='https://www.airbnb.fr/rooms/1005104591530298710?
+                adults=1&viralityEntryPoint=1&s=76&unique_share_id=67CA596B-D710-4889-859C-B13DEB7F58EE&fbc
+                lid=PAZXh0bgNhZW0CMTEAAaZt84IdVmH5qg5PrdwmY88zI-8pCoWfD15T9VTDrFM5b10RcDpHElpOpnQ_aem_e
+                J0yy0NBdAAl-uku_XNhcg&_branch_match_id=1367507739982566449&_branch_referrer=H4sIAAAAAAA
+                AAwXB3QqCMBgA0LfpzpyUZIHEcoYWmpWoeTM2nT%2F4tz4VqYuevXOqaZLjQVUZ7%2Fm6E2qzC%2FvomsGG8GPBs7b
+                OzQCnSYV46VdpjCwvtDFm6WRs3TzqHP1d6gHkS%2FcyjK%2BrGNIa4oJoeriPQgJnT%2BcaemREOnYrb7K%2FUyY6Ki7
+                o80H%2BKce4VeZmpolfZeXqB6IQAHVfUg7DMgown6xgUP8BA0cxSKUAAAA%3D&source_impression_id=p3_17333161
+                11_P3RMcIwCCQvFSQ5M'>Airbnb</a> et <a class='lien' href='https://www.leboncoin.fr/ad/locations_saisonnieres/2430585807'>Le Bon Coin.</a>"),
+
+(202,'Bâtiment', "Le bâtiment principal est un lieu d''accueil pouvant loger jusqu’à 66 personnes. Les chambres sont de 2, 4 ou 6 personnes avec des lits superposés (draps et oreillers fournis) et des sanitaires dans chacune d’entre elles avec douche lavabo et toilettes. Ce bâtiment dispose d’une chambre PMR. Dans ce même bâtiment se trouve la salle polyvalente, qui peut faire office de salle de jeux (babyfoot, billard…), de télé, de conférence, et même de salle de classe (tables et chaises disponibles). Au rez-de-chaussée se trouve le réfectoire pouvant accueillir jusqu’à 88 personnes assises, où les plats chauds sont servis. Veuillez nous contacter par mail pour toute demande de devis d’accueil de groupe à info@centrejeanpouzet.fr"),
+(203,'Salle de jeux', "La salle de jeux est un bâtiment indépendant et polyvalent fort de sa superficie au sol et sa cheminée fonctionnelle. Il peut être utilisé pour des veillées (bancs à disposition), entrepôt de matériel (par exemple skis), salle d’entraînement (danse) ou de réception (banquet, cousinade, mariage).");
 
 -- Omar & Antoine
 
