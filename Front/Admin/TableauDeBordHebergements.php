@@ -75,6 +75,8 @@ $imageSalle = $stmt->fetchColumn();
     <meta charset="UTF-8" />
     <title>Interface Administrateur</title>
     <!-- Lien vers votre fichier CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordHebergements.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
@@ -88,18 +90,21 @@ $imageSalle = $stmt->fetchColumn();
 </style>
 <body>
 
-
-
 <div class="dashboard-container">
-    <!-- Barre de navigation latérale -->
     <?php include '../Includes/AsideBar.php'; ?>
-
+    <button class="btn btn-outline-dark d-md-none position-fixed m-3 z-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarOffcanvas"
+            aria-controls="sidebarOffcanvas">
+        <i class="bi bi-list fs-3"></i>
+    </button>
     <!-- Zone de contenu principale -->
     <main class="content">
         <div>
             <!-- En-tête -->
             <header class="header">
-                <h1>Tableau de Bord - Hébergements</h1>
+                <h1 class="text-center">Tableau de Bord - Hébergements</h1>
             </header>
 
             <div class="action-options">

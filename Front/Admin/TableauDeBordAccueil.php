@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $message = "Seuls les formats JPG, JPEG, PNG, GIF, WEBP sont autorisés.";
             } else {
                 if (move_uploaded_file($_FILES["imageFile"]["tmp_name"], $targetFilePath)) {
-                    $relativePath = "/Images/AccueilUploads/" . $fileName;
+                    $relativePath = "../../Images/AccueilUploads/" . $fileName;
                     $stmt = $pdo->prepare("INSERT INTO Multimedia (description, image, chemin_acces) VALUES ('image_accueil', :name, :path)");
                     $stmt->execute([
                         'name' => $fileName,
@@ -116,23 +116,30 @@ foreach ($sections as $section) {
 <head>
     <meta charset="UTF-8">
     <title>Tableau de Bord - Accueil</title>
-    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
-    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordAccueil.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"><!-- Bootstrap Bundle (inclut Popper.js) -->
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-…" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
+    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordAccueil.css">
 </head>
 <body>
 <div class="dashboard-container">
     <!-- Barre latérale -->
     <?php include '../Includes/AsideBar.php'; ?>
-
+    <button class="btn btn-outline-dark d-md-none position-fixed m-3 z-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarOffcanvas"
+            aria-controls="sidebarOffcanvas">
+        <i class="bi bi-list fs-3"></i>
+    </button>
     <!-- Contenu principal -->
     <main class="content">
         <div class="scroll">
             <header class="header">
-                <h1>Tableau de Bord - Accueil</h1>
+                <h1 class="text-center">Tableau de Bord - Accueil</h1>
             </header>
 
             <!-- Section de modification -->

@@ -10,19 +10,28 @@ $currentPage = 'equipe';
 <head>
     <meta charset="UTF-8">
     <title>Tableau de Bord – Équipe</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"><!-- Bootstrap Bundle (inclut Popper.js) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordEquipe.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
 <body>
-<div class="dashboard-container">
-    <!-- Sidebar -->
-    <?php include '../Includes/AsideBar.php'; ?>
 
+<div class="dashboard-container">
+    <?php include '../Includes/AsideBar.php'; ?>
+    <button class="btn btn-outline-dark d-md-none position-fixed m-3 z-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarOffcanvas"
+            aria-controls="sidebarOffcanvas">
+        <i class="bi bi-list fs-3"></i>
+    </button>
     <!-- Contenu principal -->
     <main class="content">
         <header class="header">
-            <h1>Tableau de Bord – Équipe</h1>
+            <h1 class="text-center">Tableau de Bord – Équipe</h1>
         </header>
 
         <!-- Boutons d’option -->

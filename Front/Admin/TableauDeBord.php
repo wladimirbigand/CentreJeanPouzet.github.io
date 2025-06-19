@@ -13,19 +13,29 @@ if (!isset($_SESSION['admin'])) {
 <head>
   <meta charset="UTF-8">
   <title>Tableau de Bord - Interface Administrateur</title>
-  <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"><!-- Bootstrap Bundle (inclut Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
   <link rel="stylesheet" href="../../CSS/Admin/TableauDeBord.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
 </head>
 <body>
-<div class="dashboard-container">
-  <!-- Barre latérale -->
-    <?php include '../Includes/AsideBar.php'; ?>
 
+<div class="dashboard-container">
+    <!-- Barre latérale -->
+    <?php include '../Includes/AsideBar.php'; ?>
+    <button class="btn btn-outline-dark d-md-none position-fixed m-3 z-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarOffcanvas"
+            aria-controls="sidebarOffcanvas">
+        <i class="bi bi-list fs-3"></i>
+    </button>
     <!-- Contenu principal du tableau de bord de base -->
   <main class="content">
     <header class="header">
-      <h1>Bienvenue sur l'interface administrateur</h1>
+        <h1 class="text-center">Bienvenue sur l'interface administrateur</h1>
     </header>
 
     <!-- Section d'information et guide d'utilisation -->

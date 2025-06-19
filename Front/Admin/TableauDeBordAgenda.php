@@ -47,21 +47,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_CONTENT_TYPE']
 <head>
     <meta charset="UTF-8">
     <title>Tableau de Bord - Accueil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"><!-- Bootstrap Bundle (inclut Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordAgenda.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<div class="dashboard-container">
-    <!-- Barre latérale -->
-    <?php include '../Includes/AsideBar.php'; ?>
 
+<div class="dashboard-container">
+    <?php include '../Includes/AsideBar.php'; ?>
+    <button class="btn btn-outline-dark d-md-none position-fixed m-3 z-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarOffcanvas"
+            aria-controls="sidebarOffcanvas">
+        <i class="bi bi-list fs-3"></i>
+    </button>
     <!-- Contenu principal -->
     <main class="content">
         <div class="scroll">
             <header class="header">
-                <h1>Tableau de Bord - Contact</h1>
+                <h1 class="text-center">Tableau de Bord - Contact</h1>
             </header>
 
             <!-- Section de modification -->

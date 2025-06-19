@@ -7,7 +7,7 @@ try {
     $stmt = $pdo->prepare("SELECT chemin_acces FROM Multimedia WHERE description = 'image_accueil' ORDER BY id DESC LIMIT 1");
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    $backgroundImage = $data ? $data['chemin_acces'] : "/Images/Accueil/3.jpg";
+    $backgroundImage = $data ? $data['chemin_acces'] : "../../Images/Accueil/3.jpg";
 
     // Récupérer les textes (id 1 = qui sommes-nous, id 2 = où sommes-nous)
     $stmt = $pdo->prepare("SELECT id, description FROM section WHERE id IN (1, 2)");
@@ -22,7 +22,7 @@ try {
     }
 
 } catch (PDOException $e) {
-    $backgroundImage = "/Images/Accueil/3.jpg";
+    $backgroundImage = "../../Images/Accueil/3.jpg";
     $textQui = "Erreur de connexion à la base de données.";
     $textOu = "Erreur de connexion à la base de données.";
 }
