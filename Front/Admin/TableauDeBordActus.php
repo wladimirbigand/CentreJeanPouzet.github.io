@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$currentPage = 'actus';
 include_once ('../../SQL/fonction_connexion.inc.php');
 $connect = connectionPDO('config');
 
@@ -163,27 +164,7 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
 
 <div class="dashboard-container">
     <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="logo">
-            <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="Logo Centre Jean Pouzet">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="TableauDeBord.php">Tableau de bord</a></li>
-                <li><a href="TableauDeBordAccueil.php">Accueil</a></li>
-                <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
-                <li><a href="TableauDeBordAgenda.php">Contact</a></li>
-                <li><a href="TableauDeBordActus.php" class="active">Actualités</a></li>
-                <li><a href="TableauDeBordEquipe.php">Équipe</a></li>
-                <li><a href="TableauDeBordColos.php">Colos</a></li>
-            </ul>
-        </nav>
-        <div class="logout">
-            <form method="post" action="Logout.php">
-                <button type="submit">Se déconnecter</button>
-            </form>
-        </div>
-    </aside>
+    <?php include '../Includes/AsideBar.php'; ?>
 
     <!-- Contenu principal -->
     <main class="content">
@@ -230,7 +211,7 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
 
         <section id="modify-actus" class="action-section">
             <form method="POST" action="TableauDeBordActus.php" enctype="multipart/form-data">
-                <section class="admin-section">
+                <section class="admin-section scroll">
                     <div class="admin-block actu-form">
                         <h2>Modifier une actualité</h2>
                         <p>Veuillez sélectionner l'actualité à modifier :</p>

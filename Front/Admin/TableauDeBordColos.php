@@ -1,5 +1,6 @@
 <?php
 session_start();
+$currentPage = 'colos';
 if (!isset($_SESSION['admin'])) {
     header("Location: Login.php");
     exit();
@@ -82,77 +83,77 @@ if (isset($_POST['addColo'])) {
     }
 }
 
-if (isset($_POST['modifyColo']) && !empty($_POST['idToModify'])) {
-    $id = (int)$_POST['idToModify'];
-    $newTitle = $_POST['newTitle'];
+if (isset($_POST['modifyColo'])) {
+    if (!empty($_POST['idToModify'])) {
+        $stmtOld = $pdo->prepare("SELECT * FROM colos WHERE id = :id");
+        $stmtOld->execute(['id' => (int)$_POST['idToModify']]);
+        $oldData = $stmtOld->fetch(PDO::FETCH_ASSOC);
 
-    // Récupération actuelle (pour supprimer si remplacement)
-    $stmtOld = $pdo->prepare("SELECT * FROM colos WHERE id = :id");
-    $stmtOld->execute(['id' => $id]);
-    $oldData = $stmtOld->fetch(PDO::FETCH_ASSOC);
+        if ($oldData) {
+            $uploadDir = __DIR__ . '/../../Images/Colos/';
 
-    $uploadDir = __DIR__ . '/../../Images/Colos/';
-    function uploadImageUpdate($inputName, $oldPath, $uploadDir) {
-        if (isset($_FILES[$inputName]) && $_FILES[$inputName]['error'] === UPLOAD_ERR_OK) {
-            if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
-            $fileName = uniqid() . '_' . basename($_FILES[$inputName]['name']);
-            $newPath = '../../Images/Colos/' . $fileName;
-            if (move_uploaded_file($_FILES[$inputName]['tmp_name'], $uploadDir . $fileName)) {
-                $oldAbs = __DIR__ . '/../../' . ltrim($oldPath, './');
-                if (file_exists($oldAbs)) unlink($oldAbs);
-                return $newPath;
+            function uploadImageUpdate($inputName, $oldPath, $uploadDir) {
+                if (isset($_FILES[$inputName]) && $_FILES[$inputName]['error'] === UPLOAD_ERR_OK) {
+                    if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
+                    $fileName = uniqid() . '_' . basename($_FILES[$inputName]['name']);
+                    $newPath = '../../Images/Colos/' . $fileName;
+                    if (move_uploaded_file($_FILES[$inputName]['tmp_name'], $uploadDir . $fileName)) {
+                        $oldAbs = __DIR__ . '/../../' . ltrim($oldPath, './');
+                        if (file_exists($oldAbs)) unlink($oldAbs);
+                        return $newPath;
+                    }
+                }
+                return $oldPath;
             }
+
+            $newAffiche = uploadImageUpdate('affiche', $oldData['affiche'], $uploadDir);
+            $newImages = [];
+            for ($i = 1; $i <= 6; $i++) {
+                $newImages[$i] = uploadImageUpdate("image$i", $oldData["image$i"], $uploadDir);
+            }
+
+            $stmtUpdate = $pdo->prepare("
+                UPDATE colos SET titre = :titre, affiche = :affiche,
+                image1 = :img1, image2 = :img2, image3 = :img3,
+                image4 = :img4, image5 = :img5, image6 = :img6 WHERE id = :id
+            ");
+            $stmtUpdate->execute([
+                'titre' => $_POST['newTitle'] ?: $oldData['titre'],
+                'affiche' => $newAffiche,
+                'img1' => $newImages[1],
+                'img2' => $newImages[2],
+                'img3' => $newImages[3],
+                'img4' => $newImages[4],
+                'img5' => $newImages[5],
+                'img6' => $newImages[6],
+                'id' => $oldData['id']
+            ]);
+
+            $message = '
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                Swal.fire({
+                    icon: "success",
+                    title: "Colo modifiée !",
+                    text: "La colo a été mise à jour avec succès.",
+                    confirmButtonColor: "#3085d6"
+                });
+                </script>';
+        } else {
+            $message = '
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                Swal.fire({
+                    icon: "error",
+                    title: "Erreur",
+                    text: "La colo n’existe pas.",
+                    confirmButtonColor: "#d33"
+                });
+                </script>';
         }
-        return $oldPath; // on garde l'ancienne
+    } else {
+        $message = ''; // pas de message si l’id est vide
     }
-
-    $newAffiche = uploadImageUpdate('affiche', $oldData['affiche'], $uploadDir);
-    $newImages = [];
-    for ($i = 1; $i <= 6; $i++) {
-        $newImages[$i] = uploadImageUpdate("image$i", $oldData["image$i"], $uploadDir);
-    }
-
-    // Mise à jour
-    $stmtUpdate = $pdo->prepare("
-        UPDATE colos SET titre = :titre, affiche = :affiche, 
-        image1 = :img1, image2 = :img2, image3 = :img3, 
-        image4 = :img4, image5 = :img5, image6 = :img6 WHERE id = :id
-    ");
-    $stmtUpdate->execute([
-        'titre' => $newTitle ?: $oldData['titre'],
-        'affiche' => $newAffiche,
-        'img1' => $newImages[1],
-        'img2' => $newImages[2],
-        'img3' => $newImages[3],
-        'img4' => $newImages[4],
-        'img5' => $newImages[5],
-        'img6' => $newImages[6],
-        'id' => $id
-    ]);
-
-    $message = '
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-        Swal.fire({
-            icon: "success",
-            title: "Colo modifié !",
-            text: "La colo et ses images ont été modifiées avec succès.",
-            confirmButtonColor: "#3085d6"
-        });
-        </script>';
-} else {
-    $message = '
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-        Swal.fire({
-            icon: "error",
-            title: "Erreur",
-            text: "Impossible de modifier la colo. Veuillez réessayer.",
-            confirmButtonColor: "#d33"
-        });
-        </script>';
-
-    $message = '<script>Swal.fire("Modifiée !", "La colo a été mise à jour.", "success")</script>';
 }
 
 if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
@@ -207,36 +208,17 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
 <head>
     <meta charset="UTF-8">
     <title>Tableau de Bord - Colos</title>
-    <!-- Styles communs -->
-    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
     <!-- Styles spécifiques pour la page Colos -->
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordColos.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
 </head>
 <body>
 <div class="dashboard-container">
     <!-- Barre latérale -->
-    <aside class="sidebar">
-        <div class="logo">
-            <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="TableauDeBord.php">Tableau de bord</a></li>
-                <li><a href="TableauDeBordAccueil.php">Accueil</a></li>
-                <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
-                <li><a href="TableauDeBordAgenda.php">Contact</a></li>
-                <li><a href="TableauDeBordActus.php">Actualités</a></li>
-                <li><a href="TableauDeBordEquipe.php">Équipe</a></li>
-                <li><a href="TableauDeBordColos.php" class="active">Colos</a></li>
-            </ul>
-        </nav>
-        <div class="logout">
-            <form method="post" action="Logout.php">
-                <button type="submit">Se déconnecter</button>
-            </form>
-        </div>
-    </aside>
+    <?php include '../Includes/AsideBar.php'; ?>
 
     <!-- Contenu principal -->
     <main class="content scroll">
@@ -246,10 +228,20 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
 
         <!-- Boutons d'option -->
         <div class="action-options">
-            <button id="btn-add" class="active">Ajouter une colo</button>
-            <button id="btn-modify">Modifier une colo</button>
-            <button id="btn-delete">Supprimer une colo</button>
+            <button id="btn-add" class="active d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-plus-circle"></i>
+                <span>Ajouter une colo</span>
+            </button>
+            <button id="btn-modify" class="d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-pencil-square"></i>
+                <span>Modifier une colo</span>
+            </button>
+            <button id="btn-delete" class="d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-trash3"></i>
+                <span>Supprimer une colo</span>
+            </button>
         </div>
+
 
         <!-- Ajouter une colo -->
         <form method="post" enctype="multipart/form-data">
@@ -260,20 +252,27 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
                     <label for="addColoTitle">Titre/Nom de la colo :</label>
                     <input name="titre" type="text" id="addColoTitle" placeholder="Ex : Colo d'hiver 2025" required>
 
-                    <label for="addColoAffiche">Affiche :</label>
-                    <input type="file" id="addColoAffiche" name="affiche" accept="image/*" required>
-                    <div class="preview-container" id="previewAddAffiche"></div>
+                    <label>Affiche :</label>
+                    <input type="file" id="addColoAffiche" name="affiche" accept="image/*" class="d-none">
+                    <label for="addColoAffiche" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2">
+                        <i class="bi bi-image fs-4"></i>
+                        <span>Choisir une affiche</span>
+                    </label>
+                    <div class="preview-container mt-2" id="previewAddAffiche"></div>
                 </div>
 
-                <!-- Bloc dédié aux 6 images fixes -->
                 <div class="admin-block colo-images">
                     <h2>Images associées (6 fixées)</h2>
                     <div class="colo-colonnes">
                         <?php for ($i = 1; $i <= 6; $i++): ?>
                             <div class="image-slot">
                                 <label for="addColoImage<?= $i ?>">Image <?= $i ?> :</label>
-                                <input type="file" id="addColoImage<?= $i ?>" name="image<?= $i ?>" accept="image/*" required>
-                                <div class="preview-container" id="previewAddImage<?= $i ?>"></div>
+                                <input type="file" id="addColoImage<?= $i ?>" name="image<?= $i ?>" accept="image/*" class="d-none">
+                                <label for="addColoImage<?= $i ?>" class="file-input-label btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2">
+                                    <i class="bi bi-image fs-4"></i>
+                                    <span>Choisir l’image <?= $i ?></span>
+                                </label>
+                                <div class="preview-container mt-2" id="previewAddImage<?= $i ?>"></div>
                             </div>
                         <?php endfor; ?>
                     </div>
@@ -281,12 +280,13 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
 
                 <div class="admin-block actions">
                     <input type="hidden" name="addColo" value="1">
-                    <button id="btn-add-colo" type="submit">Enregistrer</button>
+                    <button id="btn-add-colo" type="submit">Enregistrer une nouvelle colo</button>
                 </div>
 
                 <?php if (isset($message)) echo $message; ?>
             </section>
         </form>
+
 
         <!-- Section Modifier une colo -->
         <form method="post" enctype="multipart/form-data">
@@ -310,7 +310,11 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
                     <input name="newTitle" type="text" id="modifyColoTitle" placeholder="Nouveau titre de la colo">
 
                     <label for="modifyColoAffiche">Affiche :</label>
-                    <input type="file" id="modifyColoAffiche" name="affiche" accept="image/*">
+                    <input type="file" id="modifyColoAffiche" name="affiche" accept="image/*" class="d-none">
+                    <label for="modifyColoAffiche" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2">
+                        <i class="bi bi-image fs-4"></i>
+                        <span>Choisir une nouvelle affiche</span>
+                    </label>
                     <div class="preview-container" id="previewModifyAffiche"></div>
                 </div>
 
@@ -320,7 +324,11 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
                         <?php for ($i = 1; $i <= 6; $i++): ?>
                             <div class="image-slot">
                                 <label>Image <?= $i ?> :</label>
-                                <input type="file" id="modifyColoImage<?= $i ?>" name="image<?= $i ?>" accept="image/*">
+                                <input type="file" id="modifyColoImage<?= $i ?>" name="image<?= $i ?>" accept="image/*" class="d-none">
+                                <label for="modifyColoImage<?= $i ?>" class="file-input-label btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2">
+                                    <i class="bi bi-image fs-4"></i>
+                                    <span>Choisir l’image <?= $i ?></span>
+                                </label>
                                 <div class="preview-container" id="previewModifyImage<?= $i ?>"></div>
                             </div>
                         <?php endfor; ?>
@@ -360,142 +368,102 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
 </div>
 
 <script>
-    const activeTab = "<?= isset($activeTab) ? $activeTab : 'add' ?>";
-</script>
+    // Gestion des boutons et sections
+    const btns = {
+        add: document.getElementById('btn-add'),
+        modify: document.getElementById('btn-modify'),
+        delete: document.getElementById('btn-delete')
+    };
+    const sections = {
+        add: document.getElementById('add-colo'),
+        modify: document.getElementById('modify-colo'),
+        delete: document.getElementById('delete-colo')
+    };
 
+    function resetTabs() {
+        Object.values(btns).forEach(b => b?.classList.remove('active'));
+        Object.values(sections).forEach(s => s?.classList.remove('active'));
+    }
 
-<script>
-    const optionButtons = document.querySelectorAll('.action-options button');
-    optionButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-            optionButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
+    function activateTab(tab) {
+        resetTabs();
+        if (btns[tab] && sections[tab]) {
+            btns[tab].classList.add('active');
+            sections[tab].classList.add('active');
+            localStorage.setItem('activeTabColo', tab);
+        }
+    }
+
+    // Initialisation au chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedTab = localStorage.getItem('activeTabColo') || 'add';
+        activateTab(savedTab);
+
+        // Ajout des événements sur les boutons
+        Object.entries(btns).forEach(([key, btn]) => {
+            btn?.addEventListener('click', () => activateTab(key));
+        });
+
+        // Aperçu images - Ajout
+        const addAffiche = document.getElementById('addColoAffiche');
+        const previewAddAffiche = document.getElementById('previewAddAffiche');
+        addAffiche?.addEventListener('change', () => previewSingleImage(addAffiche, previewAddAffiche));
+
+        for (let i = 1; i <= 6; i++) {
+            const input = document.getElementById('addColoImage' + i);
+            const preview = document.getElementById('previewAddImage' + i);
+            input?.addEventListener('change', () => previewSingleImage(input, preview));
+        }
+
+        // Aperçu images - Modification
+        const modifyAffiche = document.getElementById('modifyColoAffiche');
+        const previewModifyAffiche = document.getElementById('previewModifyAffiche');
+        modifyAffiche?.addEventListener('change', () => previewSingleImage(modifyAffiche, previewModifyAffiche));
+
+        for (let i = 1; i <= 6; i++) {
+            const input = document.getElementById('modifyColoImage' + i);
+            const preview = document.getElementById('previewModifyImage' + i);
+            input?.addEventListener('change', () => previewSingleImage(input, preview));
+        }
+
+        // Chargement des infos à modifier
+        document.getElementById('modifyColoSelect')?.addEventListener('change', function () {
+            const id = this.value;
+            if (!id) return;
+
+            fetch('getColoData.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'id=' + encodeURIComponent(id)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) return alert(data.error);
+                    document.getElementById('modifyColoTitle').value = data.titre;
+                    document.getElementById('previewModifyAffiche').innerHTML =
+                        `<img src="../Admin/${data.affiche}" alt="Affiche actuelle" />`;
+
+                    for (let i = 1; i <= 6; i++) {
+                        document.getElementById(`previewModifyImage${i}`).innerHTML =
+                            `<img src="../Admin/${data[`image${i}`]}" alt="Image ${i} actuelle" />`;
+                    }
+                })
+                .catch(error => console.error('Erreur AJAX :', error));
         });
     });
 
-    const btnAdd = document.getElementById('btn-add');
-    const btnModify = document.getElementById('btn-modify');
-    const btnDelete = document.getElementById('btn-delete');
-
-    const sectionAdd = document.getElementById('add-colo');
-    const sectionModify = document.getElementById('modify-colo');
-    const sectionDelete = document.getElementById('delete-colo');
-
-    function hideAllSections() {
-        sectionAdd.classList.remove('active');
-        sectionModify.classList.remove('active');
-        sectionDelete.classList.remove('active');
-    }
-
-    btnAdd.addEventListener('click', function () {
-        hideAllSections();
-        sectionAdd.classList.add('active');
-    });
-    btnModify.addEventListener('click', function () {
-        hideAllSections();
-        sectionModify.classList.add('active');
-    });
-    btnDelete.addEventListener('click', function () {
-        hideAllSections();
-        sectionDelete.classList.add('active');
-    });
-
-    // Affiche la bonne section au rechargement
-    hideAllSections();
-    // Retire la classe active de tous les boutons
-    optionButtons.forEach(b => b.classList.remove('active'));
-
-    // Affiche la bonne section et active le bon bouton
-    if (activeTab === "add") {
-        sectionAdd.classList.add('active');
-        btnAdd.classList.add('active');
-    } else if (activeTab === "delete") {
-        sectionDelete.classList.add('active');
-        btnDelete.classList.add('active');
-    } else if (activeTab === "modify") {
-        sectionModify.classList.add('active');
-        btnModify.classList.add('active');
-    }
-
-
-    // Fonction d'aperçu d'image
+    // Fonction d’aperçu d’image
     function previewSingleImage(input, previewContainer) {
         if (!input.files || !input.files[0]) {
             previewContainer.innerHTML = '';
             return;
         }
-        const file = input.files[0];
         const reader = new FileReader();
-        reader.onload = function (e) {
-            previewContainer.innerHTML = '<img src="' + e.target.result + '" alt="Aperçu" />';
-        }
-        reader.readAsDataURL(file);
+        reader.onload = e => {
+            previewContainer.innerHTML = `<img src="${e.target.result}" alt="Aperçu" />`;
+        };
+        reader.readAsDataURL(input.files[0]);
     }
-
-    // Ajouter une colo
-    const addAffiche = document.getElementById('addColoAffiche');
-    const previewAddAffiche = document.getElementById('previewAddAffiche');
-    addAffiche.addEventListener('change', function () {
-        previewSingleImage(this, previewAddAffiche);
-    });
-    for (let i = 1; i <= 6; i++) {
-        const fileInput = document.getElementById('addColoImage' + i);
-        const previewCont = document.getElementById('previewAddImage' + i);
-        fileInput.addEventListener('change', function () {
-            previewSingleImage(this, previewCont);
-        });
-    }
-
-    // Modifier une colo
-    const modifyAffiche = document.getElementById('modifyColoAffiche');
-    const previewModifyAffiche = document.getElementById('previewModifyAffiche');
-    modifyAffiche.addEventListener('change', function () {
-        previewSingleImage(this, previewModifyAffiche);
-    });
-    for (let i = 1; i <= 6; i++) {
-        const fileInput = document.getElementById('modifyColoImage' + i);
-        const previewCont = document.getElementById('previewModifyImage' + i);
-        fileInput.addEventListener('change', function () {
-            previewSingleImage(this, previewCont);
-        });
-    }
-
-    document.getElementById('modifyColoSelect').addEventListener('change', function () {
-        const id = this.value;
-        if (!id) return;
-
-        fetch('getColoData.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: 'id=' + encodeURIComponent(id)
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    alert(data.error);
-                    return;
-                }
-
-                // Remplir le champ titre
-                document.getElementById('modifyColoTitle').value = data.titre;
-
-                // Affiche
-                const previewAffiche = document.getElementById('previewModifyAffiche');
-                previewAffiche.innerHTML = `<img src="../Admin/${data.affiche}" alt="Affiche actuelle" />`;
-
-                // Images
-                for (let i = 1; i <= 6; i++) {
-                    const preview = document.getElementById(`previewModifyImage${i}`);
-                    const path = data[`image${i}`];
-                    preview.innerHTML = `<img src="../Admin/${path}" alt="Image ${i} actuelle" />`;
-                }
-            })
-            .catch(error => {
-                console.error('Erreur AJAX :', error);
-            });
-    });
 </script>
 
 </body>

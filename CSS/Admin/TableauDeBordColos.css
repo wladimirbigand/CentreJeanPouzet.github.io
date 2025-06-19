@@ -24,30 +24,56 @@
     margin-bottom: 15px;
     color: #5E856E;
 }
-.image-slot {
-    margin-bottom: 15px;
-}
-.image-slot label {
-    display: block;
-    font-weight: bold;
-    color: #5E856E;
-    margin-bottom: 5px;
-}
-.preview-container img {
+/*.image-slot {*/
+/*    margin-bottom: 15px;*/
+/*}*/
+/*.image-slot label {*/
+/*    display: block;*/
+/*    font-weight: bold;*/
+/*    color: #5E856E;*/
+/*    margin-bottom: 5px;*/
+/*}*/
+
+.preview-container {
     margin-top: 10px;
-    max-width: 150px;
-    max-height: 150px;
-    border: 2px solid #5E856E; /* Vert Eucalyptus */
-    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center; /* si tu veux centrer l'image */
+}
+
+.preview-container img {
+    width: 100%;
+    max-width: 400px;            /* même taille que Hébergements */
+    object-fit: cover;           /* remplit et rogne si besoin */
+    border-radius: 8px;
+    border: 4px solid #5E856E;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: auto;
 }
 
 /* Disposition des images en 3 colonnes de 2, s'adaptant à l'espace disponible */
 .colo-colonnes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: start;
 }
+
+.image-slot {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 240px;
+    align-items: center;
+    text-align: center;
+}
+
+.image-slot label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
 
 /* Styles supplémentaires pour le choix d'action */
 

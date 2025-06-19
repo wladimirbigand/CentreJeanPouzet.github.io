@@ -28,14 +28,20 @@ function previewImage(input, imgId) {
     const file = input.files[0];
     if (!file) return;
 
-    const fr = new FileReader();
-    fr.onload = function (e) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
         const img = document.getElementById(imgId);
-        img.src = e.target.result;
-        img.style.display = "block";
+        if (img.tagName.toLowerCase() === 'img') {
+            img.src = e.target.result;
+            img.style.display = "block";
+        } else {
+            // fallback si c’est un conteneur div
+            img.innerHTML = `<img src="${e.target.result}" alt="Aperçu">`;
+        }
     };
-    fr.readAsDataURL(file);
+    reader.readAsDataURL(file);
 }
+
 
 document.getElementById('addActusImage')
     .addEventListener('change', e => previewImage(e.target, 'previewAddActusImage'));

@@ -20,20 +20,21 @@ input[type="file"].d-none {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;                                 /* espace icône / texte */
-    width: 20%;                               /* prend toute la largeur */
-    padding: 0.75rem 1rem;                     /* un peu de padding */
-    font-size: 1rem;                           /* taille du texte */
-    color: #5E856E;                            /* couleur du texte */
-    background-color: transparent;             /* fond transparent */
-    border: 2px solid #5E856E;                 /* outline initial */
-    border-radius: 0.375rem;                   /* coins arrondis */
+    gap: 1rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: #5E856E !important;
+    background-color: transparent;
+    border: 2px solid #5E856E !important;
+    border-radius: 0.375rem;
     cursor: pointer;
     transition: transform 0.3s ease,
     background-color 0.3s ease,
     color 0.3s ease,
     border-color 0.3s ease;
 }
+
 
 /* Icône un peu plus grosse */
 .file-input-label .bi {
@@ -130,20 +131,27 @@ input[type="file"].d-none {
     gap: 2rem;
 }
 .sidebar nav ul li a {
+    all: unset;
     display: block;
-    text-decoration: none;
-    color: #fff;
+    text-align: center;
     padding: 10px 20px;
+    background-color: #5E856E;
+    color: #fff;
     border-radius: 5px;
-    background-color: #5E856E; /* Vert eucalyptus */
+    text-decoration: none;
     transition: background-color 0.3s ease;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
 }
+
 .sidebar nav ul li a.active {
-    background-color: #F9CD4A; /* Jaune or */
+    background-color: #F9CD4A;
     color: #000;
+    font-weight: bold;
 }
+
 .sidebar nav ul li a:hover {
-    background-color: #FFEDA7; /* Jaune pastel */
+    background-color: #FFEDA7;
     color: #000;
 }
 

@@ -1,6 +1,8 @@
 <?php
+session_start();
 include_once ('../../SQL/fonction_connexion.inc.php') ;
 $equipe = connectionPDO('../../SQL/config');
+$currentPage = 'equipe';
 ?>
 
 <!DOCTYPE html>
@@ -15,27 +17,7 @@ $equipe = connectionPDO('../../SQL/config');
 <body>
 <div class="dashboard-container">
     <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="logo">
-            <img src="../../Images/Logo/LogoJeanPouzet.svg" alt="">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="TableauDeBord.php">Tableau de bord</a></li>
-                <li><a href="TableauDeBordAccueil.php">Accueil</a></li>
-                <li><a href="TableauDeBordHebergements.php">Hébergements</a></li>
-                <li><a href="TableauDeBordAgenda.php">Contact</a></li>
-                <li><a href="TableauDeBordActus.php">Actualités</a></li>
-                <li><a href="TableauDeBordEquipe.php" class="active">Équipe</a></li>
-                <li><a href="TableauDeBordColos.php">Colos</a></li>
-            </ul>
-        </nav>
-        <div class="logout">
-            <form method="post" action="Logout.php">
-                <button type="submit">Se déconnecter</button>
-            </form>
-        </div>
-    </aside>
+    <?php include '../Includes/AsideBar.php'; ?>
 
     <!-- Contenu principal -->
     <main class="content">

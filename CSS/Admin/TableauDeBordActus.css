@@ -22,12 +22,26 @@
 /* Aperçu d’image */
 .preview-container {
     margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center; /* si tu veux centrer l'image */
 }
+
 .preview-container img {
-    max-width: 200px;
-    max-height: 200px;
-    border: 2px solid #5E856E;
-    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;            /* même taille que Hébergements */
+    object-fit: cover;           /* remplit et rogne si besoin */
+    border-radius: 8px;
+    border: 4px solid #5E856E;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: auto;
+}
+
+.scroll {
+    height: 80vh;
+    background-color: #F5F5E1;
+    overflow-y: scroll;
+    display: grid;
 }
 
 /* Boutons d’option */
