@@ -36,6 +36,15 @@ footer div {
     font-weight: bold;
 }
 
+.admin-link {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.admin-link:hover {
+    opacity: 1;
+}
+
 .footer-center a span {
     font-size: 14px; /* Taille de l'icône cadenas */
 }
