@@ -78,6 +78,7 @@ $imageSalle = $stmt->fetchColumn();
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordHebergements.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
 </head>
 <style>
     .content {
@@ -128,51 +129,40 @@ $imageSalle = $stmt->fetchColumn();
 
             <section id="section-chalet" class="action-section active"> <!-- active pour la 1ère -->
                 <form action="traitementhebergement.inc.php" method="POST" enctype="multipart/form-data">
-
                     <section class="admin-section scroll">
-                        <!-- Premier bloc : modifier du texte -->
+
                         <div class="admin-block">
                             <h2>Sélectionnez le texte à ajouter / modifier :</h2>
                             <input type="text" placeholder="Texte 1" name="nouvtitreChalet" value="<?php echo $titreChalet ?>">
                             <textarea id="editorChalet" name="nouvtexteChalet"><?php echo $texteChalet ?></textarea>
                         </div>
 
-                        <!-- Deuxième bloc : modifier des images ou carrousels -->
                         <div class="admin-block">
                             <h2>Sélectionnez une image à ajouter / modifier :</h2>
-                            <input type="file" name="nouvimageChalet" id="inputImageChalet" accept="image/*">
+                            <input type="file" name="nouvimageChalet" id="inputImageChalet" accept="image/*" class="d-none">
+                            <label for="inputImageChalet" class="file-input-label btn btn-outline-success w-100 d-flex align-items-center justify-content-center" style="gap:.5rem;"><i class="bi bi-image fs-3"></i><span>Modifier l’image d'en-tête</span></label>
 
                             <?php if (!empty($imageChalet)): ?>
-                                <div class="preview-container">
-                                    <img src="../../Admin/<?php echo $imageChalet; ?>" alt="Image Chalet" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
-                                </div>
+                                <div class="preview-container"><img src="../../Admin/<?php echo $imageChalet; ?>" alt="Image Chalet" style="max-width:200px;max-height:200px;border-radius:8px;margin-bottom:10px;"></div>
                             <?php endif; ?>
 
                             <div class="preview-container" id="previewImageChalet"></div>
-                            <br><br><br>
+                        </div>
+
+                        <div class="admin-block">
                             <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
-
-                            <?php for ($i = 1; $i <= 6; $i++): ?>
-                                <label for="inputChaletCarousel<?= $i ?>">Carrousel <?= $i ?> :</label>
-                                <input type="file" name="chaletcarrousel<?= $i ?>" id="inputChaletCarousel<?= $i ?>" accept="image/*">
-
-                                <!-- Image actuelle -->
-                                <?php if (!empty($carouselChalet[$i])): ?>
-                                    <div class="preview-container">
-                                        <img src="../../Admin/<?php echo $carouselChalet[$i]; ?>" alt="Carrousel <?= $i ?>" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
-                                    </div>
-                                <?php endif; ?>
-
-                                <!-- Preview JS -->
+                            <?php for($i=1;$i<=6;$i++): ?>
+                                <input type="file" name="chaletcarrousel<?= $i ?>" id="inputChaletCarousel<?= $i ?>" accept="image/*" class="d-none">
+                                <label for="inputChaletCarousel<?= $i ?>" class="file-input-label btn btn-outline-success w-100 d-flex align-items-center justify-content-center" style="gap:.5rem;"><i class="bi bi-image fs-3"></i><span>Carrousel <?= $i ?></span></label>
+                                <?php if(!empty($carouselChalet[$i])): ?><div class="preview-container"><img src="../../Admin/<?php echo $carouselChalet[$i]; ?>" alt="Carrousel <?= $i ?>" style="max-width:200px;max-height:200px;border-radius:8px;margin-bottom:10px;"></div><?php endif; ?>
                                 <div class="preview-container" id="previewChaletCarousel<?= $i ?>"></div>
-                                <br>
                             <?php endfor; ?>
-
                         </div>
 
                         <div class="admin-block actions">
-                            <button id="Add" type="submit">Enregistrer les modifications</button>
+                            <button id="Add" type="submit" class="btn btn-success w-100">Enregistrer les modifications</button>
                         </div>
+
                     </section>
                 </form>
             </section>
@@ -189,7 +179,11 @@ $imageSalle = $stmt->fetchColumn();
 
                         <div class="admin-block">
                             <h2>Sélectionnez une image à ajouter / modifier :</h2>
-                            <input type="file" name="nouvimageBatiment" id="inputImageBatiment" accept="image/*">
+                            <input type="file" name="nouvimageBatiment" id="inputImageBatiment" accept="image/*" class="d-none"/>
+                            <label for="inputImageBatiment" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2">
+                                <i class="bi bi-image fs-3"></i>
+                                <span>Modifier l’image d’en-tête</span>
+                            </label>
 
                             <?php if (!empty($imageBatiment)): ?>
                                 <div class="preview-container">
@@ -202,8 +196,11 @@ $imageSalle = $stmt->fetchColumn();
                             <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
 
                             <?php for ($i = 1; $i <= 6; $i++): ?>
-                                <label for="inputBatimentCarousel<?= $i ?>">Carrousel <?= $i ?> :</label>
-                                <input type="file" name="batimentcarrousel<?= $i ?>" id="inputBatimentCarousel<?= $i ?>" accept="image/*">
+                                <input type="file" name="batimentcarrousel<?= $i ?>" id="inputBatimentCarousel<?= $i ?>" accept="image/*" class="d-none"/>
+                                <label for="inputBatimentCarousel<?= $i ?>" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2">
+                                    <i class="bi bi-image fs-3"></i>
+                                    <span>Carrousel <?= $i ?></span>
+                                </label>
 
                                 <?php if (!empty($carouselBatiment[$i])): ?>
                                     <div class="preview-container">
@@ -236,7 +233,11 @@ $imageSalle = $stmt->fetchColumn();
 
                         <div class="admin-block">
                             <h2>Sélectionnez une image à ajouter / modifier :</h2>
-                            <input type="file" name="nouvimageSalle" id="inputImageSalle" accept="image/*">
+                            <input type="file" name="nouvimageSalle" id="inputImageSalle" accept="image/*" class="d-none"/>
+                            <label for="inputImageSalle" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2">
+                                <i class="bi bi-image fs-3"></i>
+                                <span>Modifier l’image d’en-tête</span>
+                            </label>
 
                             <?php if (!empty($imageSalle)): ?>
                                 <div class="preview-container">
@@ -249,8 +250,11 @@ $imageSalle = $stmt->fetchColumn();
                             <h2>Sélectionnez les images du carrousel à ajouter / modifier :</h2>
 
                             <?php for ($i = 1; $i <= 6; $i++): ?>
-                                <label for="inputSalleCarousel<?= $i ?>">Carrousel <?= $i ?> :</label>
-                                <input type="file" name="sallecarrousel<?= $i ?>" id="inputSalleCarousel<?= $i ?>" accept="image/*">
+                                <input type="file" name="sallecarrousel<?= $i ?>" id="inputSalleCarousel<?= $i ?>" accept="image/*" class="d-none"/>
+                                <label for="inputSalleCarousel<?= $i ?>" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2">
+                                    <i class="bi bi-image fs-3"></i>
+                                    <span>Carrousel <?= $i ?></span>
+                                </label>
 
                                 <?php if (!empty($carouselSalle[$i])): ?>
                                     <div class="preview-container">

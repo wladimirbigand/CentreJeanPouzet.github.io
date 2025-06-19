@@ -19,7 +19,6 @@ $hebergementsdatatxt = $requetetxt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre Jean Pouzet</title>
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
-    <link rel="stylesheet" href="../../CSS/User/Hebergements.css">
     <link rel="stylesheet" href="../../CSS/User/Footer.css">
     <link rel="stylesheet" href="../../CSS/User/Header.css">
     <link rel="stylesheet" href="../../CSS/User/Fonts.css">
@@ -27,6 +26,8 @@ $hebergementsdatatxt = $requetetxt->fetchAll(PDO::FETCH_ASSOC);
     <script src="../../JS/ModalHebergements.js"></script>
     <script src="../../JS/hebergement.js" async></script>
     <script src="../../JS/carroussel.js" async></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MQ6+Fgj3wMPEe0iHYOgklxm3b5b+gkQjahLhRjz6kTd9k9uQ0s+F/gK+77hL847K" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../../CSS/User/Hebergements.css">
 </head>
 <body>
 <?php $currentPage = 'hebergements'; ?>
@@ -78,10 +79,16 @@ $hebergementsdatatxt = $requetetxt->fetchAll(PDO::FETCH_ASSOC);
 
 
     <section id='vert1'>
-        <h3 class='titreimages'><?php echo $hebergementsdatatxt[0]['titre'] ?></h3>
-        <p class='textimage'><?php echo $hebergementsdatatxt[0]['description'];?></p>
-
-
+        <h3 class="titreimages">
+            <?= htmlspecialchars($hebergementsdatatxt[0]['titre']) ?>
+        </h3>
+        <?php
+        // On autorise seulement <strong>, <em>, <a> et <br>, et on supprime les autres <p>…
+        $clean = strip_tags($hebergementsdatatxt[0]['description'], '<strong><em><a><br>');
+        ?>
+        <p class="textimage">
+            <?= nl2br($clean) ?>
+        </p>
 
         <div class="ContainerSlide">
             <div class="slideshow-container">
@@ -132,19 +139,17 @@ $hebergementsdatatxt = $requetetxt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
 
-
-
-
     <br>
-
-
 
     <section id='vert2'>
         <h3 class='titreimages'><?php echo $hebergementsdatatxt[1]['titre'] ?></h3>
-        <p class='textimage'><?php echo $hebergementsdatatxt[1]['description'] ?>
+        <?php
+        // On autorise seulement <strong>, <em>, <a> et <br>, et on supprime les autres <p>…
+        $clean = strip_tags($hebergementsdatatxt[1]['description'], '<strong><em><a><br>');
+        ?>
+        <p class="textimage">
+            <?= nl2br($clean) ?>
         </p>
-
-
         <div class="ContainerSlide1">
             <div class="slideshow-container1">
 
@@ -201,8 +206,12 @@ $hebergementsdatatxt = $requetetxt->fetchAll(PDO::FETCH_ASSOC);
     <section id='vert3'>
 
         <h3 class='titreimages'><?php echo $hebergementsdatatxt[2]['titre'] ?></h3>
-        <p class='textimage'>
-            <?php echo $hebergementsdatatxt[2]['description']?>
+        <?php
+        // On autorise seulement <strong>, <em>, <a> et <br>, et on supprime les autres <p>…
+        $clean = strip_tags($hebergementsdatatxt[2]['description'], '<strong><em><a><br>');
+        ?>
+        <p class="textimage">
+            <?= nl2br($clean) ?>
         </p>
 
         <div class="ContainerSlide2">
@@ -254,5 +263,19 @@ $hebergementsdatatxt = $requetetxt->fetchAll(PDO::FETCH_ASSOC);
 <?php
 require_once '../Includes/Footer.php';
 ?>
+<!-- Popper.js, nécessaire pour certains composants Bootstrap -->
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-vFmR4M6lM9WWJZt3UQp0QwSdwxvDjk5z0ulP7n3U0eiJQdkb5fB5Xn0ZUrpOe2nd"
+        crossorigin="anonymous"
+></script>
+
+<!-- Bootstrap 5 JS -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-M0v4f7+zeZAd3vJXGy1LQ7kXfJupixz5/3Vq+aT+xy9ZZi8+Rp1U5mW7tXJj7Lu5"
+        crossorigin="anonymous"
+></script>
+
 </body>
 </html>

@@ -119,6 +119,8 @@ foreach ($sections as $section) {
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordAccueil.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-…" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="dashboard-container">
@@ -160,7 +162,11 @@ foreach ($sections as $section) {
                     <br>
                     <!-- Formulaire d'upload -->
                     <form method="post" enctype="multipart/form-data">
-                        <input type="file" id="imageFile" name="imageFile" accept="image/*">
+                        <input type="file" class="form-control d-none" id="imageFile" name="imageFile" accept="image/*"/>
+                        <label for="imageFile" class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center file-input-label" style="gap: .5rem;">
+                            <i class="bi bi-image fs-3"></i>
+                            <span>Modifier l’image de fond</span>
+                        </label>
                         <br><br>
                         <h2>Aperçu de l'image de fond de l'accueil :</h2>
                         <div class="preview-container">
