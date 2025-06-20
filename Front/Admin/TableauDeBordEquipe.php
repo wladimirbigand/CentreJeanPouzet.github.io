@@ -34,11 +34,19 @@ $currentPage = 'equipe';
             <h1 class="text-center">Tableau de Bord – Équipe</h1>
         </header>
 
-        <!-- Boutons d’option -->
         <div class="action-options">
-            <button id="btn-add-member" class="active">Ajouter un membre</button>
-            <button id="btn-modify-member">Modifier un membre</button>
-            <button id="btn-delete-member">Supprimer un membre</button>
+            <button id="btn-add-member" class="active d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-plus-circle"></i>
+                <span>Ajouter un membre</span>
+            </button>
+            <button id="btn-modify-member" class="d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-pencil-square"></i>
+                <span>Modifier un membre</span>
+            </button>
+            <button id="btn-delete-member" class="d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-trash3"></i>
+                <span>Supprimer un membre</span>
+            </button>
         </div>
 
         <!-- Section « Ajouter » -->
@@ -50,9 +58,12 @@ $currentPage = 'equipe';
                     <label for="addMemberName">Prénom :</label>
                     <input type="text" id="addMemberName" name="addMemberName" placeholder="Qui-est-ce ?" required>
 
-                    <label for="addMemberImage">Photo du membre :</label>
-                    <input type="file" id="addMemberImage" name="addMemberImage" accept="image/*" required>
-                    <div class="preview-container" id="previewAddMemberImage"></div>
+                    <input type="file" id="addMemberImage" name="addMemberImage" accept="image/*" class="d-none" required>
+                    <label for="addMemberImage" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2 mb-3">
+                        <i class="bi bi-person-square fs-4"></i>
+                        <span>Choisir la photo du membre</span>
+                    </label>
+                    <div id="previewAddMemberImage" class="preview-container text-center"></div>
 
                     <label for="addMemberRole">Poste :</label>
                     <input type="text" id="addMemberRole" name="addMemberRole" placeholder="Quel est son poste ?" required>
@@ -234,7 +245,7 @@ $currentPage = 'equipe';
                             });
                             </script>';
                             echo $message;
-                            header('Location: TableauDeBordEquipe.php?section_modif');
+                            header('Location: TableauDeBordEquipe.php?section=modify&success=1');
                             exit();
                         }
                     }
@@ -297,61 +308,83 @@ $currentPage = 'equipe';
 </div>
 
 <script>
-    // Basculement de sections et mise en surbrillance du bouton actif
-    const buttons = {
-        add: document.getElementById('btn-add-member'),
-        modify: document.getElementById('btn-modify-member'),
-        del: document.getElementById('btn-delete-member')
-    };
-    const sections = {
-        add: document.getElementById('add-member'),
-        modify: document.getElementById('modify-member'),
-        del: document.getElementById('delete-member')
-    };
-
-    function resetAll() {
-        Object.values(buttons).forEach(b => b.classList.remove('active'));
-        Object.values(sections).forEach(s => s.classList.remove('active'));
-    }
-
-    buttons.add.addEventListener('click', () => {
-        resetAll();
-        buttons.add.classList.add('active');
-        sections.add.classList.add('active');
-    });
-    buttons.modify.addEventListener('click', () => {
-        resetAll();
-        buttons.modify.classList.add('active');
-        sections.modify.classList.add('active');
-    });
-    buttons.del.addEventListener('click', () => {
-        resetAll();
-        buttons.del.classList.add('active');
-        sections.del.classList.add('active');
-    });
-
-    // Aperçu d’image
-    function previewImage(input, previewEl) {
-        previewEl.innerHTML = '';
-        if (!input.files || !input.files[0]) return;
-        const reader = new FileReader();
-        reader.onload = e => {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            previewEl.appendChild(img);
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = {
+            add: document.getElementById('btn-add-member'),
+            modify: document.getElementById('btn-modify-member'),
+            del: document.getElementById('btn-delete-member')
         };
-        reader.readAsDataURL(input.files[0]);
-    }
 
-    // Liaisons pour l'ajout
-    const addImgIn = document.getElementById('addMemberImage');
-    const addImgPrev = document.getElementById('previewAddMemberImage');
-    addImgIn.addEventListener('change', () => previewImage(addImgIn, addImgPrev));
+        const sections = {
+            add: document.getElementById('add-member'),
+            modify: document.getElementById('modify-member'),
+            del: document.getElementById('delete-member')
+        };
 
-    // Liaisons pour la modification
-    const modImgIn = document.getElementById('modifyMemberImage');
-    const modImgPrev = document.getElementById('previewModifyMemberImage');
-    modImgIn.addEventListener('change', () => previewImage(modImgIn, modImgPrev));
+        function resetAll() {
+            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
+            Object.values(sections).forEach(sec => sec.classList.remove('active'));
+        }
+
+        function setSectionInURL(sectionName) {
+            const url = new URL(window.location);
+            url.searchParams.set('section', sectionName);
+            window.history.replaceState(null, '', url);
+        }
+
+        function activateSection(sectionName) {
+            if (sections[sectionName] && buttons[sectionName]) {
+                resetAll();
+                buttons[sectionName].classList.add('active');
+                sections[sectionName].classList.add('active');
+                setSectionInURL(sectionName);
+            }
+        }
+
+        // Appliquer la section via l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get('section');
+        if (section) {
+            activateSection(section);
+        } else {
+            activateSection('add'); // valeur par défaut
+        }
+
+        // Ajout des événements aux boutons
+        buttons.add.addEventListener('click', () => activateSection('add'));
+        buttons.modify.addEventListener('click', () => activateSection('modify'));
+        buttons.del.addEventListener('click', () => activateSection('del'));
+
+        // Prévisualisation d'image
+        function previewImage(input, previewEl) {
+            if (!input.files || !input.files[0]) {
+                previewEl.innerHTML = '';
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewEl.innerHTML = `<img src="${e.target.result}" alt="Aperçu" class="img-fluid" style="max-width: 300px;">`;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        // Ajout
+        const addImgIn = document.getElementById('addMemberImage');
+        const addImgPrev = document.getElementById('previewAddMemberImage');
+        if (addImgIn && addImgPrev) {
+            addImgIn.addEventListener('change', () => previewImage(addImgIn, addImgPrev));
+        }
+
+        // Modification
+        const modImgIn = document.getElementById('modifyMemberImage');
+        const modImgPrev = document.getElementById('previewModifyMemberImage');
+        if (modImgIn && modImgPrev) {
+            modImgIn.addEventListener('change', () => previewImage(modImgIn, modImgPrev));
+        }
+    });
 </script>
+
+
+
 </body>
 </html>

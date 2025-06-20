@@ -228,7 +228,7 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
         <i class="bi bi-list fs-3"></i>
     </button>
     <!-- Contenu principal -->
-    <main class="content scroll">
+    <main class="content">
         <header class="header">
             <h1 class="text-center">Tableau de Bord - Colos</h1>
         </header>

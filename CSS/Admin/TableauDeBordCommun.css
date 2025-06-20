@@ -92,13 +92,13 @@ input[type="file"].d-none {
 }
 
 @media (max-width: 768px) {
-    /*.offcanvas {*/
-    /*    position: static;*/
-    /*    transform: none !important;*/
-    /*    visibility: visible !important;*/
-    /*    background-color: transparent;*/
-    /*    border: none;*/
-    /*}*/
+    .offcanvas {
+        position: static;
+        transform: none !important;
+        visibility: visible !important;
+        background-color: transparent;
+        border: none;
+    }
 
     .offcanvas.offcanvas-start {
         position: static !important;
