@@ -168,3 +168,88 @@ main {
 #saveBtn:hover {
     background-color: #5E856E;
 }
+
+/* Section Contact */
+.SectionContact {
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+/*.ContainerContact {*/
+/*    background-color: #c5e1c3;*/
+/*    width: 80%;*/
+/*    max-width: 700px;*/
+/*    display: grid;*/
+/*    place-items: center;*/
+/*    border-radius: 10px;*/
+/*    border: solid #5E856E;*/
+/*    padding: 30px;*/
+/*    gap: 20px;*/
+/*    margin: 4vh;*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+.ContainerContact {
+    display: grid;
+    gap: 20px;
+    width: 80%;
+    max-width: 700px;
+    background-color: #c5e1c3;
+    border-radius: 10px;
+    border: solid #5E856E;
+    padding: 30px;
+    margin: 4vh;
+}
+
+.contact-input {
+    padding: 8px 12px;
+    border: 1px solid #5E856E;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    width: 100%;
+    max-width: 300px;
+}
+
+.saveBtnContact {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #9DBD91;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.saveBtnContact:hover {
+    background-color: #5E856E;
+}
+
+
+
+.ElementContact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 500px;
+    margin : 0 auto;
+    text-align: center;
+}
+
+.ElementContact img {
+    height: auto;
+    width: 30px;
+}
+
+.titres {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}

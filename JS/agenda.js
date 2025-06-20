@@ -155,6 +155,7 @@ document.getElementById('next-month').addEventListener('click', () => {
 
 fetchOpenDaysFromServer();
 
+// Sweet Alert bouton agenda
 document.getElementById('saveBtn').addEventListener('click', () => {
     const openDates = Object.keys(openDays);
 
@@ -174,7 +175,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Succès !',
-                    text: 'Modifications enregistrées avec succès.',
+                    text: "Modifications de l'agenda enregistrées avec succès.",
                     confirmButtonColor: '#3085d6'
                 });
             } else {
@@ -195,3 +196,58 @@ document.getElementById('saveBtn').addEventListener('click', () => {
             });
         });
 });
+
+// Sweet Alert Infos Contact sans refresh
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Attend que le DOM soit complètement chargé
+
+    const contactForm = document.querySelector('.ContainerContact');
+    // Sélectionne le formulaire de contact
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            // Écoute l'événement de soumission du formulaire
+
+            e.preventDefault();
+            // Empêche le comportement par défaut (rechargement de la page)
+
+            const formData = new FormData(this);
+            // Crée un objet FormData avec les données du formulaire
+
+            fetch(window.location.href, {
+                method: 'POST',
+                body: formData
+            })
+                // Envoie une requête AJAX au même URL avec les données du formulaire
+
+                .then(response => {
+                    if (!response.ok) throw new Error('Erreur réseau');
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Succès !',
+                        text: 'Les informations de contact ont été mises à jour.',
+                        confirmButtonColor: '#9DBD91'
+                    });
+                    // Affiche une alerte de succès si tout s'est bien passé
+
+                    // Met à jour les champs du formulaire avec les nouvelles valeurs
+                    for (const [key, value] of formData.entries()) {
+                        const input = document.querySelector(`input[name="${key}"]`);
+                        if (input) input.value = value;
+                    }
+                })
+                .catch(error => {
+                    // Gère les erreurs
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erreur',
+                        text: 'Une erreur est survenue lors de la mise à jour des contacts.',
+                        confirmButtonColor: '#FF6F61'
+                    });
+                });
+        });
+    }
+});
+

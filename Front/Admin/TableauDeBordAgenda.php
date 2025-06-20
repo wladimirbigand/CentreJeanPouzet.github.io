@@ -10,6 +10,27 @@ if (!isset($_SESSION['admin'])) {
 try {
     $pdo = new PDO("mysql:host=localhost;dbname=admin_panel", "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Récupérer les infos de contact
+    $stmt = $pdo->query("SELECT * FROM infos_contact");
+    $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Traitement du formulaire de mise à jour
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_contact'])) {
+        $stmt = $pdo->prepare("UPDATE infos_contact SET tel = ?, mail = ? WHERE label = ?");
+
+        foreach ($_POST['contacts'] as $label => $data) {
+            $stmt->execute([$data['tel'], $data['mail'], $label]);
+        }
+
+        $_SESSION['alert'] = [
+            'type' => 'success',
+            'title' => 'Succès !',
+            'message' => 'Informations de contact mises à jour.'
+        ];
+        header("Location: TableauDeBordAgenda.php");
+        exit();
+    }
 } catch (PDOException $e) {
     die("Erreur : " . $e->getMessage());
 }
@@ -50,10 +71,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_CONTENT_TYPE']
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"><!-- Bootstrap Bundle (inclut Popper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
-    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordAgenda.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
+    <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordAgenda.css">
 </head>
 <body>
 
@@ -70,11 +91,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_CONTENT_TYPE']
     <main class="content">
         <div class="scroll">
             <header class="header">
-                <h1 class="text-center">Tableau de Bord - Contact</h1>
+                <h1 class="text-center">Tableau de Bord - Dispos</h1>
             </header>
 
             <!-- Section de modification -->
-            <section>
+            <section class="">
                 <div class="container">
                     <div class="legend">
                         <div class="legend-item">
@@ -116,9 +137,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_CONTENT_TYPE']
                     <button id="saveBtn">Enregistrer les modifications</button>
                 </div>
             </section>
+            <section class="SectionContact">
+                <form method="POST" action="" class="ContainerContact">
+                    <?php foreach ($contacts as $contact): ?>
+                        <div>
+                            <b><p class="titres"><?= htmlspecialchars($contact['label']) ?></p></b>
+                        </div>
+                        <div class="ElementContact">
+                            <?php if ($contact['tel']): ?>
+                                <img src="../../Images/Logo/telephone.png" alt="Téléphone" width="4.5%">
+                                <input type="tel"
+                                       name="contacts[<?= htmlspecialchars($contact['label']) ?>][tel]"
+                                       value="<?= htmlspecialchars($contact['tel']) ?>"
+                                       class="contact-input">
+                            <?php endif; ?>
 
+                            <?php if ($contact['mail']): ?>
+                                <img src="../../Images/Logo/enveloppe.png" alt="Email" width="3%">
+                                <input type="email"
+                                       name="contacts[<?= htmlspecialchars($contact['label']) ?>][mail]"
+                                       value="<?= htmlspecialchars($contact['mail']) ?>"
+                                       class="contact-input">
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
 
-
+                    <button type="submit" name="update_contact" class="saveBtnContact">
+                        Enregistrer les modifications
+                    </button>
+                </form>
+            </section>
         </div>
     </main>
 </div>

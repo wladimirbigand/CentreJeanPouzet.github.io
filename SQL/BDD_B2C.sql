@@ -105,32 +105,32 @@ INSERT INTO Multimedia (description, image, chemin_acces) VALUES
 ('image_accueil', 'B&W2.png',    '/Images/Accueil/B&W2.png'),
 ('image_accueil', 'JPrando.jpg', '/Images/Accueil/JPrando.jpg');
 
-INSERT INTO Multimedia (description, image, chemin_acces) VALUES
--- Actus
-('image_actus', '2025_ACTUS.jpg',        '/Images/Actus/2025_ACTUS.jpg'),
-('image_actus', 'CLASSE_DECOUVERTE_1.jpg','/Images/Actus/CLASSE_DECOUVERTE_1.jpg'),
-('image_actus', 'entreprises.jpg',       '/Images/Actus/entreprises.jpg'),
-('image_actus', 'IMG_8602.JPG',          '/Images/Actus/IMG_8602.JPG'),
-('image_actus', 'SAISON_HIVERNALE.JPG',  '/Images/Actus/SAISON_HIVERNALE.JPG'),
-('image_actus', 'vélo.jpg',              '/Images/Actus/vélo.jpg');
+-- INSERT INTO Multimedia (description, image, chemin_acces) VALUES
+-- -- Actus
+-- ('image_actus', '2025_ACTUS.jpg',        '/Images/Actus/2025_ACTUS.jpg'),
+-- ('image_actus', 'CLASSE_DECOUVERTE_1.jpg','/Images/Actus/CLASSE_DECOUVERTE_1.jpg'),
+-- ('image_actus', 'entreprises.jpg',       '/Images/Actus/entreprises.jpg'),
+-- ('image_actus', 'IMG_8602.JPG',          '/Images/Actus/IMG_8602.JPG'),
+-- ('image_actus', 'SAISON_HIVERNALE.JPG',  '/Images/Actus/SAISON_HIVERNALE.JPG'),
+-- ('image_actus', 'vélo.jpg',              '/Images/Actus/vélo.jpg');
 
-INSERT INTO Multimedia (description, image, chemin_acces) VALUES
--- Équipe
-('image_equipe', 'Alice.png',          '/Images/Equipe/Alice.png'),
-('image_equipe', 'ALICE.webp',         '/Images/Equipe/ALICE.webp'),
-('image_equipe', 'FABIENNE.jpg',       '/Images/Equipe/FABIENNE.jpg'),
-('image_equipe', 'Fabienne.png',       '/Images/Equipe/Fabienne.png'),
-('image_equipe', 'Fabienne.webp',      '/Images/Equipe/Fabienne.webp'),
-('image_equipe', 'lana.jpg',           '/Images/Equipe/lana.jpg'),
-('image_equipe', 'lana.png',           '/Images/Equipe/lana.png'),
-('image_equipe', 'LAURIANNE.jpg',      '/Images/Equipe/LAURIANNE.jpg'),
-('image_equipe', 'Laurianne.png',      '/Images/Equipe/Laurianne.png'),
-('image_equipe', 'Marie-Agnès.jpeg',   '/Images/Equipe/Marie-Agnès.jpeg'),
-('image_equipe', 'Marie-Agnès.png',    '/Images/Equipe/Marie-Agnès.png'),
-('image_equipe', 'Olivier.jpeg',       '/Images/Equipe/Olivier.jpeg'),
-('image_equipe', 'Olivier.png',        '/Images/Equipe/Olivier.png'),
-('image_equipe', 'Xavier.jpg',         '/Images/Equipe/Xavier.jpg'),
-('image_equipe', 'Xavier.png',         '/Images/Equipe/Xavier.png');
+-- INSERT INTO Multimedia (description, image, chemin_acces) VALUES
+-- -- Équipe
+-- ('image_equipe', 'Alice.png',          '/Images/Equipe/Alice.png'),
+-- ('image_equipe', 'ALICE.webp',         '/Images/Equipe/ALICE.webp'),
+-- ('image_equipe', 'FABIENNE.jpg',       '/Images/Equipe/FABIENNE.jpg'),
+-- ('image_equipe', 'Fabienne.png',       '/Images/Equipe/Fabienne.png'),
+-- ('image_equipe', 'Fabienne.webp',      '/Images/Equipe/Fabienne.webp'),
+-- ('image_equipe', 'lana.jpg',           '/Images/Equipe/lana.jpg'),
+-- ('image_equipe', 'lana.png',           '/Images/Equipe/lana.png'),
+-- ('image_equipe', 'LAURIANNE.jpg',      '/Images/Equipe/LAURIANNE.jpg'),
+-- ('image_equipe', 'Laurianne.png',      '/Images/Equipe/Laurianne.png'),
+-- ('image_equipe', 'Marie-Agnès.jpeg',   '/Images/Equipe/Marie-Agnès.jpeg'),
+-- ('image_equipe', 'Marie-Agnès.png',    '/Images/Equipe/Marie-Agnès.png'),
+-- ('image_equipe', 'Olivier.jpeg',       '/Images/Equipe/Olivier.jpeg'),
+-- ('image_equipe', 'Olivier.png',        '/Images/Equipe/Olivier.png'),
+-- ('image_equipe', 'Xavier.jpg',         '/Images/Equipe/Xavier.jpg'),
+-- ('image_equipe', 'Xavier.png',         '/Images/Equipe/Xavier.png');
 
 -- INSERT INTO Multimedia (description, image, chemin_acces) VALUES
 -- -- Hebergement
@@ -304,6 +304,18 @@ INSERT INTO section(id,titre,description)VALUES
 CREATE TABLE jours_ouverts (
 date DATE PRIMARY KEY
 );
+
+CREATE TABLE infos_contact (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    label VARCHAR (100),
+    mail VARCHAR(100),
+    tel VARCHAR(100)
+);
+
+INSERT INTO infos_contact (label,tel,mail) VALUES
+('NOUS APPELER','06 03 36 61 76',''),
+('LOGEMENTS DE GROUPE','','info@centrejeanpouzet.fr'),
+("S'INSCRIRE A LA COLO",'','colo@centrejeanpouzet.fr');
 
 -- Simon 
 

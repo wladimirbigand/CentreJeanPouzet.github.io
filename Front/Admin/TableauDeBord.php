@@ -59,6 +59,12 @@ if (!isset($_SESSION['admin'])) {
         Si vous rencontrez des difficultés, consultez la documentation interne ou contactez le support technique.
       </p>
     </section>
+      <section class="info-section">
+          <a href="../../Documents/ManuelAdmin.pdf" download class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center file-input-label" style="gap: .5rem;">
+              <i class="bi bi-filetype-pdf fs-3"></i>
+              <span>Télécharger le manuel administrateur</span>
+          </a>
+      </section>
   </main>
 </div>
 </body>
