@@ -12,6 +12,10 @@ body {
     background-color: #fff;
 }
 
+main {
+    min-height: 77vh;
+}
+
 .team-section {
     padding: 60px 20px;
     background-color: #fff;
@@ -103,69 +107,41 @@ body {
 }
 
 /* ==== RESPONSIVE : on adapte le nombre de slides visibles ==== */
+
+/* Mobile : 1 carte */
 @media (max-width: 767px) {
-    /* 1 carte pleine largeur */
     .carousel-slide {
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .container{
-        width: 90%;
+    /* si besoin d’adapter la hauteur du container */
+    .container {
         height: 50vh;
     }
-    .profile h3 {
-        margin: 10px 0 5px;
-        font-size: 1.2rem;
-    }
-
-    .role {
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .description {
-        font-size: 0.7rem;
-        color: #666;
-    }
-    .prev-btn { left: -20px; }
-    .next-btn { right: -20px; }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    /* 2 cartes côte à côte */
+/* Tablette / petits écrans : 2 cartes */
+@media (min-width: 768px) and (max-width: 1024px) {
     .carousel-slide {
         flex: 0 0 calc((100% - 20px) / 2);
         max-width: calc((100% - 20px) / 2);
     }
-    .container{
-        width: 90%;
+    .container {
         height: 40vh;
     }
-    .profile h3 {
-        margin: 10px 0 5px;
-        font-size: 1.2rem;
-    }
-
-    .role {
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .description {
-        font-size: 0.7rem;
-        color: #666;
-    }
-    .prev-btn { left: 10px; }
-    .next-btn { right: 10px; }
 }
 
-@media (min-width: 1024px) {
-    /* 3 cartes côte à côte */
+/* Écrans larges : 3 cartes */
+@media (min-width: 1025px) {
     .carousel-slide {
         flex: 0 0 calc((100% - 2 * 20px) / 3);
         max-width: calc((100% - 2 * 20px) / 3);
     }
+    .container {
+        height: 60vh;
+    }
 }
+
 
 /* suppression des puces de listes éventuelles */
 ul, ol {

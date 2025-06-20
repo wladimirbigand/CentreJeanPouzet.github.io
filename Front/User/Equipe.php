@@ -12,6 +12,7 @@ $equipe = connectionPDO('../../SQL/config');
     <link rel="stylesheet" href="../../CSS/User/Footer.css">
     <link rel="stylesheet" href="../../CSS/User/Header.css">
     <link rel="stylesheet" href="../../CSS/User/Fonts.css">
+    <link rel="stylesheet" href="../../CSS/User/Equipe.css">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../../JS/Header.js"></script>
