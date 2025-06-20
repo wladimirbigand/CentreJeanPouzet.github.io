@@ -214,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const formData = new FormData(this);
             // Crée un objet FormData avec les données du formulaire
+            formData.append('update_contact', '1');
 
             fetch(window.location.href, {
                 method: 'POST',
@@ -251,3 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.getElementById('telInput').addEventListener('input', function () {
+    // Supprime tout ce qui n'est pas chiffre, espace, +, -, ou ()
+    this.value = this.value.replace(/[^0-9\s-+()]/g, '');
+});

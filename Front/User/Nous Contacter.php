@@ -58,15 +58,32 @@
                     </div>
                 </div>
             </section>
-            
+
             <section class="SectionContact">
                 <div class="ContainerContact">
-                    <div><b> <p class="titres"> NOUS APPELER </p> </b></div>
-                    <div class="ElementContact"><img src="../../Images/Logo/telephone.png" alt="Image Introuvable" width="4.5%"><a href="tel:0603366176"> 06 03 36 61 76 </a></div>
-                    <div><b> <p class="titres"> LOGEMENTS DE GROUPE </p> </b></div>
-                    <div class="ElementContact"><img src="../../Images/Logo/enveloppe.png" alt="Image Introuvable" width="3%"><a href="mailto:info@centrejeanpouzet.fr"> info@centrejeanpouzet.fr </a></div>
-                    <div><b> <p class="titres"> S'INSCRIRE A LA COLO </p> </b></div>
-                    <div class="ElementContact"><img src="../../Images/Logo/enveloppe.png" alt="Image Introuvable" width="3%"><a href="mailto:colo@centrejeanpouzet.fr"> colo@centrejeanpouzet.fr </a></div>
+                    <?php
+                    $pdo = new PDO('mysql:host=localhost;dbname=admin_panel;charset=utf8', 'root', '', [
+                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+                    ]);
+
+                    $stmt = $pdo->query("SELECT * FROM infos_contact");
+                    while ($row = $stmt->fetch()) {
+                        echo '<div><b><p class="titres">' . htmlspecialchars($row['label']) . '</p></b></div>';
+                        echo '<div class="ElementContact">';
+
+                        if (!empty($row['tel'])) {
+                            echo '<img src="../../Images/Logo/telephone.png" alt="Image Introuvable" width="4.5%">';
+                            echo '<a href="tel:' . htmlspecialchars($row['tel']) . '"> ' . htmlspecialchars($row['tel']) . ' </a>';
+                        }
+
+                        if (!empty($row['mail'])) {
+                            echo '<img src="../../Images/Logo/enveloppe.png" alt="Image Introuvable" width="3%">';
+                            echo '<a href="mailto:' . htmlspecialchars($row['mail']) . '"> ' . htmlspecialchars($row['mail']) . ' </a>';
+                        }
+
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
             </section>
         </main>

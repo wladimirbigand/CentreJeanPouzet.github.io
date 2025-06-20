@@ -229,8 +229,6 @@ main {
     background-color: #5E856E;
 }
 
-
-
 .ElementContact {
     display: flex;
     align-items: center;
@@ -252,4 +250,17 @@ main {
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
+}
+
+.toggle-buttons {
+    display:grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+.toggle-buttons button {
+    transition: 0.3s ease;
+}
+
+.toggle-buttons button:hover {
+    transform: scale(1.05);
 }

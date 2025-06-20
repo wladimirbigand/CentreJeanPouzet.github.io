@@ -79,6 +79,33 @@
     transform: scale(1.02);
 }
 
+/* Boutons “Enregistrer” Ajout & Modification */
+#btn-add-member-save,
+#btn-modify-member-save {
+    background-color: #9DBD91 !important;
+    border-color:     #9DBD91 !important;
+    color:            #fff !important;
+}
+
+/* Bouton “Confirmer la suppression” */
+#btn-delete-member-save {
+    background-color: #c0392b !important;
+    border-color:     #c0392b !important;
+    color:            #fff !important;
+}
+
+#btn-add-member-save:hover,
+#btn-modify-member-save:hover {
+    background-color: #7C9572 !important;
+    border-color:     #7C9572 !important;
+}
+
+#btn-delete-member-save:hover {
+    background-color: #a93226 !important;
+    border-color:     #a93226 !important;
+}
+
+
 /* Cacher/montrer les sections */
 .action-section {
     display: none;

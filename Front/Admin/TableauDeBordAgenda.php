@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_CONTENT_TYPE']
                             <span>Fermé</span>
                         </div>
                     </div>
-                    <div class="toggle-buttons" style="display:flex; gap: 10px; margin-bottom: 20px;">
+                    <div class="toggle-buttons">
                         <button id="openAllBtn" style="flex:1; padding: 10px; border-radius: 8px; border:none; background-color:#9DBD91; color:white; font-weight:bold; cursor:pointer;">Tout ouvrir</button>
                         <button id="closeAllBtn" style="flex:1; padding: 10px; border-radius: 8px; border:none; background-color:#FF6F61; color:white; font-weight:bold; cursor:pointer;">Tout fermer</button>
                     </div>
@@ -147,6 +147,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_CONTENT_TYPE']
                             <?php if ($contact['tel']): ?>
                                 <img src="../../Images/Logo/telephone.png" alt="Téléphone" width="4.5%">
                                 <input type="tel"
+                                       maxlength="17"
+                                       id="telInput"
                                        name="contacts[<?= htmlspecialchars($contact['label']) ?>][tel]"
                                        value="<?= htmlspecialchars($contact['tel']) ?>"
                                        class="contact-input">
