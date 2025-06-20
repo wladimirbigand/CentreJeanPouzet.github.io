@@ -105,7 +105,7 @@ header nav a.active::after {
 
 /* Cache le menu burger par défaut */
 .burger-menu {
-    display: none; 
+    display: none;
 }
 
 /* Transition pour les éléments du menu burger */

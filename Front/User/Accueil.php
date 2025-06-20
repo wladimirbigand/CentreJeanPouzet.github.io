@@ -59,9 +59,9 @@ try {
     <nav>
         <a href="Accueil.php" class="active">NOTRE ASSO</a>
         <a href="Hebergements.php">NOS HEBERGEMENTS</a>
-        <a href="Nous Contacter.php">NOS DISPOS</a>
+        <a href="Nous Contacter.php">NOUS CONTACTER</a>
         <a href="Actus.php">NOS ACTUS</a>
-        <a href="Equipe.php">EQUIPE</a>
+        <a href="Equipe.php">NOTRE EQUIPE</a>
         <a href="Colos.php">NOS COLOS</a>
     </nav>
 </header>
