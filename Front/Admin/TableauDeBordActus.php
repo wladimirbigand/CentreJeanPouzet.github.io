@@ -193,7 +193,7 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
                     <div class="admin-block actu-form">
                         <h2>Ajouter une actualité</h2>
                         <label for="addActusTitle">Titre :</label>
-                        <input type="text" id="addActusTitle" placeholder="Nouveau titre" name="titre" required>
+                        <input type="text" id="addActusTitle" placeholder="Titre de l'actualité..." name="titre" required>
 
                         <input type="file" name="image" id="addActusImage" accept="image/*" class="d-none">
                         <label for="addActusImage" class="file-input-label btn btn-outline-success d-flex align-items-center justify-content-center gap-2">

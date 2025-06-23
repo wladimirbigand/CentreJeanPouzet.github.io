@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre Jean Pouzet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../CSS/User/Footer.css">
     <link rel="stylesheet" href="../../CSS/User/Header.css">
     <link rel="stylesheet" href="../../CSS/User/Fonts.css">
@@ -19,6 +22,16 @@
     <?php require_once '../Includes/Header.php'; ?>
 
         <main>
+            <section class="info-section">
+
+                <div class="info-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                    </svg>
+                    <p>Les appels sont possibles uniquement pendant nos jours d'ouverture, mais vous pouvez nous envoyer un e-mail à tout moment — nous vous répondrons dès que possible.</p>
+                </div>
+            </section>
             <section>
                 <div class="container">
                     <div class="legend">

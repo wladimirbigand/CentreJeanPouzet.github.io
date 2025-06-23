@@ -36,7 +36,6 @@ main section {
     position: relative;
     text-align: center;
     background-color: #ccc;
-    background-image: url(../Images/Accueil/JPrando.jpg);
     background-size: cover;
     background-position: center;
     min-height: 100vh;

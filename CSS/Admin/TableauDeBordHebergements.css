@@ -11,7 +11,7 @@
 /* Vous pouvez ajouter d'autres règles spécifiques pour enrichir la présentation et le comportement */
 
 .scroll {
-    height: 80vh;
+    height: 78vh;
     background-color: #F5F5E1;
     overflow-y: scroll;
     display: grid;

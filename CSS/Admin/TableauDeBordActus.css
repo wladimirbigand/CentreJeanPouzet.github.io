@@ -38,7 +38,7 @@
 }
 
 .scroll {
-    height: 80vh;
+    height: 78vh;
     background-color: #F5F5E1;
     overflow-y: scroll;
     display: grid;

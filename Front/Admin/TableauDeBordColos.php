@@ -251,8 +251,9 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
 
 
         <!-- Ajouter une colo -->
-        <form method="post" enctype="multipart/form-data">
-            <section id="add-colo" class="action-section">
+        <section id="add-colo" class="action-section">
+        <form method="post" enctype="multipart/form-data" class="mt-3">
+            <section id="add-colo" class="admin-section scroll">
                 <div class="admin-block colo-info">
                     <h2>Ajouter une colo</h2>
 
@@ -293,11 +294,13 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
                 <?php if (isset($message)) echo $message; ?>
             </section>
         </form>
+        </section>
 
 
         <!-- Section Modifier une colo -->
+        <section id="modify-colo" class="action-section">
         <form method="post" enctype="multipart/form-data">
-            <section id="modify-colo" class="action-section">
+            <section id="modify-colo" class="admin-section scroll">
                 <?php if (isset($message)) echo $message; ?>
                 <div class="admin-block colo-info">
                     <h2>Modifier une colo</h2>
@@ -347,6 +350,7 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
                 </div>
             </section>
         </form>
+        </section>
 
         <!-- Section Supprimer une colo -->
             <form method="post">
