@@ -4,10 +4,13 @@
     --text-dark: #333;
 }
 
+* {
+    font-family: Rubik;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
     color: var(--text-dark);
     background-color: #fff;
 }

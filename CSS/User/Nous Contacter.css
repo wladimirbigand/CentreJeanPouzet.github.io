@@ -1,15 +1,9 @@
-.rubik-font {
-            font-family: "Rubik", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 600;
-            font-style: normal;
-        }
-
 /* Reset général */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Rubik;
 }
 
 /* Corps général */
@@ -38,10 +32,14 @@ main {
     gap: 10px;
     place-items: center;
     text-align: center;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-block svg {
+    color: red;
 }
 
 .info-block p {
@@ -93,6 +91,10 @@ main {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.legend-item span {
+    font-family: Rubik;
 }
 
 .legend-case {

@@ -38,7 +38,7 @@ INSERT INTO colos (id, titre, affiche, image1, image2, image3, image4, image5, i
 
 (2, "Colo d'hiver 2025", "../../Images/Colos/AFFICHE%20SKI%202025_page-0001.jpg",
 "../../Images/PHOTOS VRAC COLO/IMG_8473.jpg","../../Images/PHOTOS VRAC COLO/IMG_8475.jpg",
-"../../Images/PHOTOS VRAC COLO/IMG_8477.jpg","../../Images/PHOTOS VRAC COLO/IMG_8478.jpg",
+"../../Images/PHOTOS VRAC COLO/IMG_8477.jpg","../../Images/PHOTOS VRAC COLO/IMG_8490.jpg",
 "../../Images/PHOTOS VRAC COLO/IMG_8482.jpg","../../Images/PHOTOS VRAC COLO/IMG_8487.jpg");
 
 -- Création de la table Section

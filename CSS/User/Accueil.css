@@ -54,7 +54,7 @@ main section {
 #section1 h1 {
     font-size: 4.5em;
     margin-bottom: 20px;
-    font-family: 'Mukta SemiBold';
+    font-family: 'Rubik';
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -67,7 +67,7 @@ main section {
     cursor: pointer;
     font-size: 1em;
     transition: all 1s ease; /* Ajout de la transition */
-    font-family: 'Mukta ExtraLight';
+    font-family: 'Rubik';
 }
 
 #section1 button:hover {
@@ -87,7 +87,7 @@ main section {
 }
 
 .title {
-    font-family: 'Mukta Light';
+    font-family: 'Rubik';
     font-size: 2em;
 }
 
@@ -97,7 +97,7 @@ main section {
 
 .text {
     margin: 20px;
-    font-family: 'Mukta ExtraLight';
+    font-family: 'Rubik';
     font-size: 1.1em;
 }
 

@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     max-width: 100%;
+    font-family: Rubik;
 }
 
 body {
@@ -25,7 +26,6 @@ section {
 /* TITLES */
 section h1 {
     text-align: center;
-    font-family: 'Mukta SemiBold';
     font-size: 2em;
     margin: 5vh 0 2vh;
 }
@@ -67,12 +67,11 @@ section h1 {
 }
 
 #ParagrapheIntro {
-    font-size: 21px;
+    font-size: 1.2rem;
 }
 
 .ContenuIntro b {
-    font-size: 22px;
-    font-family: 'Mukta SemiBold';
+    font-size: 1.4rem;
 }
 
 u {
@@ -80,8 +79,7 @@ u {
 }
 
 .ContenuIntro p {
-    font-size: 19px;
-    font-family: 'Mukta Regular';
+    font-size: 1.2rem;
 }
 
 /* BUTTONS */
@@ -90,12 +88,10 @@ u {
     background-color: transparent;
     color: black;
     width: 100%;
-    max-width: 185px;
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    font-family: 'Mukta ExtraLight';
     transition: all 0.3s ease;
 }
 
@@ -107,7 +103,6 @@ u {
 
 /* ARCHIVES */
 #sectionArchives {
-    min-height: 100vh;
     background-color: #f5f1e1;
     display: grid;
     place-items: center;
@@ -200,7 +195,6 @@ u {
     text-align: center;
     font-size: 18px;
     color: #ccc;
-    font-family: 'Mukta Regular';
     max-width: 80%;
     animation: fadeIn 0.6s ease;
 }
@@ -230,7 +224,6 @@ u {
 .sectionColo-title {
     font-size: 2rem;
     margin-bottom: 20px;
-    font-family: 'Mukta SemiBold';
 }
 
 .sectionColo-grid {
@@ -320,9 +313,9 @@ u {
 
     .ContainerIntro {
         width: 90%;
+        height: 90%;
         padding: 20px;
         font-size: 0.9em;
-        height: auto;
     }
 
     .sectionETE, .sectionSKI {
@@ -346,7 +339,6 @@ u {
     }
 
     .sectionIntro button {
-        width: 60%;
-        max-width: 180px;
+        width: 100%;
     }
 }
