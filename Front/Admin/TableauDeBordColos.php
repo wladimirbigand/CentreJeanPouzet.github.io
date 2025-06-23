@@ -208,6 +208,9 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
 <head>
     <meta charset="UTF-8">
     <title>Tableau de Bord - Colos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <!-- Styles spécifiques pour la page Colos -->
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordColos.css">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">

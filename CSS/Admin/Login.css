@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Rubik !important;
 }
 
 /* Corps de la page */
@@ -71,10 +72,9 @@ main {
 
 /* Titre principal (Interface administrateur) */
 .Interface h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #333;
     text-align: center;
-    font-family: 'Mukta SemiBold';
 }
 
 /* Conteneur du formulaire */
@@ -87,7 +87,6 @@ main {
     margin-top: 15px;
     display: grid;
     gap: 5px;
-    font-family: 'Mukta Light';
 }
 
 /* Label (Identifiant / Mot de passe) */
@@ -120,7 +119,6 @@ main {
     /*transition: background-color 0.3s ease;*/
     width: 60%;
     justify-self: center;
-    font-family: 'Mukta Light';
     background: linear-gradient(200deg, #9DBD91, #5e856e);
     transition: transform 0.2s ease;
     &:hover { transform: scale(1.05); }

@@ -114,6 +114,9 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
 <head>
     <meta charset="UTF-8">
     <title>Tableau de Bord – Actualités</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/vnd.icon" href="../../Images/Logo/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
