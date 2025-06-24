@@ -21,7 +21,7 @@
 
 <main>
     <section id="mentions_legales">
-        <div id="encadre_mentions" class="container scroll">
+        <div id="encadre_mentions" class="container">
             <h2 class="text-center mb-4 fw-bold">Mentions Légales</h2>
             <hr class="mb-5"/>
 
