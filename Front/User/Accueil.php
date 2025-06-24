@@ -90,20 +90,30 @@ try {
     </section>
 
     <section id="section3">
-
         <div id="text">
             <h1 class="title">Où sommes-nous ?</h1>
             <p class="text"><?php echo $textOu; ?></p>
         </div>
-        <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.485360022628!2d0.33584437681092266!3d42.86259877115068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a86a7f925aec29%3A0x80f0c4cff3b2d62d!2sCentre%20de%20vacances%20Jean%20Pouzet!5e0!3m2!1sfr!2sfr!4v1732116567217!5m2!1sfr!2sfr"
-                width="100%"
-                height="350"
-                style="border:0; border-radius: 8px;"
-                allowfullscreen=""
-                loading="lazy">
-        </iframe>
+
+        <div id="osm-map" style="width: 100%; height: 350px; border-radius: 8px;"></div>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+        <script>
+            const map = L.map('osm-map').setView([42.8626, 0.3382], 16); // coordonnées du centre Jean Pouzet
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; OpenStreetMap'
+            }).addTo(map);
+
+            L.marker([42.8626, 0.3382]).addTo(map)
+                .bindPopup('Centre de vacances Jean Pouzet')
+                .openPopup();
+        </script>
     </section>
+
 </main>
 <?php require_once '../Includes/Footer.php'; ?>
 </body>
