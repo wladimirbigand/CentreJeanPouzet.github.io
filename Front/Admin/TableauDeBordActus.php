@@ -256,7 +256,7 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
         <!-- Section Supprimer -->
 
         <section id="delete-actus" class="action-section">
-            <section class="admin-section">
+            <section class="admin-section scroll">
             <form method="POST" action="" id="form-delete-actus">
                     <div class="admin-block">
                         <h2>Supprimer une actualité</h2>
@@ -273,9 +273,8 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
                             <button id="btn-delete-actus-save" type="button">Confirmer la suppression</button>
                         </div>
                     </div>
-                <section class="admin-section">
-                    <div class="admin-block" style="min-height: 50px; border: 1px solid #ccc; padding: 10px;" id="selected-actus-list" >
-
+                <section class="admin-section mt-4">
+                    <div class="admin-block d-grid gap-3 py-3 px-3" style="min-height: 50px; padding: 10px;" id="selected-actus-list">
                     </div>
                 </section>
             </form>
@@ -318,8 +317,6 @@ if (isset($_POST['deleteActus']) && !empty($_POST['selectActusToDelete'])) {
               <p>${data.texte}</p>
               <img src="${data.image}" alt="${data.titre}" style="max-width:200px; max-height:150px; object-fit:contain;">
             </div>
-            <br>
-            <br>
           `);
                     }
                 }

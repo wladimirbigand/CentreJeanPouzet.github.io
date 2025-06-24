@@ -5,7 +5,7 @@
     </div>
     <div class="footer-center">
         <a class="admin-link" href="../Admin/Login.php">Admin <span>&#128274;</span></a>
-        ©2024 ColoConnect | Tous droits réservés
+        ©2025 Back2Colo | Tous droits réservés
     </div>
     <div class="footer-right">
         <div class="contact"><a href="../User/Nous Contacter.php"><b>Nous contacter</b></a></div>
