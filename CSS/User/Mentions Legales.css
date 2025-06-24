@@ -1,179 +1,47 @@
-html,
+* {
+    font-family: Rubik !important;
+}
+
 body {
-    margin: 0;
-    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
 }
- 
-main {
-    font-size: 1em;
-    line-height: 1.2em;
+
+h2, h3 {
+    color: #444;
 }
- 
+
 #mentions_legales {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 60px 20px;
     background-image: url(../../Images/Mentions_confidentialite/Photo_du_centre_avec_des_arbres.JPG);
     background-size: cover;
     background-position: center;
+    height: 75vh;
 }
- 
-#encadre_mentions {
-    height: 74vh;
-    padding-left: 10rem;
-    padding-right: 10rem;
-    margin-left: 20rem;
-    margin-right: 20rem;
+
+.scroll {
+    height: 90vh;
     background-color: #F5F5E1;
+    overflow-y: scroll;
+    display: grid;
 }
- 
+
+#encadre_mentions {
+    background-color: #fff;
+    height: 100%;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: auto;
+}
+
 #tels {
+    color: #0d6efd;
     text-decoration: none;
-    color: black;
 }
- 
-hr {
-    margin-top: -1em;
-    margin-bottom: 1em;
-}
- 
-h1 {
-    text-align: center;
-    line-height: 3em;
-}
- 
-h2 {
-    font-size: 1.2em;
-}
- 
- 
-@media (max-width: 1780px) {
-    main {
-        font-size: 0.75em;
-        line-height: 2em;
-    }
- 
-    #encadre_mentions {
-        height: 71vh;
-        padding-top: 2rem;
-        padding-left: 3rem;
-        padding-right: 3rem;
-        margin-left: 10rem;
-        margin-right: 10rem;
-        background-color: #F5F5E1;
-    }
-}
- 
-@media (max-width: 1480px) {
-    main {
-        font-size: 0.75em;
-        line-height: 2em;
-    }
- 
-    #encadre_mentions {
-        height: 71vh;
-        padding-top: 2rem;
-        padding-left: 3rem;
-        padding-right: 3rem;
-        margin-left: 10rem;
-        margin-right: 10rem;
-        background-color: #F5F5E1;
-    }
-}
- 
-@media (max-width: 1280px) {
-    main {
-        font-size: 0.75em;
-        line-height: 1.7em;
-    }
- 
-    #encadre_mentions {
-        height: 71vh;
-        padding-top: 2rem;
-        padding-left: 3rem;
-        padding-right: 3rem;
-        margin-left: 10rem;
-        margin-right: 10rem;
-        background-color: #F5F5E1;
-    }
-}
- 
-@media (max-width: 1000px) {
-    main {
-        font-size: 0.77em;
-        line-height: 2.2em;
-    }
- 
-    hr {
-        margin-top: -3em;
-        margin-bottom: -2em;
-    }
- 
-    #encadre_mentions {
-        height: 73.7vh;
-        margin-top: -2.5em;
-        padding-left: 3rem;
-        padding-right: 3rem;
-        margin-left: 0;
-        margin-right: 0;
-        background-color: #F5F5E1;
-    }
-}
- 
-@media (max-width: 768px) {
-    main {
-        font-size: 0.75em;
-        line-height: 2em;
-    }
- 
-    #encadre_mentions {
-        height: 73vh;
-        padding-left: 3rem;
-        padding-right: 3rem;
-        margin-left: 0;
-        margin-right: 0;
-        background-color: #F5F5E1;
-    }
-}
- 
-@media (max-width: 667px) {
-    main {
-        font-size: 0.75em;
-    }
- 
-    h1 {
-        font-size: 1.25em;
-    }
- 
-    #encadre_mentions {
-        height: 73.5vh;
-        padding: 0rem 3rem 2rem 3rem;
-        margin-left: 0;
-        margin-right: 0;
-        background-color: #F5F5E1;
-    }
-}
- 
-@media (max-width: 480px) {
-    main {
-        font-size: 0.7em;
-    }
- 
-    h1 {
-        font-size: 1.2em;
-    }
- 
-    main {
-        height: 76vh;
-    }
- 
-    #encadre_mentions {
-        height: 69vh;
-        padding-top: 3rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        margin-left: 0;
-        margin-right: 0;
-        background-color: #F5F5E1;
-    }
+
+#tels:hover {
+    text-decoration: underline;
 }
