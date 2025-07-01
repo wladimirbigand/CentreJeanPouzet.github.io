@@ -190,6 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn-delete-member-sav
                     <h2>Supprimer un membre</h2>
                     <form method="post">
                         <select id="selectMemberToDelete" name="selectMemberToDelete" class="form-select mb-3">
+                            <option value="">-- Choisissez un membre à supprimer --</option>
                             <?php
                             $stm = $equipe->query('SELECT id,name FROM equipe ORDER BY name');
                             while ($r = $stm->fetch(PDO::FETCH_ASSOC)) {
@@ -299,6 +300,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn-delete-member-sav
         const modIn   = document.getElementById('modifyMemberImage');
         const modPrev = document.getElementById('previewModifyMemberImage');
         if (modIn && modPrev) modIn.addEventListener('change', () => previewImage(modIn, modPrev));
+    });
+
+    // Confirmation SweetAlert avant suppression d’un membre
+    document.getElementById('btn-delete-member-save').addEventListener('click', function(e) {
+        e.preventDefault();
+        const form = this.closest('form');
+        Swal.fire({
+            title: 'Êtes-vous sûr ?',
+            text: "Cette action est irréversible !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Oui, supprimer !',
+            cancelButtonText: 'Non, annuler !',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // on ajoute le champ pour PHP
+                if (!form.querySelector('input[name="btn-delete-member-save"]')) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'btn-delete-member-save';
+                    input.value = '1';
+                    form.appendChild(input);
+                }
+                form.submit();
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire({
+                    title: 'Annulé',
+                    text: 'La suppression a été annulée.',
+                    icon: 'info',
+                    confirmButtonColor: '#3085d6'
+                });
+            }
+        });
     });
 </script>
 

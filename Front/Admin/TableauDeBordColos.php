@@ -218,6 +218,7 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../../CSS/Admin/TableauDeBordCommun.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -478,6 +479,42 @@ if (isset($_POST['deleteColo']) && isset($_POST['idToDelete'])) {
         };
         reader.readAsDataURL(input.files[0]);
     }
+
+    // Confirmation SweetAlert avant suppression d'une colo
+    document.getElementById('btn-delete-colo').addEventListener('click', function(e) {
+        e.preventDefault(); // on empêche le submit direct
+        const form = this.closest('form');
+        Swal.fire({
+            title: 'Êtes-vous sûr ?',
+            text: "Cette action est irréversible !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Oui, supprimer !',
+            cancelButtonText: 'Non, annuler !',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Injection du champ deleteColo pour que PHP le voie
+                if (!form.querySelector('input[name="deleteColo"]')) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'deleteColo';
+                    input.value = '1';
+                    form.appendChild(input);
+                }
+                form.submit();
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire({
+                    title: 'Annulé',
+                    text: 'La suppression a été annulée.',
+                    icon: 'info',
+                    confirmButtonColor: '#3085d6'
+                });
+            }
+        });
+    });
 </script>
 
 </body>
